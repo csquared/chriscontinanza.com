@@ -1,6 +1,9 @@
 h1. This is the data for my blog
 
-I started a blog in Wordpress and not only did it suck, but I hated doing it.  I feel like these two things are related.  Nor did I have any idea how persistent spam bots can be.  All I needed was a git repo and a layout.  So big thanks to Tom for both!  I owe you much scotch.
+I started a blog in Wordpress and not only did it suck, but I hated doing it.  
+I feel like these two things are related.  Nor did I have any idea 
+how persistent spam bots can be.  All I needed was a git repo and 
+a layout.  So big thanks to Tom for both!  I owe you much scotch.
 
 h1. License
 
