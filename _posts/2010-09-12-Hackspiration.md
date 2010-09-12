@@ -28,8 +28,3 @@ I plan on this version being a prototype, and am hoping the folks at the local
 hackerspace can help me with a metal or plastic version.  However, this first
 draft already works and is shitty enough to inspire you to make your own,
 better one.  Hack on!
-
-c^2
-
-
-
