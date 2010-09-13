@@ -10,7 +10,9 @@ I'm a nomad programmer, a bedouin, and often find myself working at cafes.  At t
 end of a particularly cafe-heavy week I found myself with an awful 
 tension headache due the miserable ergonomics of sitting down and staring
 at a laptop.  At home I can use my standing desk, but I'm yet to find a
-cafe where I can stand and code.  Here's what I did about it:
+cafe where I can stand and code.  
+
+Here's what I did about it:
 
 <img src="/images/laptop_stand1.jpg" />
 
