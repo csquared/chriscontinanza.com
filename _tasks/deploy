@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+jekyll && rsync -avz --delete _site/ cconti02@chriscontinanza.com:~/public_html
