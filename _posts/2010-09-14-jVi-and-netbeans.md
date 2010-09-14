@@ -8,9 +8,9 @@ title: OMFG - Vim and NEATBEANS ?!?!
 
 Talk about an unholy alliance.
 
-Two events have lead me to dust off the old java: one was pairing with a buddy who was working on an [AI bot for a google AI] competition he saw.  The other is Austin Hackerspace using Cerberus-Proxy as an interface for our swipecards.
+Two events have lead me to dust off the old java: one was pairing with a buddy who was working on an [AI bot for a google AI](http://github.com/csquared/space_cowboy) competition he saw.  The other is Austin Hackerspace using Cerberus-Proxy as an interface for using swipecards for door access.
 
-So here's the thing: I don't want to be some too-cool-for-school jackass that is all like "oh, it's not in ruby so I can't touch the codebase."  That's so not hax0r.  So its time to roll up my sleeves and get back into Java. 
+So here's the thing: I don't want to be some too-cool-for-school jackass that is all like "oh, it's not in Ruby so I can't touch the codebase."  That's so not hax0r. Or as Lao-Tzo said: "The sage knows the model."  So its time to roll up my sleeves and get back into Java. 
 
 Although Vim is my favorite text editor, Java IDEs are pretty well built for Java programs.  And with all the years spent not coding Java I figured its time I see what's been going on in the Java world.  So I download Netbeans.  Then that same voice that goes off in my head ever since I started using Vim says: "hey man, I wonder if there's Vim keybindings for that."  
 
