@@ -1,0 +1,13 @@
+#!/usr/bin/ruby
+
+File.open(ARGV[0], 'a') do |f|
+  f << <<-TEMPLATE
+---
+layout: post
+title: <TITLE>
+---
+
+{{ page.title }}
+================
+  TEMPLATE
+end
