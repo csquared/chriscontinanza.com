@@ -103,3 +103,5 @@ For a real gas try:
 <pre>
 $ strace irb
 </pre>
+
+And just type "hello, world."  Welcome to the interactive strace!
