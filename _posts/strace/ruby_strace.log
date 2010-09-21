@@ -1,3 +1,4 @@
+--- SAME AS C VERSION
 execve("/usr/bin/ruby", ["ruby", "-e", "puts \"hello, world\""], [/* 41 vars */]) = 0
 brk(0)                                  = 0x13e0000
 access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
@@ -16,18 +17,14 @@ mprotect(0x7f5ca40ba000, 2097152, PROT_NONE) = 0
 mmap(0x7f5ca42ba000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe1000) = 0x7f5ca42ba000
 mmap(0x7f5ca42bf000, 120896, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5ca42bf000
 close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
 
-"SAME AS C VERSION"
-
-"/etc/ld.so.nohwcap"
+FROM THE MAN PAGES:
 "ld.so loads the shared libraries needed by a program, prepares the pro-
        gram to run, and then runs it.  Unless  explicitly  specified  via  the
        -static  option to ld during compilation, all Linux programs are incom-
        plete and require further linking at run time"
 
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-
-"Ruby is using pthread to run itself"
 open("/lib/libpthread.so.0", O_RDONLY)  = 3
 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360Y\0\0\0\0\0\0"..., 832) = 832
 fstat(3, {st_mode=S_IFREG|0755, st_size=135745, ...}) = 0
@@ -118,7 +115,7 @@ fstat(3, {st_mode=S_IFCHR|0666, st_rdev=makedev(1, 9), ...}) = 0
 read(3, "U\351\272K(#\203I\f\373\317\372\224;\246\322\257\274\352\233\350/\32\322kSJ\fOf\3768", 32) = 32
 close(3)                                = 0
 
-"Ruby is now registering its interrupt handlers"
+- Ruby is now registering its interrupt handlers
 "rt_sigaction alters an action taken by a process on receipt of a  particular  signal.  The
        action is specified by the sigaction structure. The previous action on the signal is saved
        in oact. sigsetsize should indicate the size of a sigset_t type"
@@ -136,19 +133,17 @@ rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1], [], 8) = 0
 rt_sigaction(SIGCHLD, {SIG_DFL, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
 rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
 
-"parent and child figuring out a little about themselves?"
+--parent and child figuring out a little about themselves
 geteuid()                               = 1000
 getegid()                               = 1000
 getuid()                                = 1000
 geteuid()                               = 1000
 getgid()                                = 1000
 getegid()                               = 1000
-
-"can we run our program??"
 rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
 rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
 
-"this looks familiar"
+--below is again like the C version
 fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
 mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44fa000
 write(1, "hello, world\n", 13)          = 13
