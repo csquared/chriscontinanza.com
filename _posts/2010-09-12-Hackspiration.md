@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Cheap and Easy Laptop Stand
+title: A Cheap and Simple Laptop Stand #lifehax
 ---
 
 {{ page.title }}
