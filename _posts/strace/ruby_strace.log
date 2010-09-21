@@ -1,0 +1,158 @@
+execve("/usr/bin/ruby", ["ruby", "-e", "puts \"hello, world\""], [/* 41 vars */]) = 0
+brk(0)                                  = 0x13e0000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44fb000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=125641, ...}) = 0
+mmap(NULL, 125641, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f5ca44dc000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/libruby1.8.so.1.8", O_RDONLY) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\250\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=940736, ...}) = 0
+mmap(NULL, 3160128, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5ca3fd9000
+mprotect(0x7f5ca40ba000, 2097152, PROT_NONE) = 0
+mmap(0x7f5ca42ba000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe1000) = 0x7f5ca42ba000
+mmap(0x7f5ca42bf000, 120896, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5ca42bf000
+close(3)                                = 0
+
+"SAME AS C VERSION"
+
+"/etc/ld.so.nohwcap"
+"ld.so loads the shared libraries needed by a program, prepares the pro-
+       gram to run, and then runs it.  Unless  explicitly  specified  via  the
+       -static  option to ld during compilation, all Linux programs are incom-
+       plete and require further linking at run time"
+
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+
+"Ruby is using pthread to run itself"
+open("/lib/libpthread.so.0", O_RDONLY)  = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360Y\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=135745, ...}) = 0
+mmap(NULL, 2212736, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5ca3dbc000
+mprotect(0x7f5ca3dd4000, 2093056, PROT_NONE) = 0
+mmap(0x7f5ca3fd3000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x17000) = 0x7f5ca3fd3000
+mmap(0x7f5ca3fd5000, 13184, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5ca3fd5000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/librt.so.1", O_RDONLY)       = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220!\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=31744, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44db000
+mmap(NULL, 2128848, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5ca3bb4000
+mprotect(0x7f5ca3bbb000, 2093056, PROT_NONE) = 0
+mmap(0x7f5ca3dba000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7f5ca3dba000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libdl.so.2", O_RDONLY)       = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\340\r\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=14696, ...}) = 0
+mmap(NULL, 2109696, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5ca39b0000
+mprotect(0x7f5ca39b2000, 2097152, PROT_NONE) = 0
+mmap(0x7f5ca3bb2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7f5ca3bb2000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libcrypt.so.1", O_RDONLY)    = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\n\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=43296, ...}) = 0
+mmap(NULL, 2326976, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5ca3777000
+mprotect(0x7f5ca3780000, 2097152, PROT_NONE) = 0
+mmap(0x7f5ca3980000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9000) = 0x7f5ca3980000
+mmap(0x7f5ca3982000, 184768, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5ca3982000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libm.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360>\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=534832, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44da000
+mmap(NULL, 2629864, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5ca34f4000
+mprotect(0x7f5ca3576000, 2093056, PROT_NONE) = 0
+mmap(0x7f5ca3775000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x81000) = 0x7f5ca3775000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libc.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0`\355\1\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1572232, ...}) = 0
+mmap(NULL, 3680296, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f5ca3171000
+mprotect(0x7f5ca32eb000, 2093056, PROT_NONE) = 0
+mmap(0x7f5ca34ea000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x179000) = 0x7f5ca34ea000
+mmap(0x7f5ca34ef000, 18472, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f5ca34ef000
+close(3)                                = 0
+
+---- like the c ---
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44d9000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44d8000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44d7000
+arch_prctl(ARCH_SET_FS, 0x7f5ca44d8700) = 0
+mprotect(0x7f5ca34ea000, 16384, PROT_READ) = 0
+mprotect(0x7f5ca3775000, 4096, PROT_READ) = 0
+mprotect(0x7f5ca3980000, 4096, PROT_READ) = 0
+mprotect(0x7f5ca3bb2000, 4096, PROT_READ) = 0
+mprotect(0x7f5ca3dba000, 4096, PROT_READ) = 0
+mprotect(0x7f5ca3fd3000, 4096, PROT_READ) = 0
+mprotect(0x7f5ca42ba000, 8192, PROT_READ) = 0
+mprotect(0x600000, 4096, PROT_READ)     = 0
+mprotect(0x7f5ca44fd000, 4096, PROT_READ) = 0
+munmap(0x7f5ca44dc000, 125641)          = 0
+--- like the c ---
+
+set_tid_address(0x7f5ca44d89d0)         = 3857
+set_robust_list(0x7f5ca44d89e0, 0x18)   = 0
+futex(0x7ffff84991fc, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0x7ffff84991fc, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, 7f5ca44d8700) = -1 EAGAIN (Resource temporarily unavailable)
+rt_sigaction(SIGRTMIN, {0x7f5ca3dc1870, [], SA_RESTORER|SA_SIGINFO, 0x7f5ca3dcb8f0}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {0x7f5ca3dc1900, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f5ca3dcb8f0}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+brk(0)                                  = 0x13e0000
+brk(0x1401000)                          = 0x1401000
+mmap(NULL, 401408, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca4475000
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+brk(0x1422000)                          = 0x1422000
+brk(0x1443000)                          = 0x1443000
+open("/dev/urandom", O_RDONLY|O_NOCTTY|O_NONBLOCK|O_NOFOLLOW) = 3
+fstat(3, {st_mode=S_IFCHR|0666, st_rdev=makedev(1, 9), ...}) = 0
+read(3, "U\351\272K(#\203I\f\373\317\372\224;\246\322\257\274\352\233\350/\32\322kSJ\fOf\3768", 32) = 32
+close(3)                                = 0
+
+"Ruby is now registering its interrupt handlers"
+"rt_sigaction alters an action taken by a process on receipt of a  particular  signal.  The
+       action is specified by the sigaction structure. The previous action on the signal is saved
+       in oact. sigsetsize should indicate the size of a sigset_t type"
+rt_sigaction(SIGINT, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGHUP, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGQUIT, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTERM, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGALRM, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR1, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR2, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGBUS, {0x7f5ca4071c50, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGSEGV, {0x7f5ca4071c10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGPIPE, {0x7f5ca40719c0, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigprocmask(SIG_BLOCK, ~[RTMIN RT_1], [], 8) = 0
+rt_sigaction(SIGCHLD, {SIG_DFL, [], SA_RESTORER, 0x7f5ca3dcb8f0}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+
+"parent and child figuring out a little about themselves?"
+geteuid()                               = 1000
+getegid()                               = 1000
+getuid()                                = 1000
+geteuid()                               = 1000
+getgid()                                = 1000
+getegid()                               = 1000
+
+"can we run our program??"
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+
+"this looks familiar"
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f5ca44fa000
+write(1, "hello, world\n", 13)          = 13
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+rt_sigprocmask(SIG_BLOCK, NULL, [], 8)  = 0
+rt_sigaction(SIGINT, {SIG_DFL, [INT], SA_RESTORER|SA_RESTART, 0x7f5ca31a4af0}, {0x7f5ca4071d10, [], SA_RESTORER, 0x7f5ca3dcb8f0}, 8) = 0
+exit_group(0)                           = ?
