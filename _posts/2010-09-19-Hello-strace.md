@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hello, strace
+title: Hello, strace (an introduction to strace)
 ---
 
 {{ page.title }}
