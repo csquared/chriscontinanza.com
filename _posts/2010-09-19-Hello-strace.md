@@ -72,6 +72,7 @@ write(1, "Hello, world", 12)             = 12
 Which is writing our beloved Hello, world to file descriptor 1- better known as standard output.
 What's going on differently in the Ruby version is that the Ruby version has to load Ruby.
 Ruby then registers some interrupt handlers, seeds its random key, queries the process about its ids and goes along its merry way.  
+
 Only to wind up with:
 
 <pre>
