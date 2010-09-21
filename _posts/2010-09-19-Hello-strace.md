@@ -25,9 +25,9 @@ call, its arguments and its return value are printed on standard error or to the
 specified with the -o option.  
 </blockquote>
 
-So Let's start with the simplest of cases.  
+So let's start with the simplest of cases.  
 
-What we're going to do is run a Ruby Hello World and a C hello world under strace
+What we're going to do is run a Ruby hello world and a C hello world under strace
 so we can compare the output and get a feel for whats going on under the hood.
 
 ## Hello, strace.
@@ -83,18 +83,23 @@ Yup, that's the same instruction.  *As it should be.*  Ok.  Not totally the same
 _puts_ method, which post-pends a newline to the string.  This explains the difference between
 the 12 and 13 number of characters. 
 
-To reiterate, Ruby does everything the C program does loading all the parts that are simply Ruby.
-Because this is a trivial example, loading up Ruby seems like a lot of work.  That's just because
-the point of this excercise is to show the relationship between what Ruby is doing and what the 
-equivalent C program would do.
+Nevertheless, the basic idea is that Ruby does everything the C program does plus loading all the parts that are simply Ruby.
 
 Since we're all Visual learners:
 
 <img src="/images/strace_img.jpg" />
 
-Just one line of ruby generated ~100 lines of strace.  That's two orders of
-magnitude more information about just what's goin on under the hood when you're
-using Ruby.  Then again, [that's why we harness the secret power of regular
-expressions.](http://xkcd.com/208/).  There are many more tools to cover, but
+Because this is a trivial example, loading up Ruby seems like a lot of work.  That's just because
+the point of this excercise is to show the relationship between what Ruby is doing and what the 
+equivalent C program would do.
+
+Just one line of ruby generated ~100 lines of strace.  That's a lot going on
+for just one line of code, so to do more beyond this [we must harness the secret power of regular
+expressions.](http://xkcd.com/208/)  There are many more tools to cover, but
 strace teamed up with grep (or ack) is one of those power combos no programmer 
 should be without.
+
+For a real gas try:
+<pre>
+$ strace irb
+</pre>
