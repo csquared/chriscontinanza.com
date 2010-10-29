@@ -202,3 +202,11 @@ blockquote {
   background: #eee;
   font-style: italic;
 }
+
+table.array{
+ width: 100%;
+}
+
+table.array td{
+  border: 1px solid black;
+}
