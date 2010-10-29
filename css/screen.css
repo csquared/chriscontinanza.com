@@ -209,4 +209,5 @@ table.array{
 
 table.array td{
   border: 1px solid black;
+  text-align: center;
 }
