@@ -42,39 +42,57 @@ a:hover span:nth-child(2n) {
   font-weight: bold;
 }
 
-a span:nth-child(2n),
-a:hover span:nth-child(3n) { 
+.posts a:hover {
+  background: #d1ebf1;
+}
+
+dt a:hover ,
+.footer a:hover {
+  background: #ddd;
+}
+
+.posts a:visited:hover {
+  background: #f0f0f0;
+}
+
+.posts a span:nth-child(2n),
+.posts a:hover span:nth-child(3n) { 
   color: #1086a3;
 }
 
-a span:nth-child(3n),
-a:hover span:nth-child(5n) { 
+.posts a span:nth-child(3n),
+.posts a:hover span:nth-child(5n) { 
   color: #2496b3;
 }
 
-a span:nth-child(5n), 
-a:hover { 
+.posts a span:nth-child(5n), 
+.posts a:hover { 
   color: #36acc9;
 }
 
 a:visited, 
-a:visited:hover span:nth-child(2n) {
+.posts a:visited:hover span:nth-child(2n) {
   color: #a0a0a0; 
 }
 
-a:visited span:nth-child(2n),
-a:visited:hover span:nth-child(3n) { 
+.posts a:visited span:nth-child(2n),
+.posts a:visited:hover span:nth-child(3n) { 
   color: #bbb; 
 }
 
-a:visited span:nth-child(3n),
-a:visited:hover span:nth-child(5n) { 
+.posts a:visited span:nth-child(3n),
+.posts a:visited:hover span:nth-child(5n) { 
   color: #aaa;
 }
 
-a:visited span:nth-child(5n),
-a:visited:hover { 
+.posts a:visited span:nth-child(5n),
+.posts a:visited:hover { 
   color: #ccc; 
+}
+
+a:hover,
+a:visited:hover {
+ color: black; 
 }
 
 table {
