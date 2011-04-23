@@ -16,10 +16,11 @@ html, body {
 }
 
 body {
-  background-color: white;
+  background: white url(/images/logo_tile.png) 0 3em repeat-x;
   font: 13.34px helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
+  color: #073642 ;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,22 +29,52 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-bottom: 1em;
+  font-size: 1.4em;
 }
 
 p {
   margin: 1em 0;
 }
 
-a {
-  color: #00a;
+a, .nav a:visited, 
+a:hover span:nth-child(2n) { 
+  color: #006d88;
+  font-weight: bold;
 }
 
-a:hover {
-  color: black;
+a span:nth-child(2n),
+a:hover span:nth-child(3n) { 
+  color: #1086a3;
 }
 
-a:visited {
-  color: #a0a;
+a span:nth-child(3n),
+a:hover span:nth-child(5n) { 
+  color: #2496b3;
+}
+
+a span:nth-child(5n), 
+a:hover { 
+  color: #36acc9;
+}
+
+a:visited, 
+a:visited:hover span:nth-child(2n) {
+  color: #a0a0a0; 
+}
+
+a:visited span:nth-child(2n),
+a:visited:hover span:nth-child(3n) { 
+  color: #bbb; 
+}
+
+a:visited span:nth-child(3n),
+a:visited:hover span:nth-child(5n) { 
+  color: #aaa;
+}
+
+a:visited span:nth-child(5n),
+a:visited:hover { 
+  color: #ccc; 
 }
 
 table {
@@ -60,17 +91,18 @@ table {
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
+  font-size: 1.25em;
 }
 
-  ul.posts li {
-    line-height: 1.75em;
-  }
+ul.posts li {
+  line-height: 1.75em;
+}
 
-  ul.posts span {
-    color: #aaa;
-    font-family: Monaco, "Courier New", monospace;
-    font-size: 80%;
-  }
+ul.posts span.date {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
+}
 
 /*****************************************************************************/
 /*
@@ -79,22 +111,30 @@ ul.posts {
 /*****************************************************************************/
 
 .site {
-  font-size: 110%;
   text-align: justify;
-  width: 40em;
-  margin: 3em auto 2em auto;
+  margin: 3em 0 2em 20%;
   line-height: 1.5em;
+  width: 100%;
 }
 
 .title {
   font-weight: bold;
+  background: white url(/images/c2_simple.png) 0 0 no-repeat;
+  height: 74px;
+  position: relative;
   margin-bottom: 2em;
+}
+
+.nav {
+  position: absolute;
+  bottom: 8px;
+  left: 75px;
 }
 
   .site .title a {
     font-size: 1.5em;
     text-decoration: none;
-    color: #00008B;
+    vertical-align: bottom;
   }
 
   .site .title a:hover {
@@ -102,26 +142,30 @@ ul.posts {
   }
 
   .site .title a.extra {
-    color: #aaa;
     text-decoration: none;
-    margin-left: 1em;
     font-size: 1.3em;
+    margin: 0 15px;
+  }
+  
+  .site .title a.extra.first {
   }
 
   .site .title a.extra:hover {
-    color: black;
   }
 
   .site .meta {
-    color: #aaa;
   }
 
   .site .footer {
-    font-size: 80%;
     color: #666;
     border-top: 4px solid #eee;
     margin-top: 2em;
     overflow: hidden;
+  }
+
+  .site .footer > div{
+    font-size: 80%;
+    width: 20em;
   }
 
     .site .footer .contact {
@@ -150,7 +194,7 @@ ul.posts {
 /*****************************************************************************/
 
 #post {
-
+  width: 60%;
 }
 
   /* standard */
@@ -213,7 +257,13 @@ table.array td{
   text-align: center;
 }
 
+#home, .footer{
+  width: 60%;
+}
+
+#home dl dt{
+  margin-top: 10px;
+}
 #home dl dt a{
   font-weight: bold;
-  color: #00008B;
 }
