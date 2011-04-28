@@ -133,7 +133,7 @@ ul.posts span.date {
   text-align: justify;
   margin: 3em 0 2em 20%;
   line-height: 1.5em;
-  width: 100%;
+  width: auto;
 }
 
 .title {
@@ -212,10 +212,6 @@ ul.posts span.date {
 /*
 /*****************************************************************************/
 
-#post {
-  width: 60%;
-}
-
   /* standard */
 
   #post pre {
@@ -276,8 +272,8 @@ table.array td{
   text-align: center;
 }
 
-#home, .footer{
-  width: 60%;
+#home, #post, .footer{
+  width: 80%;
 }
 
 #home dl dt{
