@@ -273,12 +273,15 @@ table.array td{
 }
 
 #home, #post, .footer{
-  width: 80%;
+  width: 50em;
 }
 
-#home dl dt{
+#home dl dt:first {
   margin-top: 10px;
 }
 #home dl dt a{
   font-weight: bold;
+}
+#home dl dt:first {
+  margin-top: 3px;
 }
