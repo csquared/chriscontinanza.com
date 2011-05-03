@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Hackers Hacking at a Hackerspace 
+title: Hackers Hacking in a Hackerspace 
 ---
 
 {{ page.title }}
 ================
 
-Sometimes I think we forget how good we have it in the Rails world.  I don my ruby-colored slippers to work every morning and its easy to forget this wasn&quot;t always the case.  I was recently reminded of this dark past when our local hackspace needed to write some database-backed web software.
+Sometimes I think we forget how good we have it in the Rails world.  I don my ruby-colored slippers to work every morning and its easy to forget this wasn&quot;t always the case.  I was recently reminded of this dark past when our [local hackspace](http://austinhackerspace.org) needed to write some database-backed web software.
 
 If I was hanging out with my Ruby friends, this is the moment the cool ones (myself included) suggest we use Sinatra.  Sure, it doesn&quot;t ship with an ORM, but you can try out a new one!  And despite being Rails being leaps and bounds more capable of leaping and bounding than other frameworks out there, Sinatra has an elegance factor that appeals to me.  There&quot;s a certain joy from building complex things out of simple components.
 
