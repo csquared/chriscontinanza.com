@@ -20,7 +20,7 @@ Instead of despairing we opted to use competition.  We would take a week and the
 
 The Zend fucking Framework.  I fail.  I showed up with a knife to a gun fight.
 
-And at first, I was legitimately scared.  Fuck, these are engineers.  *We&quot;re not going for elegance, we&quot;re going for features*.  And yet as this realization dawned on me while the show-and-tell continued, I realized I had, in fact, already had this figured out.  Zend Framework is so productive, you can generate a form from an array.  Imagine that.  A whole form out of just a little array.   I&quot;ll see your Zend Framework, and I&quot;ll raise you RAILZ 3!!
+And at first, I was legitimately scared.  Fuck, these are engineers.  *We&quot;re not going for elegance, we&quot;re going for features*.  And yet as this realization dawned on me while the show-and-tell continued, I realized I already had this figured out.  Zend Framework is so productive, you can generate a form from an array.  Imagine that.  A whole form out of just a little array.   I&quot;ll see your Zend Framework, and I&quot;ll raise you RAILZ 3!!
 
 So yes, this is a story about how using Rails 3 made me a badass.  Because for a breif moment, it did.  That night I went home and <code>rails generate</code>-d my way into a fully functional frontend.  Psh.  An array to build a form.  I thought I would show off and share with them a shell script that would generate the whole app for them too, but as usual I was getting ahead of myself.  Rails has come a long way with legacy database support but I still needed to code around some legacy fields.  Nevertheless, I was up and going in an evening.
 
