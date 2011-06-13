@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-  background: white url(/images/logo_tile.png) 0 3em repeat-x;
+  background: white url(/images/logo_tile.gif) 0 3em repeat-x;
   font: 13.34px helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
