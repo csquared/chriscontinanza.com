@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Chris Continanza</title>
+   <meta name="author" content="Chris Continanza" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection" />
+   <![endif]-->
+
+  <script src="/js/jquery-1.5.2.min.js"></script>
+  <script src="/js/jquery-ui-1.8.11.custom.min.js"></script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18502848-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(function(){
+      $('div.nav a, ul.posts a').mouseenter(function(event){
+         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
+      })
+
+      $('ul.posts a').children().andSelf().contents().each(function(){
+        if(this.nodeType == 3){
+          var $this = $(this);
+          $this.replaceWith($this.text().replace(/(\w)/g, "<span>$&</span>"));
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+
+
+<div class="site">
+  <div class="title">
+    <div class="nav">
+      <a class="extra first" href="/">home</a>  
+    </div>
+  </div>
+  
+  <div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    
+      <li><span class="date">11 Jun 2011</span> &raquo; <a href="/2011/06/11/Heroku.html">Joining Heroku</a></li>
+    
+      <li><span class="date">02 May 2011</span> &raquo; <a href="/2011/05/02/Hackers-Hacking.html">Hackers Hacking in a Hackerspace</a></li>
+    
+      <li><span class="date">12 Dec 2010</span> &raquo; <a href="/2010/12/12/Introding-IMGKit.html">Introducing IMGKit</a></li>
+    
+      <li><span class="date">29 Oct 2010</span> &raquo; <a href="/2010/10/29/Array.html">Permutations and Combinations with Ruby's Array</a></li>
+    
+      <li><span class="date">19 Sep 2010</span> &raquo; <a href="/2010/09/19/Hello-strace.html">Hello, strace (an introduction to strace)</a></li>
+    
+      <li><span class="date">12 Sep 2010</span> &raquo; <a href="/2010/09/12/Hackspiration.html">A Cheap and Simple Laptop Stand</a></li>
+    
+      <li><span class="date">10 Sep 2010</span> &raquo; <a href="/2010/09/10/STFUDD.html">STFU Driven Development</a></li>
+    
+  </ul>
+
+  <h1>Open Source</h1>
+  <dl>
+    <dt><a href="http://github.com/csquared/IMGKit">IMGKit</a></dt>
+    <dd>This is a ruby gem that uses wkhtmltoimage to generate jpgs from HTML and CSS</dd>
+    <dt><a href="https://github.com/csquared/cerberus-prox-frontend">Cerberus Prox Frontend</a></dt>
+    <dd>This is a BDDed Rails 3 app I developed that we use at the Austin Hackerspace to manage the RFID door system</dd>
+    <dt><a href="https://github.com/csquared/Chaos-Composer">Chaos-Composer</a></dt>
+    <dd>Derive MIDI melodies from Chaotic Equations (before I learned the ways of TDD)</dd>
+    <dt><a href="http://www.youtube.com/watch?v=3soqhbnh0jY" target='_blank'>The Bundler: The Good, The Bad, and the NP-Complete</a></dt>
+    <dd>This is a talk on using the Bundler, given at Austin On Rails <a href="http://thebundler.heroku.com" target='_blank'>slides using Showoff</a></dd>
+  </dl>
+
+  <h1>Other Work</h1>
+  <dl>
+    <dt><a href="http://www.amazon.com/Musical-Machines-Algorithmic-Composition-Equations/dp/3639209001/ref=sr_1_1?ie=UTF8&s=books&qid=1261016429&sr=1-1">Musical Machines</a></dt>
+    <dd>My Master's thesis on deriving MIDI melodies from Chaotic equations</dd>
+    <dt><a href="http://www.informatik.uni-trier.de/~ley/db/indices/a-tree/c/Continanza:Christopher.html">Exploiting Mindstorms NXT: Mapping and Localization Projects for the AI Course</a></dt>
+    <dd>This paper introduced two versions (Java and C) of a one-dimensional monte-carlo localizing robot for use in teaching graduate level AI courses.</dd>
+    <dt><a href="http://portal.acm.org/citation.cfm?id=1227372">Mindstorms Without Robotics</a></dt>
+    <dd>This is a paper that taught assembly programming via builing a simon says game on the Lego Mindstorms robot.</dd>
+  </dl>
+</div>
+
+
+
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        <a href="mailto:christopher.continanza@gmail.com">christopher.continanza@gmail.com</a><br/>
+        <a href="http://github.com/csquared/">github.com/csquared</a><br />
+        <a href="http://twitter.com/em_csquared/">twitter.com/em_csquared</a><br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
+        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
+        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+      </p>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+</body>
+</html>

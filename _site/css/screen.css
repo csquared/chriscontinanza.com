@@ -1,0 +1,287 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: white url(/images/logo_tile.png) 0 3em repeat-x;
+  font: 13.34px helvetica, arial, clean, sans-serif;
+  *font-size: small;
+  text-align: center;
+  color: #073642 ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+h1 {
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+  font-size: 1.4em;
+}
+
+p {
+  margin: 1em 0;
+}
+
+a, .nav a:visited, 
+a:hover span:nth-child(2n) { 
+  color: #006d88;
+  font-weight: bold;
+}
+
+.posts a:hover {
+  background: #d1ebf1;
+}
+
+dt a:hover ,
+.footer a:hover {
+  background: #ddd;
+}
+
+.posts a:visited:hover {
+  background: #f0f0f0;
+}
+
+.posts a span:nth-child(2n),
+.posts a:hover span:nth-child(3n) { 
+  color: #1086a3;
+}
+
+.posts a span:nth-child(3n),
+.posts a:hover span:nth-child(5n) { 
+  color: #2496b3;
+}
+
+.posts a span:nth-child(5n), 
+.posts a:hover { 
+  color: #36acc9;
+}
+
+a:visited, 
+.posts a:visited:hover span:nth-child(2n) {
+  color: #a0a0a0; 
+}
+
+.posts a:visited span:nth-child(2n),
+.posts a:visited:hover span:nth-child(3n) { 
+  color: #bbb; 
+}
+
+.posts a:visited span:nth-child(3n),
+.posts a:visited:hover span:nth-child(5n) { 
+  color: #aaa;
+}
+
+.posts a:visited span:nth-child(5n),
+.posts a:visited:hover { 
+  color: #ccc; 
+}
+
+a:hover,
+a:visited:hover {
+ color: black; 
+}
+
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+/*****************************************************************************/
+/*
+/* Home
+/*
+/*****************************************************************************/
+
+ul.posts {
+  list-style-type: none;
+  margin-bottom: 2em;
+  font-size: 1.25em;
+}
+
+ul.posts li {
+  line-height: 1.75em;
+}
+
+ul.posts span.date {
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
+}
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+
+.site {
+  text-align: justify;
+  margin: 3em 0 2em 20%;
+  line-height: 1.5em;
+  width: auto;
+}
+
+.title {
+  font-weight: bold;
+  background: white url(/images/c2_simple.png) 0 0 no-repeat;
+  height: 74px;
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.nav {
+  position: absolute;
+  bottom: 8px;
+  left: 75px;
+}
+
+  .site .title a {
+    font-size: 1.5em;
+    text-decoration: none;
+    vertical-align: bottom;
+  }
+
+  .site .title a:hover {
+    color: black;
+  }
+
+  .site .title a.extra {
+    text-decoration: none;
+    font-size: 1.3em;
+    margin: 0 15px;
+  }
+  
+  .site .title a.extra.first {
+  }
+
+  .site .title a.extra:hover {
+  }
+
+  .site .meta {
+  }
+
+  .site .footer {
+    color: #666;
+    border-top: 4px solid #eee;
+    margin-top: 2em;
+    overflow: hidden;
+  }
+
+  .site .footer > div{
+    font-size: 80%;
+    width: 20em;
+  }
+
+    .site .footer .contact {
+      float: left;
+      margin-right: 3em;
+    }
+
+      .site .footer .contact a {
+        color: #8085C1;
+      }
+
+    .site .footer .rss {
+      margin-top: 1.1em;
+      margin-right: -.2em;
+      float: right;
+    }
+
+      .site .footer .rss img {
+        border: 0;
+      }
+
+/*****************************************************************************/
+/*
+/* Posts
+/*
+/*****************************************************************************/
+
+  /* standard */
+
+  #post pre {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    padding: 0 .4em;
+  }
+
+  #post ul,
+  #post ol {
+    margin-left: 1.35em;
+  }
+
+  #post code {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    font-size: 85%;
+    padding: 0 .2em;
+  }
+
+    #post pre code {
+      border: none;
+    }
+
+  /* terminal */
+
+  #post pre.terminal {
+    border: 1px solid black;
+    background-color: #333;
+    color: white;
+  }
+
+  #post pre.terminal code {
+    background-color: #333;
+  }
+
+#related {
+  margin-top: 2em;
+}
+
+  #related h2 {
+    margin-bottom: 1em;
+  }
+
+blockquote {
+  padding: 5px;
+  border: 1px solid #ccc;
+  background: #eee;
+  font-style: italic;
+}
+
+table.array{
+ width: 100%;
+}
+
+table.array td{
+  border: 1px solid black;
+  text-align: center;
+}
+
+#home, #post, .footer{
+  width: 50em;
+}
+
+#home dl dt:first {
+  margin-top: 10px;
+}
+#home dl dt a{
+  font-weight: bold;
+}
+#home dl dt:first {
+  margin-top: 3px;
+}

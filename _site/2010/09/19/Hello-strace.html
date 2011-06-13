@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Hello, strace (an introduction to strace)</title>
+   <meta name="author" content="Chris Continanza" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection" />
+   <![endif]-->
+
+  <script src="/js/jquery-1.5.2.min.js"></script>
+  <script src="/js/jquery-ui-1.8.11.custom.min.js"></script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18502848-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(function(){
+      $('div.nav a, ul.posts a').mouseenter(function(event){
+         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
+      })
+
+      $('ul.posts a').children().andSelf().contents().each(function(){
+        if(this.nodeType == 3){
+          var $this = $(this);
+          $this.replaceWith($this.text().replace(/(\w)/g, "<span>$&</span>"));
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+
+
+<div class="site">
+  <div class="title">
+    <div class="nav">
+      <a class="extra first" href="/">home</a>  
+    </div>
+  </div>
+  
+  <div id="post">
+<h1>Hello, strace (an introduction to strace)</h1>
+
+<p>If you haven't seen it, <a href="http://vimeo.com/12748731">check out Aman Gupta's talk on using C tools to debug ruby</a>.
+After watching this talk, I was all fired up to use strace to
+shed light on just exactly what's going on when I'm running Ruby code.</p>
+
+<h2>strace [ -dffhiqrtttTvxx ]  ...  [ -ofile ] [ -ppid ] ... [ command [ arg ...  ] ]</h2>
+
+<p>strace is a tool that traces the system calls (those are calls made to the kernel)
+a specific process is making.  Remember in unix-world, every system call is implemented
+as a function in C.  strace allows you to see how your program is interacting
+with the operating system.</p>
+
+<p>From the man pages:</p>
+
+<blockquote>
+In the simplest case strace runs the specified command until it exits.  
+It intercepts and records the system calls which are called by a process 
+and the signals  which  are  received  by a process.  The name of each system 
+call, its arguments and its return value are printed on standard error or to the file
+specified with the -o option.  
+</blockquote>
+
+
+<p>So let's start with the simplest of cases.</p>
+
+<p>What we're going to do is run a Ruby hello world and a C hello world under strace
+so we can compare the output and get a feel for whats going on under the hood.</p>
+
+<h2>Hello, strace.</h2>
+
+<p>To strace Ruby's hello world, we're going to take advantage of the -e flag.  e means
+"Evaluate" and it tells the ruby interpreter you want it to eval the string you are
+passing to it.</p>
+
+<pre>
+$ strace -o ruby_strace ruby -e 'puts "hello, world"' 
+</pre>
+
+
+<p><a href="http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/ruby_strace.log">This log is about 130 lines, so I've added some comments
+as to what's going on.</a></p>
+
+<p>Here's our C version of the same program.</p>
+
+<pre>
+#include <stdio.h>
+main() {
+  printf("Hello, world");
+}
+</pre>
+
+
+<p>Oooh exciting.</p>
+
+<p>now for a little</p>
+
+<pre>
+$ gcc c_hw.c -o chw
+$ strace chw -o c_strace.log
+</pre>
+
+
+<p>And boo-ya!</p>
+
+<p><a href="http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/c_strace.log">The strace is a lot shorter, like 100 lines shorter.</a>.</p>
+
+<h2>So what's going on?</h2>
+
+<p>First off, you can find all of the lines in the C program show up somehow or another in the ruby program, in three distinct chunks.
+In the end, the entirety of both programs boils down to one system call to write:</p>
+
+<pre>
+write(1, "Hello, world", 12)             = 12  
+</pre>
+
+
+<p>Which is writing our beloved Hello, world to file descriptor 1- better known as standard output.
+What's going on differently in the Ruby version is that the Ruby version has to load Ruby.
+Ruby then registers some interrupt handlers, seeds its random key, queries the process about its ids and goes along its merry way.</p>
+
+<p>Only to wind up with:</p>
+
+<pre>
+write(1, "hello, world\n", 13)             = 13  
+</pre>
+
+
+<p>Yup, that's the same instruction.  <em>As it should be.</em>  Ok.  Not totally the same.  I used Ruby's
+<em>puts</em> method, which post-pends a newline to the string.  This explains the difference between
+the 12 and 13 number of characters.</p>
+
+<p>Nevertheless, the basic idea is that Ruby does everything the C program does plus loading all the parts that are simply Ruby.</p>
+
+<p>Since we're all Visual learners:</p>
+
+<p><img src="/images/strace_img.jpg" /></p>
+
+<p>Because this is a trivial example, loading up Ruby seems like a lot of work.  That's just because
+the point of this excercise is to show the relationship between what Ruby is doing and what the
+equivalent C program would do.</p>
+
+<p>Just one line of ruby generated ~100 lines of strace.  That's a lot going on
+for just one line of code, so to do more beyond this <a href="http://xkcd.com/208/">we must harness the secret power of regular
+expressions.</a>  There are many more tools to cover, but
+strace teamed up with grep (or ack) is one of those power combos no programmer
+should be without.</p>
+
+<p>For a real gas try:</p>
+
+<pre>
+$ strace irb
+</pre>
+
+
+<p>And just type "hello, world."  Welcome to the interactive strace!</p>
+
+<p>c<sup>2</sup></p>
+</div>
+
+<div id="related">
+  <h2>Other Posts</h2>
+  <ul class="posts">
+    
+      <li><span>11 Jun 2011</span> &raquo; <a href="/2011/06/11/Heroku.html">Joining Heroku</a></li>
+    
+      <li><span>02 May 2011</span> &raquo; <a href="/2011/05/02/Hackers-Hacking.html">Hackers Hacking in a Hackerspace</a></li>
+    
+      <li><span>12 Dec 2010</span> &raquo; <a href="/2010/12/12/Introding-IMGKit.html">Introducing IMGKit</a></li>
+    
+  </ul>
+</div>
+
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        <a href="mailto:christopher.continanza@gmail.com">christopher.continanza@gmail.com</a><br/>
+        <a href="http://github.com/csquared/">github.com/csquared</a><br />
+        <a href="http://twitter.com/em_csquared/">twitter.com/em_csquared</a><br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
+        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
+        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+      </p>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+</body>
+</html>

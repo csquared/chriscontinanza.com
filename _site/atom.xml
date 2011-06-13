@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Chris Continaza</title>
+ <link href="http://.com/atom.xml" rel="self"/>
+ <link href="http://tom.preston-werner.com/"/>
+ <updated>2011-06-13T11:29:27-05:00</updated>
+ <id>http://chriscontinanza.com/</id>
+ <author>
+   <name>Chris Continanza</name>
+   <email>chris@chriscontinanza.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Joining Heroku</title>
+   <link href="http://chriscontinanza.com/2011/06/11/Heroku.html"/>
+   <updated>2011-06-11T00:00:00-05:00</updated>
+   <id>http://chriscontinanza.com/2011/06/11/Heroku</id>
+   <content type="html">&lt;h1&gt;Joining Heroku&lt;/h1&gt;
+
+&lt;p&gt;Now that I&amp;lsquo;ve &lt;a href=&quot;http://www.youtube.com/watch?v=Ryicgd_hJ44&quot;&gt;crossed all the ts and dotted all the lower case js&lt;/a&gt;
+I can let everyone know: I&amp;lsquo;m going to be working at &lt;a href=&quot;http://www.heroku.com&quot;&gt;Heroku&lt;/a&gt; starting
+this July!&lt;/p&gt;
+
+&lt;p&gt;I&amp;lsquo;m very excited about this opportunity.  There is so much to learn and also so much work to
+do making Heroku the world-class plaftorm that it is.  I&amp;lsquo;m going to be on the add-ons team,
+building out the functionality and interfaces that some of you will be using to provide your own
+services to Heroku customers.&lt;/p&gt;
+
+&lt;p&gt;I&amp;lsquo;ve actually built an add-on myself, which I&amp;lsquo;ve just put up on github.  I&amp;amp;l&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Hackers Hacking in a Hackerspace</title>
+   <link href="http://chriscontinanza.com/2011/05/02/Hackers-Hacking.html"/>
+   <updated>2011-05-02T00:00:00-05:00</updated>
+   <id>http://chriscontinanza.com/2011/05/02/Hackers-Hacking</id>
+   <content type="html">&lt;h1&gt;Hackers Hacking in a Hackerspace&lt;/h1&gt;
+
+&lt;p&gt;Sometimes I think we forget how good we have it in the Rails world.  I don my ruby-colored slippers to work every morning and it&amp;lsquo;s easy to forget this wasn&amp;lsquo;t always the case.  I was recently reminded of this dark past when our &lt;a href=&quot;http://austinhackerspace.org&quot;&gt;local hackspace&lt;/a&gt; needed to write some database-backed web software.&lt;/p&gt;
+
+&lt;p&gt;If I was hanging out with my Ruby friends, this is the moment that the cool ones (myself included) suggest we use Sinatra.  Sure, it doesn&amp;lsquo;t ship with an ORM, but you can try out a new one!  And despite Rails being leaps and bounds more capable of leaping and bounding than other frameworks out there, Sinatra has an elegance factor that appeals to me.  There&amp;lsquo;s a certain joy from building complex things out of simple components.&lt;/p&gt;
+
+&lt;p&gt;However, I was not in Ruby land.  I was at a hackerspace.  Sinatra is that guy who sings New York, New York and Ruby is seen as a to-be-tested improvment upon Perl.  Gross.&lt;/p&gt;
+
+&lt;p&gt;So a discussion inevitably comes up as to which framework to use.  To my shock, Rails does not come up as a winner: being a lingua franca, they debate Java and &lt;em&gt;eventually choose PHP&lt;/em&gt;.  Great.  It&amp;lsquo;s going to be a flame war.&lt;/p&gt;
+
+&lt;p&gt;I found myself in a common dilemma: having used Ruby frameworks, PHP frameworks, and Java frameworks I was in a clear position to argue for a winner.  But this is not a situation for arguments becuase winning one would require everyone else to have the same level of knowledge.  I can talk for hours to the Java people about how Ruby&amp;lsquo;s objects just &quot;make sense&quot;, or the PHP people about how you can still use all your dirty little tricks.  However, so long as they think I am making these arguments for the sole purpose of convincing them, which is half true, arguments are useless.&lt;/p&gt;
+
+&lt;p&gt;Instead of despairing we opted to use competition.  We would take a week and the PHP team could work its magic while I got to be the lone member of team Ruby.  After coding up a &lt;a href=&quot;http://github.com/csquared/cerberus_prox_sinatra_old&quot;&gt;single-file frontend in Sinatra&lt;/a&gt; I was more than prepared to shock and awe everyone with what we could do with Ruby.  Instead, I had to listen to the benefits of the Zend Framework.&lt;/p&gt;
+
+&lt;p&gt;The Zend fucking Framework.  I fail.  I showed up with a knife to a gun fight.&lt;/p&gt;
+
+&lt;p&gt;And at first, I was legitimately scared.  However, these are engineers.  &lt;em&gt;We&amp;lsquo;re not going for elegance, we&amp;lsquo;re going for features&lt;/em&gt;.  And yet as this realization dawned on me while the show-and-tell continued, I realized I already had this figured out.  Zend Framework is so productive, you can generate a form from an array.  Imagine that.  A whole form out of just a little array.   I&amp;lsquo;ll see your Zend Framework, and I&amp;lsquo;ll raise you RAILZ 3!!&lt;/p&gt;
+
+&lt;p&gt;So yes, this is a story about how using Rails 3 made me a badass.  Because for a brief moment, it did.  That night I went home and &lt;code&gt;rails generate&lt;/code&gt;-d my way into a fully functional frontend.  Psh.  An array to build a form.  I was up and going in an evening, despite some issues with the legacy schema.&lt;/p&gt;
+
+&lt;p&gt;After generating the backend, I moved to deploy over working on features.  This step was crucial, and something you can only do in software.  In the real world if you want a bigger boat, you&amp;lsquo;re gonna need a bigger boat.  You can&amp;lsquo;t just tell your current boat to double itself.  In the digital world we have this ability and that&amp;lsquo;s why its important to deploy quickly and often.  By building the entire pipeline to your users, it overcomes the prototype phase by forcing the app to perform or perish.&lt;/p&gt;
+
+&lt;p&gt;It turned out the ability to iterate quickly was what gave Rails the edge in our quick battle of the frameworks.  The cerberus-prox project updated its database schema.  One migration, one commit, and one deploy and my app was already running on the updated database.  At this point, the &lt;a href=&quot;http://www.github.com/csquared/cerberus-prox-frontend&quot;&gt;Cerberus Prox Frontend&lt;/a&gt; was moved to port 80, where it still remains.  A testament to deploying early, iterating often, and just doing what works instead of debating it.&lt;/p&gt;
+
+&lt;p&gt;At a the first &lt;a href=&quot;http://austinrb.org&quot;&gt;Austin.rb&lt;/a&gt; meeting, we were asked what we like about Ruby.  This is what I like about Ruby.  It grants a level of control over the machine that once took a great many lines of subtle syntax.  Ruby either makes you dumber or unleashes your creativity.  Perhaps a little of both, which is probably what makes it so damn fun.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introducing IMGKit</title>
+   <link href="http://chriscontinanza.com/2010/12/12/Introding-IMGKit.html"/>
+   <updated>2010-12-12T00:00:00-06:00</updated>
+   <id>http://chriscontinanza.com/2010/12/12/Introding-IMGKit</id>
+   <content type="html">&lt;h1&gt;Introducing IMGKit&lt;/h1&gt;
+
+&lt;p&gt;I recently discovered JD Pace's &lt;a href=&quot;http://github.com/jdpace/PDFKit&quot;&gt;PDFKit&lt;/a&gt; in the search for better ways to do things.  It's a great solution for generating PDF files from html sources.  It is basically a wrapper for the open source executable &lt;a href=&quot;http://code.google.com/p/wkhtmltopdf/&quot;&gt;wkhtmltopdf&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The idea behind &lt;code&gt;wkhtmltopdf&lt;/code&gt; is simple: use the rendering engine of browser without the GUI to generate PDFs and you'll have pages that look exactly like they render on the web and get updated when the browsers do!&lt;/p&gt;
+
+&lt;p&gt;That in mind, I set forth to tackle a new requirement for a task at hand: turning an HTML page into a JPG.  With my PDFKit hammer at my side, I quickly strung together a processing pipeline that used PDFKit to transform my html to a PDF and then RMagick to transmogrify the PDF into JPG.  I looked something like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;    &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;PDFKit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:page_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Letter&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_pdf&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;gif&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Magick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Simple, for sure. But it looked like SHIT.  Back to the drawing board.  A big problem was all the fine text was illegible.  Imagemagick seemed to be doing a bad job of rasterizing the text getting produced in the PDF.  I reasoned that perhaps I could find a flag in wkhtmltopdf to rasterize the text.  Instead, I found something better.  Something much better...&lt;/p&gt;
+
+&lt;h2&gt;wkhtmltoimage&lt;/h2&gt;
+
+&lt;p&gt;It turns out wkhtmlto&lt;b&gt;image&lt;/b&gt; does for JPGs what wkthmlto&lt;b&gt;pdf&lt;/b&gt; does for PDFs. Woot!  Like any good hacker, I first decided to try to screw around with the PDFKit gem, swapping out the call to wkhtmltopdf with one to wkhtmltoimage.&lt;/p&gt;
+
+&lt;p&gt;As that broke, it lead me to try to just call the command on my own, which eventually lead to discovering this little gem of Ruby in PDFKit:&lt;/p&gt;
+
+&lt;h2&gt;stdin and stdout and stderr, oh my!&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;    &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;|-&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;w+&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nil?&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html?&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close_write&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close_read&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href=&quot;http://ruby-doc.org/core/classes/Kernel.html#M005950&quot;&gt;It turns out you can open a pipe with &lt;code&gt;Kernel#open&lt;/code&gt;&lt;/a&gt; that you can &lt;em&gt;read and write to like a file!&lt;/em&gt;  Moments like this make me really appreciate the power of the 'file' abstraction.&lt;/p&gt;
+
+&lt;p&gt;If you pass &lt;code&gt;Kernel#open&lt;/code&gt; &lt;code&gt;'|&amp;lt;cmdname&amp;gt;'&lt;/code&gt;, you will have a pipe to that command that you can read and write to with normal &lt;code&gt;IO&lt;/code&gt; methods, such as #gets, #puts, and my favorite #&amp;lt;&amp;lt;.&lt;/p&gt;
+
+&lt;p&gt;If you pass &lt;code&gt;Kernel#open&lt;/code&gt; the special string &lt;code&gt;'|-'&lt;/code&gt;, not only do you get back a pipe, &lt;em&gt;but the process forks,&lt;/em&gt; returning nil to the child and the file-like pipe &lt;code&gt;IO&lt;/code&gt; Object to the parent.  That's a pretty elegant way to wrap a process and that's how the &lt;code&gt; exec(&amp;ast;command) if pdf.nil? &lt;/code&gt; line works.&lt;/p&gt;
+
+&lt;p&gt;The command we are wrapping is &lt;code&gt;wkhtmltoimage&lt;/code&gt;, which takes two inputs: the source and ouptut destination.  It can take a url, file location, or stdin as input if you pass the special parameter '-'.  Output can either be a file or standard out if you use the same '-'.  In this situation, we're always reading from standard out, which is accomplished via the call to &lt;code&gt;result = pdf.gets(nil)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This may make it more clear:&lt;/p&gt;
+
+&lt;h2&gt;in Ruby, files can be pipes...&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;    &lt;span class=&quot;n&quot;&gt;pipe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;|-&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;w+&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nil?&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html?&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close_write&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close_read&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;So I got to quick work writing my own script that just called wkhtmltoimage with this bit of code.  However, I quickly found out &lt;code&gt;wkthmltoimage&lt;/code&gt; does not support the &lt;code&gt;--quiet&lt;/code&gt; flag, which leads to a leaky standard error printing out the the console.  This is something that is very noticable during unit testing and is just a bad form and practice to not manage right.&lt;/p&gt;
+
+&lt;h2&gt;Standard error, you bastard!&lt;/h2&gt;
+
+&lt;p&gt;PDFKit is able to pass the &lt;code&gt;--quiet&lt;/code&gt; flag to &lt;code&gt;wkhtmltopdf&lt;/code&gt; to silence standard error; &lt;code&gt;wkhtmltoimage&lt;/code&gt; has no such flag.  Using redirection is one way out and works fine when passing the command as a string to exec, a la &lt;code&gt;&amp;quot;wkhtmltoimage - - 2&amp;amp;/dev/null&amp;quot;&lt;/code&gt;.  However, this fails when using the splat operator on an array of built up parameters (ie: &lt;code&gt;exec(&amp;ast;command)&lt;/code&gt;).  It turns out Ruby has another way to call a process that, while not as terse as the above, does the job:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Open3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;popen3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;stdin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html?&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;stdin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;Open3#open3&lt;/code&gt; allows you to explicitly manage standard input, output, and error of the child process command.  Since we're not really interested in what it has to say, we just close it when we're done reading the jpg on &lt;code&gt;stdout&lt;/code&gt;.  The call to exec in the &lt;code&gt;Kernel#open&lt;/code&gt; method does not provide a way to manage the output of standard error in the child process, so it winds up connected to the parent's standard error.&lt;/p&gt;
+
+&lt;h2&gt;Rolling my own&lt;/h2&gt;
+
+&lt;p&gt;Eventually I made enough changes to PDFKit to warrant creating my own library I am calling IMGKit, which I am proud to announce is available via:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;gem install imgkit&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can then create JPGs from HTML files with:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;    &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;imgkit&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;kit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IMGKit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:quality&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;# Get the image BLOB&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_img&lt;/span&gt;
+  
+    &lt;span class=&quot;c1&quot;&gt;# Save to a file&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/path/to/save/file2.jpg&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# or&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/path/to/save/file1.jpg&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_img&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# send to browser (Rails - use with #caches_page)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;send_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;image/jpeg&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:disposition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;inline&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Code is available on &lt;a href=&quot;http://github.com/csquared/IMGKit&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Oh, and this is my first gem! Enjoy!!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Permutations and Combinations with Ruby's Array</title>
+   <link href="http://chriscontinanza.com/2010/10/29/Array.html"/>
+   <updated>2010-10-29T00:00:00-05:00</updated>
+   <id>http://chriscontinanza.com/2010/10/29/Array</id>
+   <content type="html">&lt;h1&gt;Permutations and Combinations with Ruby's Array&lt;/h1&gt;
+
+&lt;p&gt;So I've been having fun &lt;a href=&quot;http://github.com/csquared/NQueens&quot;&gt;resurrecting code from my past&lt;/a&gt;
+to help me with the work I'm doing today, which is pretty awesome.&lt;/p&gt;
+
+&lt;p&gt;But you know what's even more Aweseome?  Ruby's Array class.  It's gotten two new methods
+since 1.8.6 that do some nifty, mathy things: #permutation and #combination.&lt;/p&gt;
+
+&lt;p&gt;Permutations and combintations are both ways of constructing sets from a single group
+of primitives.  You may remember something along the lines of &quot;N choose K&quot;.&lt;/p&gt;
+
+&lt;p&gt;From N items, you can choose K of those items.  If order matters in the groups you
+are making then you are choosing &lt;b&gt;permutations&lt;/b&gt;.  If order does not matter,
+then you are choosing &lt;b&gt;combinations&lt;/b&gt;.  In cases larger than 1, there will
+always be more permutations than combinations.&lt;/p&gt;
+
+&lt;p&gt;The formula for permutations is as follows:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/permutations.png&quot; alt=&quot;permutations&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;However, I've always found the easiest way to think of permutations in terms of an empty
+array that you're filling with elements:&lt;/p&gt;
+
+&lt;table class=&quot;array&quot;&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;Let's take the full example of having 10 items and wanting permutations that have a size of
+10.  So we'd say this is &quot;10 choose 10&quot;, initializing our variables N and K to 10.  When
+we go to fill up the first spot in the array, we have all 10 items to pick from.&lt;/p&gt;
+
+&lt;table class=&quot;array&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 10&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;Now when we go to fill up the second spot, we one have 9 elements to choose from, so
+we're picking 1 from the 9 remaining.&lt;/p&gt;
+
+&lt;table class=&quot;array&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 10&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 9&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;To tally the grand total number of choices I can simply
+multiply 10 x  9 to arrive at 90.  That is because choosing 2 then 1 is different from choosing 1 then 2,
+and it actually makes the math easier.  This process continues:&lt;/p&gt;
+
+&lt;table class=&quot;array&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 10&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 9&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 8&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 7&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 6&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 5&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 4&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 3&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 2&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 1&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;As you can see, you just keep multiplying N by N-1. This is why, for the special
+case where N=k, the total number of permutations is N!, or
+N factorial.  For any cases smaller than that, you wind up with &quot;just the head&quot; of the
+factorial bit.  For example, in 10 choose 4 you are only doing the following:&lt;/p&gt;
+
+&lt;table class=&quot;array&quot;&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 10&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 9&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 8&lt;/td&gt;
+    &lt;td style=&quot;width:10%&quot;&gt;1 of 7&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;For me, the trick to understanding the formula is realizing what it is doing in the denominator is
+cancelling out the tail of 6 x 5 x 4 x 3...  We know to start at six either by making
+my table above or using the formula to calulate N-K, which in this case is 10-4 = 6.&lt;/p&gt;
+
+&lt;p&gt;Combinations are like permutations, but order doesn't matter.  The formula is very similar:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://upload.wikimedia.org/math/1/9/2/1928f752016eeb2c94f27269a14f7f47.png&quot; alt=&quot;combinations&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In fact, you can think of this as being the same process as permutations, but needing that k!
+in the denominator to cancel out subsets that already exist.&lt;/p&gt;
+
+&lt;p&gt;If you're going to be using permutations and combinations in your code, its important to be
+able to calculate the size without needing to generate all the options because it can quickly
+overwhelm your computer.&lt;/p&gt;
+
+&lt;h1&gt;Back of the envelope:&lt;/h1&gt;
+
+&lt;pre&gt;
+2&lt;sup&gt;10&lt;/sup&gt; = 1024
+10! = 3,628,800 
+
+2&lt;sup&gt;100&lt;/sup&gt; = 1.2 x 10&lt;sup&gt;30&lt;/sup&gt;  
+100! = 9.3 x 10&lt;sup&gt;157&lt;/sup&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;That said, let's take a look at how Ruby makes using permutations and combintations in your
+code deceptively simple:&lt;/p&gt;
+
+&lt;h2&gt;Array#permutation&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permutation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;     
+      &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;  
+      &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt; 
+      &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;  
+      &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;[[]]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# one permutation of length 0&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;  
+    &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# no permutations of length 4&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;h2&gt;Array#combination&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;  
+    &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;  
+    &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;  
+    &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;  
+    &lt;span class=&quot;o&quot;&gt;[[]]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# one combination of length 0&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combination&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# no combinations of length 5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;For reference's sake I've included the implementation of permute0, which does
+the permutation calculation.  This is implemented in array.c of Ruby recursively.
+Combination, however, is generated iteratively.  In large cases this can
+impact the performance of these two functions.&lt;/p&gt;
+
+&lt;p&gt;In production code, I'd say the best place to use these is not going to be in
+some sort of AI subsystem, but most likely with a small set where its more
+expressive to generate permutations/combintations instead of listing them.&lt;/p&gt;
+
+&lt;h2&gt;Appendix A: permute0 in array.c&lt;/h2&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;&lt;span class=&quot;cm&quot;&gt;/*&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * Recursively compute permutations of r elements of the set [0..n-1].&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * When we have a complete permutation of array indexes, copy the values&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * at those indexes into a new array and yield that array. &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; *&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * n: the size of the set &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * r: the number of elements in each permutation&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * p: the array (of size r) that we&amp;#39;re filling in&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * index: what index we&amp;#39;re filling in now&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * used: an array of booleans: whether a given index is already used&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; * values: the Ruby array that holds the actual values to permute&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt; */&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;permute0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;used&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;used&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;used&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;             &lt;span class=&quot;cm&quot;&gt;/* if not done yet */&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;used&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;               &lt;span class=&quot;cm&quot;&gt;/* mark index used */&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;permute0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* recurse */&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;used&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+              &lt;span class=&quot;n&quot;&gt;used&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;               &lt;span class=&quot;cm&quot;&gt;/* index unused */&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;cm&quot;&gt;/* We have a complete permutation of array indexes */&lt;/span&gt;
+            &lt;span class=&quot;cm&quot;&gt;/* Build a ruby array of the corresponding values */&lt;/span&gt;
+            &lt;span class=&quot;cm&quot;&gt;/* And yield it to the associated block */&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rb_ary_new2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RARRAY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;VALUE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RARRAY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;values_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;RARRAY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;rb_yield&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Hello, strace (an introduction to strace)</title>
+   <link href="http://chriscontinanza.com/2010/09/19/Hello-strace.html"/>
+   <updated>2010-09-19T00:00:00-05:00</updated>
+   <id>http://chriscontinanza.com/2010/09/19/Hello-strace</id>
+   <content type="html">&lt;h1&gt;Hello, strace (an introduction to strace)&lt;/h1&gt;
+
+&lt;p&gt;If you haven't seen it, &lt;a href=&quot;http://vimeo.com/12748731&quot;&gt;check out Aman Gupta's talk on using C tools to debug ruby&lt;/a&gt;.
+After watching this talk, I was all fired up to use strace to
+shed light on just exactly what's going on when I'm running Ruby code.&lt;/p&gt;
+
+&lt;h2&gt;strace [ -dffhiqrtttTvxx ]  ...  [ -ofile ] [ -ppid ] ... [ command [ arg ...  ] ]&lt;/h2&gt;
+
+&lt;p&gt;strace is a tool that traces the system calls (those are calls made to the kernel)
+a specific process is making.  Remember in unix-world, every system call is implemented
+as a function in C.  strace allows you to see how your program is interacting
+with the operating system.&lt;/p&gt;
+
+&lt;p&gt;From the man pages:&lt;/p&gt;
+
+&lt;blockquote&gt;
+In the simplest case strace runs the specified command until it exits.  
+It intercepts and records the system calls which are called by a process 
+and the signals  which  are  received  by a process.  The name of each system 
+call, its arguments and its return value are printed on standard error or to the file
+specified with the -o option.  
+&lt;/blockquote&gt;
+
+
+&lt;p&gt;So let's start with the simplest of cases.&lt;/p&gt;
+
+&lt;p&gt;What we're going to do is run a Ruby hello world and a C hello world under strace
+so we can compare the output and get a feel for whats going on under the hood.&lt;/p&gt;
+
+&lt;h2&gt;Hello, strace.&lt;/h2&gt;
+
+&lt;p&gt;To strace Ruby's hello world, we're going to take advantage of the -e flag.  e means
+&quot;Evaluate&quot; and it tells the ruby interpreter you want it to eval the string you are
+passing to it.&lt;/p&gt;
+
+&lt;pre&gt;
+$ strace -o ruby_strace ruby -e 'puts &quot;hello, world&quot;' 
+&lt;/pre&gt;
+
+
+&lt;p&gt;&lt;a href=&quot;http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/ruby_strace.log&quot;&gt;This log is about 130 lines, so I've added some comments
+as to what's going on.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here's our C version of the same program.&lt;/p&gt;
+
+&lt;pre&gt;
+#include &lt;stdio.h&gt;
+main() {
+  printf(&quot;Hello, world&quot;);
+}
+&lt;/pre&gt;
+
+
+&lt;p&gt;Oooh exciting.&lt;/p&gt;
+
+&lt;p&gt;now for a little&lt;/p&gt;
+
+&lt;pre&gt;
+$ gcc c_hw.c -o chw
+$ strace chw -o c_strace.log
+&lt;/pre&gt;
+
+
+&lt;p&gt;And boo-ya!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/c_strace.log&quot;&gt;The strace is a lot shorter, like 100 lines shorter.&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;So what's going on?&lt;/h2&gt;
+
+&lt;p&gt;First off, you can find all of the lines in the C program show up somehow or another in the ruby program, in three distinct chunks.
+In the end, the entirety of both programs boils down to one system call to write:&lt;/p&gt;
+
+&lt;pre&gt;
+write(1, &quot;Hello, world&quot;, 12)             = 12  
+&lt;/pre&gt;
+
+
+&lt;p&gt;Which is writing our beloved Hello, world to file descriptor 1- better known as standard output.
+What's going on differently in the Ruby version is that the Ruby version has to load Ruby.
+Ruby then registers some interrupt handlers, seeds its random key, queries the process about its ids and goes along its merry way.&lt;/p&gt;
+
+&lt;p&gt;Only to wind up with:&lt;/p&gt;
+
+&lt;pre&gt;
+write(1, &quot;hello, world\n&quot;, 13)             = 13  
+&lt;/pre&gt;
+
+
+&lt;p&gt;Yup, that's the same instruction.  &lt;em&gt;As it should be.&lt;/em&gt;  Ok.  Not totally the same.  I used Ruby's
+&lt;em&gt;puts&lt;/em&gt; method, which post-pends a newline to the string.  This explains the difference between
+the 12 and 13 number of characters.&lt;/p&gt;
+
+&lt;p&gt;Nevertheless, the basic idea is that Ruby does everything the C program does plus loading all the parts that are simply Ruby.&lt;/p&gt;
+
+&lt;p&gt;Since we're all Visual learners:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/strace_img.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Because this is a trivial example, loading up Ruby seems like a lot of work.  That's just because
+the point of this excercise is to show the relationship between what Ruby is doing and what the
+equivalent C program would do.&lt;/p&gt;
+
+&lt;p&gt;Just one line of ruby generated ~100 lines of strace.  That's a lot going on
+for just one line of code, so to do more beyond this &lt;a href=&quot;http://xkcd.com/208/&quot;&gt;we must harness the secret power of regular
+expressions.&lt;/a&gt;  There are many more tools to cover, but
+strace teamed up with grep (or ack) is one of those power combos no programmer
+should be without.&lt;/p&gt;
+
+&lt;p&gt;For a real gas try:&lt;/p&gt;
+
+&lt;pre&gt;
+$ strace irb
+&lt;/pre&gt;
+
+
+&lt;p&gt;And just type &quot;hello, world.&quot;  Welcome to the interactive strace!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A Cheap and Simple Laptop Stand</title>
+   <link href="http://chriscontinanza.com/2010/09/12/Hackspiration.html"/>
+   <updated>2010-09-12T00:00:00-05:00</updated>
+   <id>http://chriscontinanza.com/2010/09/12/Hackspiration</id>
+   <content type="html">&lt;h1&gt;A Cheap and Simple Laptop Stand&lt;/h1&gt;
+
+&lt;p&gt;I'm a nomad programmer, a bedouin, and often find myself working at cafes.  At the
+end of a particularly cafe-heavy week I found myself with an awful
+tension headache due the miserable ergonomics of sitting down and staring
+at a laptop.  At home I can use my standing desk, but I'm yet to find a
+cafe where I can stand and code.&lt;/p&gt;
+
+&lt;p&gt;Here's what I did about it:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/laptop_stand1.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Super-simple design: two triangles (with feet at the bottom) connected by a piece
+of wood.  I notched the connections but it worked fine without them.  The white
+stuff is some foam I had around.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/laptop_stand2.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here it is out in the wild:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/laptop_stand_outside.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I plan on this version being a prototype, and am hoping the folks at the local
+hackerspace can help me with a metal or plastic version.  However, this first
+draft already works and is shitty enough to inspire you to make your own,
+better one.  Hack on!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>STFU Driven Development</title>
+   <link href="http://chriscontinanza.com/2010/09/10/STFUDD.html"/>
+   <updated>2010-09-10T00:00:00-05:00</updated>
+   <id>http://chriscontinanza.com/2010/09/10/STFUDD</id>
+   <content type="html">&lt;h1&gt;STFU Driven Development&lt;/h1&gt;
+
+&lt;p&gt;Before you write your first line of code, you write your
+tests.  Before you write those tests you think of the behavior
+of an app and write your acceptance tests. &lt;a href=&quot;http://tom.preston-werner.com/2010/08/23/readme-driven-development.html&quot;&gt;Before that you should have also written the README&lt;/a&gt;
+Nevertheless, you may still have this nagging feeling you're doing
+it wrong.  I've been there, and I've discovered the remedy:&lt;/p&gt;
+
+&lt;p&gt;Before you do all those things, you should first make a
+conscience effort to&lt;/p&gt;
+
+&lt;h2&gt;Shut the Fuck Up.&lt;/h2&gt;
+
+&lt;p&gt;In STFUDD or &quot;Shut the Fuck Up Driven Development&quot;, you don't write
+anything at first.  You just STFU.&lt;br/&gt;
+Not only must you stop yourself from talking to the people around you,
+but more importantly you must stop
+all those other voices in your head from talking.  The voice that
+says &quot;do it this way&quot; because its the latest
+and greatest.  The voice saying &quot;you can't do this&quot; or &quot;that
+isn't profitable&quot; or even the voice saying &quot;that IS profitable!&quot;.&lt;br/&gt;
+They all need to STFU, too.&lt;/p&gt;
+
+&lt;p&gt;If the Buddha stands in your way to enlightenment you must slay
+him.  Likewise, if a methodology stands between you and your
+masterpiece it must STFU.&lt;/p&gt;
+
+&lt;p&gt;There's a deep reason for this: for everything we know there exists
+a context in which that thing we know is wrong.&lt;/p&gt;
+
+&lt;p&gt;For the math nerds:&lt;/p&gt;
+
+&lt;pre&gt;
+Given T(x,y) means &quot;Truth of proposition x in context y&quot; 
+&amp;#8707; {C(x) : x is a context} 
+&amp;#8707; {K(x) : x is a thing I know} 
+&amp;#8704; K(x) &amp;#8707; C(y) s.t. T(x,y) is FALSE 
+&lt;/pre&gt;
+
+
+&lt;p&gt;(For all things (that are things I know)
+there exists a Context in which that thing I know
+is false).&lt;/p&gt;
+
+&lt;p&gt;So there it is in cold, hard logic:
+everything you know is wrong and
+by corollary everything everyone knows is wrong, at least
+some of the time.&lt;/p&gt;
+
+&lt;p&gt;That is precisely where STFU Driven Development shines-
+the way STFU Driven Development improves your work is that
+it reminds you we're all full of shit.  And that's why you
+test.  That's why you write a README.&lt;/p&gt;
+
+&lt;p&gt;STFU Driven Development also ends arguments.  Instead of &quot;who's right?&quot;
+its &quot;How quickly can we Shut the Fuck Up and write something?&quot;&lt;/p&gt;
+
+&lt;p&gt;So that's it.  Next time you want to do something new and amazing, remember
+that while our computers are relatively new our brains relatively aren't.&lt;br/&gt;
+If you're going to do it right you need some calm, you need stillness, you need quiet.&lt;br/&gt;
+And you bet your ass you
+still need tests and documentation if you want other developers to trust
+your code.&lt;/p&gt;
+
+&lt;p&gt;So that moment before the moment before you start your next project take a minute
+and remember the way of STFUDD:
+Shut the fuck up and write something.&lt;/p&gt;
+
+&lt;p&gt;Check that - STFU and write something beautiful.  Something you want to look
+back on and smile at because in a way, it is smiling back at you.
+That's your signal.  The rest is noise.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>
