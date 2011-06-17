@@ -4,7 +4,7 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2011-06-17T17:54:13-05:00</updated>
+ <updated>2011-06-17T17:58:18-05:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
@@ -13,11 +13,11 @@
 
  
  <entry>
-   <title>Transitioning my Jekyll site to Heroku</title>
+   <title>Transitioning my Jekyll site to Heroku (Rack)</title>
    <link href="http://chriscontinanza.com/2011/06/15/Jekyll-to-heroku.html"/>
    <updated>2011-06-15T00:00:00-05:00</updated>
    <id>http://chriscontinanza.com/2011/06/15/Jekyll-to-heroku</id>
-   <content type="html">&lt;h1&gt;Transitioning my Jekyll site to Heroku&lt;/h1&gt;
+   <content type="html">&lt;h1&gt;Transitioning my Jekyll site to Heroku (Rack)&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki&quot;&gt;Jekyll&lt;/a&gt; is mojombo&amp;lsquo;s awesome and popular blogging platform for hackers.  I transitioned my site to use it over Wordpress a while ago and haven&amp;lsquo;t looked back.&lt;/p&gt;
 

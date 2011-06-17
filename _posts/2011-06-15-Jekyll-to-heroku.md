@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Transitioning my Jekyll site to Heroku
+title: Transitioning my Jekyll site to Heroku (Rack)
 ---
 
 {{ page.title }}
