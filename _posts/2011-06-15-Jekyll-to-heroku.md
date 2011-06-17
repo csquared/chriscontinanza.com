@@ -6,9 +6,9 @@ title: Transitioning my Jekyll site to Heroku
 {{ page.title }}
 ================
 
-Jekyll is TPW&lsquo;s awesome and popular blogging platform for hackers.  I transitioned my site to use it over Wordpress a while ago and have been very happy.  
+[Jekyll](https://github.com/mojombo/jekyll/wiki) is mojombo&lsquo;s awesome and popular blogging platform for hackers.  I transitioned my site to use it over Wordpress a while ago and haven&lsquo;t looked back.
 
-Jekyll generates a static html site from templates you create with liquid and/or markdown.  Usually, the generated site is .gitignored and uploaded every push.  This works great for static site hosts, but what about Heroku?
+Jekyll generates a static html site from templates you create with liquid and markdown.  Usually, the generated site is .gitignored and is regenerated on every deploy.  This works great for static site hosts, but what about Heroku?
 
 The strategy is easier than it seems.  We can still generate the static site, but we remove the _site dir from our .gitignore. 
 
@@ -34,7 +34,7 @@ run lambda { [404, {'Content-Type' => 'text/html'}, ['whoops! Not Found']]}
 
 That&lsquo;s it!  Now you can
 <pre>
-  heroku create <blog name>
-  git push heroku
+  > heroku create &lt;blog name&gt;
+  > git push heroku
 </pre>
 and go view your Jekyll blog running on Heroku!

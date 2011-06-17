@@ -4,7 +4,7 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2011-06-17T17:48:07-05:00</updated>
+ <updated>2011-06-17T17:54:13-05:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
@@ -19,9 +19,9 @@
    <id>http://chriscontinanza.com/2011/06/15/Jekyll-to-heroku</id>
    <content type="html">&lt;h1&gt;Transitioning my Jekyll site to Heroku&lt;/h1&gt;
 
-&lt;p&gt;Jekyll is TPW&amp;lsquo;s awesome and popular blogging platform for hackers.  I transitioned my site to use it over Wordpress a while ago and have been very happy.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mojombo/jekyll/wiki&quot;&gt;Jekyll&lt;/a&gt; is mojombo&amp;lsquo;s awesome and popular blogging platform for hackers.  I transitioned my site to use it over Wordpress a while ago and haven&amp;lsquo;t looked back.&lt;/p&gt;
 
-&lt;p&gt;Jekyll generates a static html site from templates you create with liquid and/or markdown.  Usually, the generated site is .gitignored and uploaded every push.  This works great for static site hosts, but what about Heroku?&lt;/p&gt;
+&lt;p&gt;Jekyll generates a static html site from templates you create with liquid and markdown.  Usually, the generated site is .gitignored and is regenerated on every deploy.  This works great for static site hosts, but what about Heroku?&lt;/p&gt;
 
 &lt;p&gt;The strategy is easier than it seems.  We can still generate the static site, but we remove the _site dir from our .gitignore.&lt;/p&gt;
 
@@ -50,8 +50,8 @@ static-site serving code that fucks up pngs.&lt;/p&gt;
 &lt;p&gt;That&amp;lsquo;s it!  Now you can&lt;/p&gt;
 
 &lt;pre&gt;
-  heroku create &lt;blog name&gt;
-  git push heroku
+  &gt; heroku create &amp;lt;blog name&amp;gt;
+  &gt; git push heroku
 &lt;/pre&gt;
 
 
