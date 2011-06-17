@@ -4,13 +4,60 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2011-06-13T15:41:57-05:00</updated>
+ <updated>2011-06-17T17:48:07-05:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
    <email>chris@chriscontinanza.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Transitioning my Jekyll site to Heroku</title>
+   <link href="http://chriscontinanza.com/2011/06/15/Jekyll-to-heroku.html"/>
+   <updated>2011-06-15T00:00:00-05:00</updated>
+   <id>http://chriscontinanza.com/2011/06/15/Jekyll-to-heroku</id>
+   <content type="html">&lt;h1&gt;Transitioning my Jekyll site to Heroku&lt;/h1&gt;
+
+&lt;p&gt;Jekyll is TPW&amp;lsquo;s awesome and popular blogging platform for hackers.  I transitioned my site to use it over Wordpress a while ago and have been very happy.&lt;/p&gt;
+
+&lt;p&gt;Jekyll generates a static html site from templates you create with liquid and/or markdown.  Usually, the generated site is .gitignored and uploaded every push.  This works great for static site hosts, but what about Heroku?&lt;/p&gt;
+
+&lt;p&gt;The strategy is easier than it seems.  We can still generate the static site, but we remove the _site dir from our .gitignore.&lt;/p&gt;
+
+&lt;p&gt;At first I installed the rack-jekyll gem, noticed a wierd problem with my pngs.  It turned out that the rack-jekyll gem rolled its own
+static-site serving code that fucks up pngs.&lt;/p&gt;
+
+&lt;p&gt;It turns out if you instead use the rack-contribs gem you can use Rack to serve a static site.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;lsquo;s my config.ru:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bundler&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setup&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Bundler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rack/contrib/try_static&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rack&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TryStatic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;ss&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;_site&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# static files root dir&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:urls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%w[/]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# match all requests &lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;:try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/index.html&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# try these postfixes sequentially&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# otherwise 404 NotFound&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;404&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;text/html&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;whoops! Not Found&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;That&amp;lsquo;s it!  Now you can&lt;/p&gt;
+
+&lt;pre&gt;
+  heroku create &lt;blog name&gt;
+  git push heroku
+&lt;/pre&gt;
+
+
+&lt;p&gt;and go view your Jekyll blog running on Heroku!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Joining Heroku</title>
@@ -26,10 +73,12 @@ this July!&lt;/p&gt;
 &lt;p&gt;I&amp;lsquo;m very excited about this opportunity.  There is so much to learn and also so much work to
 do making Heroku the world-class plaftorm that it is.  I&amp;lsquo;m going to be on the add-ons team,
 building out the functionality and interfaces that some of you will be using to provide your own
-services to Heroku customers.&lt;/p&gt;
+services to Heroku customers. The add-ons are like an app marketplace -- allowing your web app to consume other cloud services through Heroku.&lt;/p&gt;
 
 &lt;p&gt;I think Heroku&amp;lsquo;s newest iteration, the &quot;Cedar&quot; stack, is the quantum leap forward for not merely hosting
-a web application, but allowing it to dynamically scale.&lt;/p&gt;
+a web application, but allowing it to dynamically scale.  The first iterations of the Heroku Platform ironed out deploying a Rails app to the cloud.  With Cedar, we&amp;lsquo;re working towards running any unix process with the same simplicity and scalability as our current applications.&lt;/p&gt;
+
+&lt;p&gt;That said, I&amp;lsquo;ve begun putting my money where my mouth is and have started transitioning my sites to Heroku. &lt;a href=&quot;/2011/06/15/Jekyll-to-heroku.html&quot;&gt; First off, this site!&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Joining Heroku</title>
+   <title>Transitioning my Jekyll site to Heroku</title>
    <meta name="author" content="Chris Continanza" />
 
    <!-- syntax highlighting CSS -->
@@ -55,21 +55,45 @@
   </div>
   
   <div id="post">
-<h1>Joining Heroku</h1>
+<h1>Transitioning my Jekyll site to Heroku</h1>
 
-<p>Now that I&lsquo;ve <a href="http://www.youtube.com/watch?v=Ryicgd_hJ44">crossed all the ts and dotted all the lower case js</a>
-I can let everyone know: I&lsquo;m going to be working at <a href="http://www.heroku.com">Heroku</a> starting
-this July!</p>
+<p>Jekyll is TPW&lsquo;s awesome and popular blogging platform for hackers.  I transitioned my site to use it over Wordpress a while ago and have been very happy.</p>
 
-<p>I&lsquo;m very excited about this opportunity.  There is so much to learn and also so much work to
-do making Heroku the world-class plaftorm that it is.  I&lsquo;m going to be on the add-ons team,
-building out the functionality and interfaces that some of you will be using to provide your own
-services to Heroku customers. The add-ons are like an app marketplace -- allowing your web app to consume other cloud services through Heroku.</p>
+<p>Jekyll generates a static html site from templates you create with liquid and/or markdown.  Usually, the generated site is .gitignored and uploaded every push.  This works great for static site hosts, but what about Heroku?</p>
 
-<p>I think Heroku&lsquo;s newest iteration, the "Cedar" stack, is the quantum leap forward for not merely hosting
-a web application, but allowing it to dynamically scale.  The first iterations of the Heroku Platform ironed out deploying a Rails app to the cloud.  With Cedar, we&lsquo;re working towards running any unix process with the same simplicity and scalability as our current applications.</p>
+<p>The strategy is easier than it seems.  We can still generate the static site, but we remove the _site dir from our .gitignore.</p>
 
-<p>That said, I&lsquo;ve begun putting my money where my mouth is and have started transitioning my sites to Heroku. <a href="/2011/06/15/Jekyll-to-heroku.html"> First off, this site!</a></p>
+<p>At first I installed the rack-jekyll gem, noticed a wierd problem with my pngs.  It turned out that the rack-jekyll gem rolled its own
+static-site serving code that fucks up pngs.</p>
+
+<p>It turns out if you instead use the rack-contribs gem you can use Rack to serve a static site.</p>
+
+<p>Here&lsquo;s my config.ru:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="nb">require</span> <span class="s1">&#39;bundler&#39;</span>
+<span class="no">Bundler</span><span class="o">.</span><span class="n">setup</span>
+<span class="no">Bundler</span><span class="o">.</span><span class="n">require</span>
+<span class="nb">require</span> <span class="s1">&#39;rack/contrib/try_static&#39;</span>
+
+<span class="n">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">TryStatic</span><span class="p">,</span> 
+    <span class="ss">:root</span> <span class="o">=&gt;</span> <span class="s2">&quot;_site&quot;</span><span class="p">,</span>  <span class="c1"># static files root dir</span>
+    <span class="ss">:urls</span> <span class="o">=&gt;</span> <span class="sx">%w[/]</span><span class="p">,</span>     <span class="c1"># match all requests </span>
+    <span class="ss">:try</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;.html&#39;</span><span class="p">,</span> <span class="s1">&#39;index.html&#39;</span><span class="p">,</span> <span class="s1">&#39;/index.html&#39;</span><span class="o">]</span> <span class="c1"># try these postfixes sequentially</span>
+<span class="c1"># otherwise 404 NotFound</span>
+<span class="n">run</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">[</span><span class="mi">404</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text/html&#39;</span><span class="p">},</span> <span class="o">[</span><span class="s1">&#39;whoops! Not Found&#39;</span><span class="o">]]</span><span class="p">}</span>
+</code></pre>
+</div>
+
+
+<p>That&lsquo;s it!  Now you can</p>
+
+<pre>
+  heroku create <blog name>
+  git push heroku
+</pre>
+
+
+<p>and go view your Jekyll blog running on Heroku!</p>
 
 <p>c<sup>2</sup></p>
 </div>
@@ -78,7 +102,7 @@ a web application, but allowing it to dynamically scale.  The first iterations o
   <h2>Other Posts</h2>
   <ul class="posts">
     
-      <li><span>15 Jun 2011</span> &raquo; <a href="/2011/06/15/Jekyll-to-heroku.html">Transitioning my Jekyll site to Heroku</a></li>
+      <li><span>11 Jun 2011</span> &raquo; <a href="/2011/06/11/Heroku.html">Joining Heroku</a></li>
     
       <li><span>02 May 2011</span> &raquo; <a href="/2011/05/02/Hackers-Hacking.html">Hackers Hacking in a Hackerspace</a></li>
     
