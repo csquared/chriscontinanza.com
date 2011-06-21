@@ -4,7 +4,7 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2011-06-21T11:36:38-05:00</updated>
+ <updated>2011-06-21T11:43:39-05:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
@@ -187,7 +187,7 @@ a web application, but allowing it to dynamically scale.  The first iterations o
 
 &lt;p&gt;That said, I&amp;lsquo;ve begun putting my money where my mouth is and have started transitioning my sites to Heroku. &lt;a href=&quot;http://chriscontinanza.heroku.com/2011/06/15/Jekyll-to-heroku.html&quot;&gt; First off, this site!&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Stay tuned, as I will be posting code to github and transitioning all of an add-on I built for Heroku to run on the new Cedar stack.&lt;/p&gt;
+&lt;p&gt;Stay tuned because in the meantime I will be posting an add-on I built to github after I get it up and running on Heroku&amp;lsquo;s Cedar Platform!&lt;/p&gt;
 </content>
  </entry>
  
