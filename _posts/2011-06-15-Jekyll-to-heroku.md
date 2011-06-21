@@ -32,6 +32,15 @@ use Rack::TryStatic,
 run lambda { [404, {'Content-Type' => 'text/html'}, ['whoops! Not Found']]}
 {% endhighlight %}
 
+And Gemfile:
+{% highlight ruby %}
+source :gemcutter
+gem 'jekyll'
+gem 'rack-contrib'
+gem 'heroku'
+gem 'shotgun', :group => :development
+{% endhighlight %}
+
 That&lsquo;s it!  Now you can
 <pre>
   > heroku create &lt;blog name&gt;
