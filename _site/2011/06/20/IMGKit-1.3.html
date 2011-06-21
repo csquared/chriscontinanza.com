@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>IMGKit 1.3 Released!</title>
+   <meta name="author" content="Chris Continanza" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection" />
+   <![endif]-->
+
+  <script src="/js/jquery-1.5.2.min.js"></script>
+  <script src="/js/jquery-ui-1.8.11.custom.min.js"></script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18502848-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(function(){
+      $('div.nav a, ul.posts a').mouseenter(function(event){
+         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
+      })
+
+      $('ul.posts a').children().andSelf().contents().each(function(){
+        if(this.nodeType == 3){
+          var $this = $(this);
+          $this.replaceWith($this.text().replace(/(\w)/g, "<span>$&</span>"));
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+
+
+<div class="site">
+  <div class="title">
+    <div class="nav">
+      <a class="extra first" href="/">home</a>  
+    </div>
+  </div>
+  
+  <div id="post">
+<h1>IMGKit 1.3 Released!</h1>
+
+<p>I&lsquo;ve <a href="http://www.github.com/csquared/IMGKit">released a new version of the IMGKit gem</a> that incorporates some enhancements that while alone may not warrant discussion, taken together add some well-tested new functionality.</p>
+
+<h2>Moar Formats</h2>
+
+<p>I&lsquo;d always felt a shortcoming of the gem was that it artificially restricted results to the JPG format.  Although this format makes sense for the majority of cases, I had some requests for supporting the other formats.</p>
+
+<p>It turned out that passing the <code>--format</code> flag was always a possiblity, but I wanted something more ruby-like.  Specificially, I created a group of <code>#to_&lt;format&gt;</code> methods for jpgs, pngs, and tiffs.</p>
+
+<h2>Encodings? Oh my!</h2>
+
+<p>A big part of adding the to_format methods was how I was going to be able to test it.  I opted to write a matcher that uses the magic number (first 4 bytes) of the data to determine its format.  This way, I can test the generated data itself and not just that all the right method calls happened.</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="k">module</span> <span class="nn">MagicNumber</span>
+  <span class="kp">extend</span> <span class="nb">self</span>
+  <span class="no">JPG</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\xFF\xD8\xFF\xE0</span><span class="s2">&quot;</span>
+  <span class="no">JPEG</span> <span class="o">=</span> <span class="no">JPG</span>
+  <span class="no">PNG</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\x89\x50\x4e\x47</span><span class="s2">&quot;</span>
+  <span class="no">TIFF</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\x49\x49\x2a\x00</span><span class="s2">&quot;</span>
+  <span class="no">TIF</span>  <span class="o">=</span> <span class="no">TIFF</span>
+  <span class="no">GIF</span>  <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\x47\x49\x46\x38</span><span class="s2">&quot;</span>
+
+
+  <span class="k">if</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">respond_to?</span><span class="p">(</span><span class="ss">:force_encoding</span><span class="p">)</span> 
+    <span class="nb">constants</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span> <span class="nb">const_get</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">force_encoding</span><span class="p">(</span><span class="s2">&quot;ASCII-8BIT&quot;</span><span class="p">)</span>  <span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">string</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="o">.</span><span class="n">define</span> <span class="ss">:be_a</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="vi">@expected</span> <span class="o">=</span> <span class="no">MagicNumber</span><span class="o">.</span><span class="n">const_get</span><span class="p">(</span><span class="n">expected</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">upcase</span><span class="p">)</span>
+    <span class="no">MagicNumber</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="o">==</span> <span class="vi">@expected</span>
+  <span class="k">end</span>
+
+  <span class="n">failure_message_for_should</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="no">MagicNumber</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span>
+    <span class="s2">&quot;expctected </span><span class="si">#{</span><span class="n">actual</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">,</span><span class="si">#{</span><span class="n">actual</span><span class="o">.</span><span class="n">encoding</span><span class="si">}</span><span class="s2"> to equal </span><span class="si">#{</span><span class="vi">@expected</span><span class="o">.</span><span class="n">inspect</span><span class="si">}</span><span class="s2">,</span><span class="si">#{</span><span class="vi">@expected</span><span class="o">.</span><span class="n">encoding</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+
+<p>I can then use these in a test as:</p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="no">IMGKit</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_img</span><span class="o">.</span><span class="n">should</span> <span class="n">be_a</span><span class="p">(</span><span class="ss">:jpg</span><span class="p">)</span>
+</code></pre>
+</div>
+
+
+<p>Things were looking pretty good until I ran the actual tests under Ruby 1.9.  In MRI Ruby 1.9, the string encoding
+was causing the string comparison in the matcher to fail!  The strings in the MagicNumber class were being treated as ASCII-8BIT, whereas the strings representing the image data were UTF-8.</p>
+
+<p>At first, I coded a solution that allowed the image&lsquo;s binary
+data to get coerced into a UTF-8 string.  However, this is not the type of data that is being represented.  Encoding the
+binary string returned by <code>#to_img</code> as UTF-8 is the wrong fit and only creates the kind of weird equality bug
+I was seeing.  ASCII-8BIT is the encoding type for binary data, so I explicity coerce to and test for this encoding.</p>
+
+<h2>Moar Compatibility</h2>
+
+<p>However, the string coercision code could possibly introduce compatibilities with other rubies. RVM to the rescue!</p>
+
+<p>RVM has a feature that allows you to run specs under multiple different versions of Ruby:</p>
+
+<p><code>
+specs      - runs 'rake spec' across selected ruby versions
+</code></p>
+
+<p>so with the following runner:</p>
+
+<p><code>
+rvm 1.9.2\@imgkit_devel,1.8.7\@imgkit specs
+</code></p>
+
+<p>I can ensure compatibility with earlier Ruby!</p>
+
+<h2>Real Error Messages</h2>
+
+<p>Lastly, I got a useful commit from <a href="https://twitter.com/#!/koudelka">@kouldelka</a> that actually raises an error if the wkhtmltoimage command fails.</p>
+
+<h2>Conclusion</h2>
+
+<p>I hope these changes make using IMGKit more fun and reliable!</p>
+
+<p>c<sup>2</sup></p>
+</div>
+
+<div id="related">
+  <h2>Other Posts</h2>
+  <ul class="posts">
+    
+      <li><span>15 Jun 2011</span> &raquo; <a href="/2011/06/15/Jekyll-to-heroku.html">Transitioning my Jekyll site to Heroku (Rack)</a></li>
+    
+      <li><span>11 Jun 2011</span> &raquo; <a href="/2011/06/11/Heroku.html">Joining Heroku</a></li>
+    
+      <li><span>02 May 2011</span> &raquo; <a href="/2011/05/02/Hackers-Hacking.html">Hackers Hacking in a Hackerspace</a></li>
+    
+  </ul>
+</div>
+
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        <a href="mailto:christopher.continanza@gmail.com">christopher.continanza@gmail.com</a><br/>
+        <a href="http://github.com/csquared/">github.com/csquared</a><br />
+        <a href="http://twitter.com/em_csquared/">twitter.com/em_csquared</a><br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
+        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
+        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+      </p>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+</body>
+</html>
