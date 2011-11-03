@@ -18,16 +18,16 @@ In a way when someone gives you a true gift you are expected to return that gift
 The proof that this gift is unconditional is that there is no law to enforce this.
 
 Well, lets step back for a minute.  There may be no &quot;law&quot; in the cops-and-robbers sense, but fuck that shit anyways.
-Or in more technical terms: just because the police are not around does not mean there is some sort of logic at play.
+Or in more technical terms: just because there is no overtly enforcable law does not lead to anarchy, merely a different type of order.
+In a way its an experiment in radical scalability, something I see in the abstract on a regular basis.
 
-For instance, the first requirement for a gift is a surplus.  And if you remember, its not like one can just exploit the natural resources of the desert.
-So you need to live in the kind of world where peole can have a surplus.
+For instance, the first requirement for a gift is a surplus.  
+And if you remember, its not like one can just exploit the natural resources of the desert.
+So you need to live in the kind of world where people can have a surplus.
 This, in a way, shows how this type of gift economy does not seek to displace our everyday world of buying in selling, but holds a (sometimes ugly) mirror to its motivations and results.
-In one scenario your surplus and gamble with wall street, relishing as the winners will slowly corrupt our institutions via consuming the losers.
-Or you can take that surplus and turn it into a gift.  Instead of hoarding, you can implode.
-Both seem equal paths to riches and if its not clear by now I am obviously biased towards a surplus-gift economy rather than a surplus-hoard economy.
+It is a like a foreground-background relationship.  That thing in the desert has meaning because there
+is a much more sober world surrounding it.  
 
-And I must admit it is to be a bitter a situation of these times, although hardly unique, that the hoarders have been doing quite well.
-
-There are parallels to this in our startup world.
-
+Yet I think without a space for true lawlessness, even if only for a wekk, the inertia of the dead ruling the living
+is unbearable.
+By burning the man, it creates space for each year&lsquot;s new man.
