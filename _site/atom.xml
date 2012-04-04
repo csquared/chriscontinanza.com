@@ -4,7 +4,7 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2011-06-21T11:43:39-05:00</updated>
+ <updated>2012-04-03T19:16:19-07:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
@@ -13,9 +13,103 @@
 
  
  <entry>
+   <title>Unix is my everything</title>
+   <link href="http://chriscontinanza.com/2011/12/27/Unix-is-my-everything.html"/>
+   <updated>2011-12-27T00:00:00-08:00</updated>
+   <id>http://chriscontinanza.com/2011/12/27/Unix-is-my-everything</id>
+   <content type="html">&lt;h1&gt;Unix is my everything&lt;/h1&gt;
+
+&lt;p&gt;The original title of this post was going to be &quot;Unix is my IDE&quot;, something I am fond of saying whenever anyone mentions their IDE of choice.
+I realized that although many have heard that quip, a lot of people may not understand it is, in fact, the truth.
+UNIX &lt;em&gt;is&lt;/em&gt; my IDE.  Don&amp;rsquo;t know where that function is defined?  &lt;code&gt;grep&lt;/code&gt; for it, bro.&lt;/p&gt;
+
+&lt;p&gt;So when I decided to sit down and encapsulate some of my ideas on using UNIX as a development
+platform, I realized the UNIX way was buried way further into my psyche than I had anticipated.&lt;br/&gt;
+In fact, UNIX is in a large way responsible for the fact
+that I don&amp;rsquo;t see my day job as a day job.&lt;/p&gt;
+
+&lt;p&gt;The summary of the Unix Philosophy, according to Doug McIlroy:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface. [Salus]&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;UNIX is a living lesson in the power of abstraction: everything is text and files.  And although,
+like all abstractions, it proved leaky, its success has been far greater than its failure.&lt;/p&gt;
+
+&lt;p&gt;The emphasis on sharp, small tools that are simple by design is not merely a paradigm of programming.
+The pipe allows one to feed the output of one program into another.  Because everything is designed
+to work with text, this allows programs to be combined in ways not originally envisioned by the
+author.  This is called emergent behavior, and mirrors the organisation of the natural world.&lt;/p&gt;
+
+&lt;p&gt;Compare this with a monolithic program, designed to do everything the designer
+wanted to do and planned for you to do.&lt;br/&gt;
+The UNIX philosophy is that the end user is the best judge of their needs.
+This stance is inherently anti-authority.  Rather than the author trying to solve everyone&amp;lsquo;s
+problems, he/she is encouraged to solve his/her own.&lt;/p&gt;
+
+&lt;p&gt;I continually see this philosophy breaking out of its traditional UNIX confines and changing
+the world around me.
+For instance, modern lean startups build what is called a &quot;Minimun Viable Product&quot;: something
+that delivers the core value or idea of a product without every bell and whistle.
+This is because the bells and whistles all take time away from getting that product in
+front of people, which is the ultimate test of its viability.
+This sounds to me a lot like the &lt;a href=&quot;http://en.wikipedia.org/wiki/Worse_is_better&quot;&gt;New Jersey Style&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As we remake our world in terms of networks, in terms of the internet, it will always pay
+to know the ideas and philosophies that drove the most successful projects.
+When UNIX is one day obsoleted, the UNIX way will live on.&lt;/p&gt;
+
+&lt;p&gt;[Salus] Peter H. Salus. A Quarter-Century of Unix. Addison-Wesley. 1994. ISBN 0-201-54777-5.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Burning Man</title>
+   <link href="http://chriscontinanza.com/2011/10/03/Burning-Man.html"/>
+   <updated>2011-10-03T00:00:00-07:00</updated>
+   <id>http://chriscontinanza.com/2011/10/03/Burning-Man</id>
+   <content type="html">&lt;h1&gt;Burning Man&lt;/h1&gt;
+
+&lt;p&gt;After many years of wondering just what that thing in the desert is, I finally made it to Burning Man. Although the experience is still affecting me, I have definitely taken away a few insights.&lt;/p&gt;
+
+&lt;h2&gt;Gifts &gt; Bartering&lt;/h2&gt;
+
+&lt;p&gt;You may be surprised that no money is exchanged during Burning Man.
+Yet there are still Bars, food vendors, and late night popcorn - for free, from complete strangers.
+If this were a barter world I would perhaps offer my shirt, or a chicken.
+But this isn&amp;rsquo;t the barter system: this is a gift economy.  Take the popcorn, it is yours.&lt;/p&gt;
+
+&lt;p&gt;In a gift economy you are not expected to immediately return a favor or item with an item of equal value.
+Instead, it is like a communal game of paying it forward.
+Unless you are part of the minorty of sociopaths, recieving a gift where nothing is expected in return can be a transformative experience.
+Normally one&amp;rsquo;s first reaction is to return a similar gift.&lt;/p&gt;
+
+&lt;p&gt;However, this is rarely the case in the desert.  Because money is banned, you
+you have take your immediate desire to close the transaction and instead
+sublimate the drive towards giving something else away to someone else,
+maybe even at a much later time.
+The calculus is no longer a two-party exchange.
+Instead, the community of givers creates an open-ended network of exchange.&lt;/p&gt;
+
+&lt;h2&gt;Laws of Supply&lt;/h2&gt;
+
+&lt;p&gt;The first requirement for a gift is a surplus and one can&amp;rsquo; just exploit the natural resources of the desert.&lt;/p&gt;
+
+&lt;p&gt;This means any type of gift economy does not seek to displace our everyday world of private property, even if it holds a (sometimes ugly) mirror to its motivations and results.
+It is a like a foreground-background relationship.&lt;br/&gt;
+Only having resources in our supposed normal world is the very thing that enables
+you to have gifts to give away.&lt;/p&gt;
+
+&lt;p&gt;In other words, the gift economy is not even an alternative to our current system.
+It can give it meaning beyond mere consumption and greed.
+Having to share is better just than having to have.
+At least in my opinion.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>IMGKit 1.3 Released!</title>
    <link href="http://chriscontinanza.com/2011/06/20/IMGKit-1.3.html"/>
-   <updated>2011-06-20T00:00:00-05:00</updated>
+   <updated>2011-06-20T00:00:00-07:00</updated>
    <id>http://chriscontinanza.com/2011/06/20/IMGKit-1.3</id>
    <content type="html">&lt;h1&gt;IMGKit 1.3 Released!&lt;/h1&gt;
 
@@ -111,7 +205,7 @@ rvm 1.9.2\@imgkit_devel,1.8.7\@imgkit specs
  <entry>
    <title>Transitioning my Jekyll site to Heroku (Rack)</title>
    <link href="http://chriscontinanza.com/2011/06/15/Jekyll-to-heroku.html"/>
-   <updated>2011-06-15T00:00:00-05:00</updated>
+   <updated>2011-06-15T00:00:00-07:00</updated>
    <id>http://chriscontinanza.com/2011/06/15/Jekyll-to-heroku</id>
    <content type="html">&lt;h1&gt;Transitioning my Jekyll site to Heroku (Rack)&lt;/h1&gt;
 
@@ -169,7 +263,7 @@ static-site serving code that fucks up pngs.&lt;/p&gt;
  <entry>
    <title>Joining Heroku</title>
    <link href="http://chriscontinanza.com/2011/06/11/Heroku.html"/>
-   <updated>2011-06-11T00:00:00-05:00</updated>
+   <updated>2011-06-11T00:00:00-07:00</updated>
    <id>http://chriscontinanza.com/2011/06/11/Heroku</id>
    <content type="html">&lt;h1&gt;Joining Heroku&lt;/h1&gt;
 
@@ -194,7 +288,7 @@ a web application, but allowing it to dynamically scale.  The first iterations o
  <entry>
    <title>Hackers Hacking in a Hackerspace</title>
    <link href="http://chriscontinanza.com/2011/05/02/Hackers-Hacking.html"/>
-   <updated>2011-05-02T00:00:00-05:00</updated>
+   <updated>2011-05-02T00:00:00-07:00</updated>
    <id>http://chriscontinanza.com/2011/05/02/Hackers-Hacking</id>
    <content type="html">&lt;h1&gt;Hackers Hacking in a Hackerspace&lt;/h1&gt;
 
@@ -227,7 +321,7 @@ a web application, but allowing it to dynamically scale.  The first iterations o
  <entry>
    <title>Introducing IMGKit</title>
    <link href="http://chriscontinanza.com/2010/12/12/Introding-IMGKit.html"/>
-   <updated>2010-12-12T00:00:00-06:00</updated>
+   <updated>2010-12-12T00:00:00-08:00</updated>
    <id>http://chriscontinanza.com/2010/12/12/Introding-IMGKit</id>
    <content type="html">&lt;h1&gt;Introducing IMGKit&lt;/h1&gt;
 
@@ -339,7 +433,7 @@ a web application, but allowing it to dynamically scale.  The first iterations o
  <entry>
    <title>Permutations and Combinations with Ruby's Array</title>
    <link href="http://chriscontinanza.com/2010/10/29/Array.html"/>
-   <updated>2010-10-29T00:00:00-05:00</updated>
+   <updated>2010-10-29T00:00:00-07:00</updated>
    <id>http://chriscontinanza.com/2010/10/29/Array</id>
    <content type="html">&lt;h1&gt;Permutations and Combinations with Ruby's Array&lt;/h1&gt;
 
@@ -592,7 +686,7 @@ expressive to generate permutations/combintations instead of listing them.&lt;/p
  <entry>
    <title>Hello, strace (an introduction to strace)</title>
    <link href="http://chriscontinanza.com/2010/09/19/Hello-strace.html"/>
-   <updated>2010-09-19T00:00:00-05:00</updated>
+   <updated>2010-09-19T00:00:00-07:00</updated>
    <id>http://chriscontinanza.com/2010/09/19/Hello-strace</id>
    <content type="html">&lt;h1&gt;Hello, strace (an introduction to strace)&lt;/h1&gt;
 
@@ -710,119 +804,6 @@ $ strace irb
 
 
 &lt;p&gt;And just type &quot;hello, world.&quot;  Welcome to the interactive strace!&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>A Cheap and Simple Laptop Stand</title>
-   <link href="http://chriscontinanza.com/2010/09/12/Hackspiration.html"/>
-   <updated>2010-09-12T00:00:00-05:00</updated>
-   <id>http://chriscontinanza.com/2010/09/12/Hackspiration</id>
-   <content type="html">&lt;h1&gt;A Cheap and Simple Laptop Stand&lt;/h1&gt;
-
-&lt;p&gt;I'm a nomad programmer, a bedouin, and often find myself working at cafes.  At the
-end of a particularly cafe-heavy week I found myself with an awful
-tension headache due the miserable ergonomics of sitting down and staring
-at a laptop.  At home I can use my standing desk, but I'm yet to find a
-cafe where I can stand and code.&lt;/p&gt;
-
-&lt;p&gt;Here's what I did about it:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/laptop_stand1.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Super-simple design: two triangles (with feet at the bottom) connected by a piece
-of wood.  I notched the connections but it worked fine without them.  The white
-stuff is some foam I had around.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/laptop_stand2.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And here it is out in the wild:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/laptop_stand_outside.jpg&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I plan on this version being a prototype, and am hoping the folks at the local
-hackerspace can help me with a metal or plastic version.  However, this first
-draft already works and is shitty enough to inspire you to make your own,
-better one.  Hack on!&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>STFU Driven Development</title>
-   <link href="http://chriscontinanza.com/2010/09/10/STFUDD.html"/>
-   <updated>2010-09-10T00:00:00-05:00</updated>
-   <id>http://chriscontinanza.com/2010/09/10/STFUDD</id>
-   <content type="html">&lt;h1&gt;STFU Driven Development&lt;/h1&gt;
-
-&lt;p&gt;Before you write your first line of code, you write your
-tests.  Before you write those tests you think of the behavior
-of an app and write your acceptance tests. &lt;a href=&quot;http://tom.preston-werner.com/2010/08/23/readme-driven-development.html&quot;&gt;Before that you should have also written the README&lt;/a&gt;
-Nevertheless, you may still have this nagging feeling you're doing
-it wrong.  I've been there, and I've discovered the remedy:&lt;/p&gt;
-
-&lt;p&gt;Before you do all those things, you should first make a
-conscience effort to&lt;/p&gt;
-
-&lt;h2&gt;Shut the Fuck Up.&lt;/h2&gt;
-
-&lt;p&gt;In STFUDD or &quot;Shut the Fuck Up Driven Development&quot;, you don't write
-anything at first.  You just STFU.&lt;br/&gt;
-Not only must you stop yourself from talking to the people around you,
-but more importantly you must stop
-all those other voices in your head from talking.  The voice that
-says &quot;do it this way&quot; because its the latest
-and greatest.  The voice saying &quot;you can't do this&quot; or &quot;that
-isn't profitable&quot; or even the voice saying &quot;that IS profitable!&quot;.&lt;br/&gt;
-They all need to STFU, too.&lt;/p&gt;
-
-&lt;p&gt;If the Buddha stands in your way to enlightenment you must slay
-him.  Likewise, if a methodology stands between you and your
-masterpiece it must STFU.&lt;/p&gt;
-
-&lt;p&gt;There's a deep reason for this: for everything we know there exists
-a context in which that thing we know is wrong.&lt;/p&gt;
-
-&lt;p&gt;For the math nerds:&lt;/p&gt;
-
-&lt;pre&gt;
-Given T(x,y) means &quot;Truth of proposition x in context y&quot; 
-&amp;#8707; {C(x) : x is a context} 
-&amp;#8707; {K(x) : x is a thing I know} 
-&amp;#8704; K(x) &amp;#8707; C(y) s.t. T(x,y) is FALSE 
-&lt;/pre&gt;
-
-
-&lt;p&gt;(For all things (that are things I know)
-there exists a Context in which that thing I know
-is false).&lt;/p&gt;
-
-&lt;p&gt;So there it is in cold, hard logic:
-everything you know is wrong and
-by corollary everything everyone knows is wrong, at least
-some of the time.&lt;/p&gt;
-
-&lt;p&gt;That is precisely where STFU Driven Development shines-
-the way STFU Driven Development improves your work is that
-it reminds you we're all full of shit.  And that's why you
-test.  That's why you write a README.&lt;/p&gt;
-
-&lt;p&gt;STFU Driven Development also ends arguments.  Instead of &quot;who's right?&quot;
-its &quot;How quickly can we Shut the Fuck Up and write something?&quot;&lt;/p&gt;
-
-&lt;p&gt;So that's it.  Next time you want to do something new and amazing, remember
-that while our computers are relatively new our brains relatively aren't.&lt;br/&gt;
-If you're going to do it right you need some calm, you need stillness, you need quiet.&lt;br/&gt;
-And you bet your ass you
-still need tests and documentation if you want other developers to trust
-your code.&lt;/p&gt;
-
-&lt;p&gt;So that moment before the moment before you start your next project take a minute
-and remember the way of STFUDD:
-Shut the fuck up and write something.&lt;/p&gt;
-
-&lt;p&gt;Check that - STFU and write something beautiful.  Something you want to look
-back on and smile at because in a way, it is smiling back at you.
-That's your signal.  The rest is noise.&lt;/p&gt;
 </content>
  </entry>
  

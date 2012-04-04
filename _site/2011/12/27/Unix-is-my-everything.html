@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Unix is my everything</title>
+   <meta name="author" content="Chris Continanza" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection" />
+   <![endif]-->
+
+  <script src="/js/jquery-1.5.2.min.js"></script>
+  <script src="/js/jquery-ui-1.8.11.custom.min.js"></script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18502848-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(function(){
+      $('div.nav a, ul.posts a').mouseenter(function(event){
+         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
+      })
+
+      $('ul.posts a').children().andSelf().contents().each(function(){
+        if(this.nodeType == 3){
+          var $this = $(this);
+          $this.replaceWith($this.text().replace(/(\w)/g, "<span>$&</span>"));
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+
+
+<div class="site">
+  <div class="title">
+    <div class="nav">
+      <a class="extra first" href="/">home</a>  
+    </div>
+  </div>
+  
+  <div id="post">
+<h1>Unix is my everything</h1>
+
+<p>The original title of this post was going to be "Unix is my IDE", something I am fond of saying whenever anyone mentions their IDE of choice.
+I realized that although many have heard that quip, a lot of people may not understand it is, in fact, the truth.
+UNIX <em>is</em> my IDE.  Don&rsquo;t know where that function is defined?  <code>grep</code> for it, bro.</p>
+
+<p>So when I decided to sit down and encapsulate some of my ideas on using UNIX as a development
+platform, I realized the UNIX way was buried way further into my psyche than I had anticipated.<br/>
+In fact, UNIX is in a large way responsible for the fact
+that I don&rsquo;t see my day job as a day job.</p>
+
+<p>The summary of the Unix Philosophy, according to Doug McIlroy:</p>
+
+<blockquote><p>This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface. [Salus]</p></blockquote>
+
+<p>UNIX is a living lesson in the power of abstraction: everything is text and files.  And although,
+like all abstractions, it proved leaky, its success has been far greater than its failure.</p>
+
+<p>The emphasis on sharp, small tools that are simple by design is not merely a paradigm of programming.
+The pipe allows one to feed the output of one program into another.  Because everything is designed
+to work with text, this allows programs to be combined in ways not originally envisioned by the
+author.  This is called emergent behavior, and mirrors the organisation of the natural world.</p>
+
+<p>Compare this with a monolithic program, designed to do everything the designer
+wanted to do and planned for you to do.<br/>
+The UNIX philosophy is that the end user is the best judge of their needs.
+This stance is inherently anti-authority.  Rather than the author trying to solve everyone&lsquo;s
+problems, he/she is encouraged to solve his/her own.</p>
+
+<p>I continually see this philosophy breaking out of its traditional UNIX confines and changing
+the world around me.
+For instance, modern lean startups build what is called a "Minimun Viable Product": something
+that delivers the core value or idea of a product without every bell and whistle.
+This is because the bells and whistles all take time away from getting that product in
+front of people, which is the ultimate test of its viability.
+This sounds to me a lot like the <a href="http://en.wikipedia.org/wiki/Worse_is_better">New Jersey Style</a>.</p>
+
+<p>As we remake our world in terms of networks, in terms of the internet, it will always pay
+to know the ideas and philosophies that drove the most successful projects.
+When UNIX is one day obsoleted, the UNIX way will live on.</p>
+
+<p>[Salus] Peter H. Salus. A Quarter-Century of Unix. Addison-Wesley. 1994. ISBN 0-201-54777-5.</p>
+
+<p>c<sup>2</sup></p>
+</div>
+
+<div id="related">
+  <h2>Other Posts</h2>
+  <ul class="posts">
+    
+      <li><span>03 Oct 2011</span> &raquo; <a href="/2011/10/03/Burning-Man.html">Burning Man</a></li>
+    
+      <li><span>20 Jun 2011</span> &raquo; <a href="/2011/06/20/IMGKit-1.3.html">IMGKit 1.3 Released!</a></li>
+    
+      <li><span>15 Jun 2011</span> &raquo; <a href="/2011/06/15/Jekyll-to-heroku.html">Transitioning my Jekyll site to Heroku (Rack)</a></li>
+    
+  </ul>
+</div>
+
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        <a href="mailto:christopher.continanza@gmail.com">christopher.continanza@gmail.com</a><br/>
+        <a href="http://github.com/csquared/">github.com/csquared</a><br />
+        <a href="http://twitter.com/em_csquared/">twitter.com/em_csquared</a><br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
+        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
+        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+      </p>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+</body>
+</html>
