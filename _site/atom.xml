@@ -4,13 +4,132 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2012-04-03T19:16:19-07:00</updated>
+ <updated>2012-04-04T20:19:06-07:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
    <email>chris@chriscontinanza.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Scaling Ruby for Almost Free</title>
+   <link href="http://chriscontinanza.com/2012/04/03/QC-and-Heroku.html"/>
+   <updated>2012-04-03T00:00:00-07:00</updated>
+   <id>http://chriscontinanza.com/2012/04/03/QC-and-Heroku</id>
+   <content type="html">&lt;h1&gt;Scaling Ruby for Almost Free&lt;/h1&gt;
+
+&lt;p&gt;Every once in a while you&amp;rsquo;re going to want to process a large volume of data.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re doing this in a production large data system,
+you&amp;rsquo;re better off pushing large, intensive calculations
+into your data model and on transformations of that model in
+a database.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, you may have perfectly good reasons for writing
+so intensive operation in Ruby.  Maybe it needs to connect to
+an API.  Maybe you rather write your billing logic in Ruby.
+I&amp;rsquo;m not here to judge.&lt;/p&gt;
+
+&lt;p&gt;In fact, doing the latter in an efficient way is what lead me to
+use the following techniques to process large data sets in
+short amounts of time by leveraging Heroku.&lt;/p&gt;
+
+&lt;p&gt;So let&amp;rsquo;s give our example some context so we can throw working code around it.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ll pretend we have a table with 1 million records and
+each of those records represents a user.  An internal team
+just opened up an API that will let you query user stats based on the
+user id.  Contrived, yes, but it will do.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re going to clone a repo and run some things on Heroku.  Add-ons and
+workers are billed to the second, so we will only be charged for the resources
+used during this example.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone 
+$ heroku create --stack cedar
+$ heroku addons:add shared-database
+$ git push heroku
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we&amp;rsquo;re going to load some data into the database.&lt;/p&gt;
+
+&lt;p&gt;We &lt;em&gt;could&lt;/em&gt; run the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku run bundle exec rake seed[1000000]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To do the the million inserts.  Howevever, this could wind up
+taking a while.  So let&amp;rsquo;s get used to firing up a bunch
+of workers to parallelize this task.&lt;/p&gt;
+
+&lt;p&gt;In the Procfile, notice the line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;seed: heroku run bundle exec rake seed[10000]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So we can now run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku scale seed=100
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And use 100 dynos (processes) to fill up the database.  You can watch
+your inserts by doing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku pg:psql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will fill up the database with one million rows with fake data in about 5 minutes.
+We could have used SQL for a lot of this, but not for the Faker gem.
+When the count is returning one million rows, you can scale your processes back down:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku scale seed=0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;One thing you may notice is that if you leave the process going for too long, Heroku will keep restarting it.&lt;br/&gt;
+This is the platform managing the process for you so it makes it a pretty crude, but simple way to do massively parallel Ruby for nothing.&lt;/p&gt;
+
+&lt;p&gt;A better way to do background work is with a queueing library.
+A favorite of mine because it is stable and works great on Heroku with postgresql is @ryandotsmith&amp;rsquo;s &lt;a href=&quot;https://github.com/ryandotsmith/queue_classic&quot;&gt;queue_classic&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can load Queue Classic with the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku run bundle exec rake setup_qc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we can do work by adding function calls to the queue.&lt;/p&gt;
+
+&lt;p&gt;To revisit the original problem, we need to now run through all the users in
+the database and tie the results of an internal API to that user.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re going to have the app connect to itself for the API call, so a
+small JSON endpoint runs as a Sinatra app in the &lt;code&gt;config.ru&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Instead of enqueuing up every single user id, we can just queue limits and offsets
+of the user table.  Our work function can work on this subset of users.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve included a Rake task to enqueue the limits and offsets based on a bucket
+parameter.  If set the number of buckets to the number of expected workers, they will
+all be working in parallel.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku run bundle exec rake queue_jobs[100]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can now run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku scale worker=100
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And see the results accumulate in the &lt;code&gt;results&lt;/code&gt; table.  When the count of the results
+table equals that of the users table, we&amp;rsquo;re done.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ heroku scale worker=0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And there you have it: using Heroku and Ruby to crunch large datasets for the price of
+a coffee in the time it takes to brew one (in San Francisco, at least).&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Unix is my everything</title>
@@ -59,50 +178,6 @@ to know the ideas and philosophies that drove the most successful projects.
 When UNIX is one day obsoleted, the UNIX way will live on.&lt;/p&gt;
 
 &lt;p&gt;[Salus] Peter H. Salus. A Quarter-Century of Unix. Addison-Wesley. 1994. ISBN 0-201-54777-5.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Burning Man</title>
-   <link href="http://chriscontinanza.com/2011/10/03/Burning-Man.html"/>
-   <updated>2011-10-03T00:00:00-07:00</updated>
-   <id>http://chriscontinanza.com/2011/10/03/Burning-Man</id>
-   <content type="html">&lt;h1&gt;Burning Man&lt;/h1&gt;
-
-&lt;p&gt;After many years of wondering just what that thing in the desert is, I finally made it to Burning Man. Although the experience is still affecting me, I have definitely taken away a few insights.&lt;/p&gt;
-
-&lt;h2&gt;Gifts &gt; Bartering&lt;/h2&gt;
-
-&lt;p&gt;You may be surprised that no money is exchanged during Burning Man.
-Yet there are still Bars, food vendors, and late night popcorn - for free, from complete strangers.
-If this were a barter world I would perhaps offer my shirt, or a chicken.
-But this isn&amp;rsquo;t the barter system: this is a gift economy.  Take the popcorn, it is yours.&lt;/p&gt;
-
-&lt;p&gt;In a gift economy you are not expected to immediately return a favor or item with an item of equal value.
-Instead, it is like a communal game of paying it forward.
-Unless you are part of the minorty of sociopaths, recieving a gift where nothing is expected in return can be a transformative experience.
-Normally one&amp;rsquo;s first reaction is to return a similar gift.&lt;/p&gt;
-
-&lt;p&gt;However, this is rarely the case in the desert.  Because money is banned, you
-you have take your immediate desire to close the transaction and instead
-sublimate the drive towards giving something else away to someone else,
-maybe even at a much later time.
-The calculus is no longer a two-party exchange.
-Instead, the community of givers creates an open-ended network of exchange.&lt;/p&gt;
-
-&lt;h2&gt;Laws of Supply&lt;/h2&gt;
-
-&lt;p&gt;The first requirement for a gift is a surplus and one can&amp;rsquo; just exploit the natural resources of the desert.&lt;/p&gt;
-
-&lt;p&gt;This means any type of gift economy does not seek to displace our everyday world of private property, even if it holds a (sometimes ugly) mirror to its motivations and results.
-It is a like a foreground-background relationship.&lt;br/&gt;
-Only having resources in our supposed normal world is the very thing that enables
-you to have gifts to give away.&lt;/p&gt;
-
-&lt;p&gt;In other words, the gift economy is not even an alternative to our current system.
-It can give it meaning beyond mere consumption and greed.
-Having to share is better just than having to have.
-At least in my opinion.&lt;/p&gt;
 </content>
  </entry>
  
