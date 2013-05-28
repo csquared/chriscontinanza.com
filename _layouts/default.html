@@ -31,10 +31,6 @@
     })();
 
     $(function(){
-      $('div.nav a, ul.posts a').mouseenter(function(event){
-         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
-      })
-
       $('ul.posts a').children().andSelf().contents().each(function(){
         if(this.nodeType == 3){
           var $this = $(this);
@@ -50,12 +46,12 @@
 <div class="site">
   <div class="title">
     <div class="nav">
-      <a class="extra first" href="/">home</a>  
+      <a class="extra first" href="/">home</a>
     </div>
   </div>
-  
+
   {{ content }}
-  
+
   <div class="footer">
     <div class="contact">
       <p>
@@ -66,15 +62,13 @@
     </div>
     <div class="contact">
       <p>
-        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
-        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
-        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+        Hacker at <a href="http://heroku.com/">Heroku</a><br />
       </p>
     </div>
   </div>
 </div>
 
-<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;"
     src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 </body>
 </html>

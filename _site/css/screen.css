@@ -27,18 +27,21 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
 }
 
-h1 {
+h1,h2,h3 {
   margin-bottom: 0.5em;
   margin-top: 1em;
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
 
-p {
-  margin: 1em 0;
-}
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1.1em; }
+h5 { font-size: 1.05em; }
 
-a, .nav a:visited, 
-a:hover span:nth-child(2n) { 
+p { margin: 1em 0; }
+
+a, .nav a:visited,
+a:hover span:nth-child(2n) {
   color: #006d88;
   font-weight: bold;
 }
@@ -57,43 +60,43 @@ dt a:hover ,
 }
 
 .posts a span:nth-child(2n),
-.posts a:hover span:nth-child(3n) { 
+.posts a:hover span:nth-child(3n) {
   color: #1086a3;
 }
 
 .posts a span:nth-child(3n),
-.posts a:hover span:nth-child(5n) { 
+.posts a:hover span:nth-child(5n) {
   color: #2496b3;
 }
 
-.posts a span:nth-child(5n), 
-.posts a:hover { 
+.posts a span:nth-child(5n),
+.posts a:hover {
   color: #36acc9;
 }
 
-a:visited, 
+a:visited,
 .posts a:visited:hover span:nth-child(2n) {
-  color: #a0a0a0; 
+  color: #a0a0a0;
 }
 
 .posts a:visited span:nth-child(2n),
-.posts a:visited:hover span:nth-child(3n) { 
-  color: #bbb; 
+.posts a:visited:hover span:nth-child(3n) {
+  color: #bbb;
 }
 
 .posts a:visited span:nth-child(3n),
-.posts a:visited:hover span:nth-child(5n) { 
+.posts a:visited:hover span:nth-child(5n) {
   color: #aaa;
 }
 
 .posts a:visited span:nth-child(5n),
-.posts a:visited:hover { 
-  color: #ccc; 
+.posts a:visited:hover {
+  color: #ccc;
 }
 
 a:hover,
 a:visited:hover {
- color: black; 
+ color: black;
 }
 
 table {
@@ -165,7 +168,7 @@ ul.posts span.date {
     font-size: 1.3em;
     margin: 0 15px;
   }
-  
+
   .site .title a.extra.first {
   }
 

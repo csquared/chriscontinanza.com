@@ -31,10 +31,6 @@
     })();
 
     $(function(){
-      $('div.nav a, ul.posts a').mouseenter(function(event){
-         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
-      })
-
       $('ul.posts a').children().andSelf().contents().each(function(){
         if(this.nodeType == 3){
           var $this = $(this);
@@ -50,25 +46,21 @@
 <div class="site">
   <div class="title">
     <div class="nav">
-      <a class="extra first" href="/">home</a>  
+      <a class="extra first" href="/">home</a>
     </div>
   </div>
-  
+
   <div id="home">
   <h1>Blog Posts</h1>
   <ul class="posts">
     
-      <li><span class="date">03 Apr 2012</span> &raquo; <a href="/2012/04/03/QC-and-Heroku.html">Scaling Ruby for Almost Free</a></li>
-    
-      <li><span class="date">27 Dec 2011</span> &raquo; <a href="/2011/12/27/Unix-is-my-everything.html">Unix is my everything</a></li>
+      <li><span class="date">26 May 2013</span> &raquo; <a href="/2013/05/26/Heroku-Outage-Lights.html">The Heroku Outage Lights System</a></li>
     
       <li><span class="date">20 Jun 2011</span> &raquo; <a href="/2011/06/20/IMGKit-1.3.html">IMGKit 1.3 Released!</a></li>
     
       <li><span class="date">15 Jun 2011</span> &raquo; <a href="/2011/06/15/Jekyll-to-heroku.html">Transitioning my Jekyll site to Heroku (Rack)</a></li>
     
       <li><span class="date">11 Jun 2011</span> &raquo; <a href="/2011/06/11/Heroku.html">Joining Heroku</a></li>
-    
-      <li><span class="date">02 May 2011</span> &raquo; <a href="/2011/05/02/Hackers-Hacking.html">Hackers Hacking in a Hackerspace</a></li>
     
       <li><span class="date">12 Dec 2010</span> &raquo; <a href="/2010/12/12/Introding-IMGKit.html">Introducing IMGKit</a></li>
     
@@ -80,17 +72,27 @@
 
   <h1>Open Source</h1>
   <dl>
+    <dt><a href="http://github.com/machine-cloud">Machine Cloud</a></dt>
+    <dd>Distributed system proof of concept for Internet/Cloud of Things on Heroku</dd>
+    <dt><a href="http://github.com/csquared/arduino-http">Arduino HTTP</a></dt>
+    <dd>An HTTP request library for Arduino</dd>
+    <dt><a href="http://github.com/csquared/node-logfmt">node-logfmt</a></dt>
+    <dd>Node.js package for consuming Heroku logp output and generic key=value logging</dd>
     <dt><a href="http://github.com/csquared/IMGKit">IMGKit</a></dt>
     <dd>This is a ruby gem that uses wkhtmltoimage to generate jpgs from HTML and CSS</dd>
     <dt><a href="https://github.com/csquared/cerberus-prox-frontend">Cerberus Prox Frontend</a></dt>
     <dd>This is a BDDed Rails 3 app I developed that we use at the Austin Hackerspace to manage the RFID door system</dd>
     <dt><a href="https://github.com/csquared/Chaos-Composer">Chaos-Composer</a></dt>
     <dd>Derive MIDI melodies from Chaotic Equations (before I learned the ways of TDD)</dd>
+  </dl>
+
+  <h1>Talks</h1>
+  <dl>
     <dt><a href="http://www.youtube.com/watch?v=3soqhbnh0jY" target='_blank'>The Bundler: The Good, The Bad, and the NP-Complete</a></dt>
     <dd>This is a talk on using the Bundler, given at Austin On Rails <a href="http://thebundler.heroku.com" target='_blank'>slides using Showoff</a></dd>
   </dl>
 
-  <h1>Other Work</h1>
+  <h1>Academic Work</h1>
   <dl>
     <dt><a href="http://www.amazon.com/Musical-Machines-Algorithmic-Composition-Equations/dp/3639209001/ref=sr_1_1?ie=UTF8&s=books&qid=1261016429&sr=1-1">Musical Machines</a></dt>
     <dd>My Master's thesis on deriving MIDI melodies from Chaotic equations</dd>
@@ -103,7 +105,7 @@
 
 
 
-  
+
   <div class="footer">
     <div class="contact">
       <p>
@@ -114,15 +116,13 @@
     </div>
     <div class="contact">
       <p>
-        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
-        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
-        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+        Hacker at <a href="http://heroku.com/">Heroku</a><br />
       </p>
     </div>
   </div>
 </div>
 
-<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;"
     src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 </body>
 </html>

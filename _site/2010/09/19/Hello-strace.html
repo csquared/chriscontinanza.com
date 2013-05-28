@@ -31,10 +31,6 @@
     })();
 
     $(function(){
-      $('div.nav a, ul.posts a').mouseenter(function(event){
-         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
-      })
-
       $('ul.posts a').children().andSelf().contents().each(function(){
         if(this.nodeType == 3){
           var $this = $(this);
@@ -50,128 +46,87 @@
 <div class="site">
   <div class="title">
     <div class="nav">
-      <a class="extra first" href="/">home</a>  
+      <a class="extra first" href="/">home</a>
     </div>
   </div>
-  
+
   <div id="post">
-<h1>Hello, strace (an introduction to strace)</h1>
+<h1 id='hello_strace_an_introduction_to_strace'>Hello, strace (an introduction to strace)</h1>
 
-<p>If you haven't seen it, <a href="http://vimeo.com/12748731">check out Aman Gupta's talk on using C tools to debug ruby</a>.
-After watching this talk, I was all fired up to use strace to
-shed light on just exactly what's going on when I'm running Ruby code.</p>
+<p>If you haven&#8217;t seen it, <a href='http://vimeo.com/12748731'>check out Aman Gupta&#8217;s talk on using C tools to debug ruby</a>. After watching this talk, I was all fired up to use strace to shed light on just exactly what&#8217;s going on when I&#8217;m running Ruby code.</p>
 
-<h2>strace [ -dffhiqrtttTvxx ]  ...  [ -ofile ] [ -ppid ] ... [ command [ arg ...  ] ]</h2>
+<h2 id='strace'>strace</h2>
 
-<p>strace is a tool that traces the system calls (those are calls made to the kernel)
-a specific process is making.  Remember in unix-world, every system call is implemented
-as a function in C.  strace allows you to see how your program is interacting
-with the operating system.</p>
+<pre><code>strace [ -dffhiqrtttTvxx ]  ...  [ -ofile ] [ -ppid ] ... [ command [ arg ...  ] ]</code></pre>
 
-<p>From the man pages:</p>
+<p>strace is a tool that traces the system calls (those are calls made to the kernel) a specific process is making. Remember in unix-world, every system call is implemented as a function in C. strace allows you to see how your program is interacting with the operating system.</p>
 
-<blockquote>
-In the simplest case strace runs the specified command until it exits.  
-It intercepts and records the system calls which are called by a process 
-and the signals  which  are  received  by a process.  The name of each system 
+<p>From the man pages: <blockquote>
+In the simplest case strace runs the specified command until it exits.
+It intercepts and records the system calls which are called by a process
+and the signals  which  are  received  by a process.  The name of each system
 call, its arguments and its return value are printed on standard error or to the file
-specified with the -o option.  
-</blockquote>
+specified with the -o option.
+</blockquote></p>
 
+<p>So let&#8217;s start with the simplest of cases.</p>
 
-<p>So let's start with the simplest of cases.</p>
+<p>What we&#8217;re going to do is run a Ruby hello world and a C hello world under strace so we can compare the output and get a feel for whats going on under the hood.</p>
 
-<p>What we're going to do is run a Ruby hello world and a C hello world under strace
-so we can compare the output and get a feel for whats going on under the hood.</p>
+<h2 id='hello_strace'>Hello, strace.</h2>
 
-<h2>Hello, strace.</h2>
+<p>To strace Ruby&#8217;s hello world, we&#8217;re going to take advantage of the -e flag. e means &#8220;Evaluate&#8221; and it tells the ruby interpreter you want it to eval the string you are passing to it.</p>
 
-<p>To strace Ruby's hello world, we're going to take advantage of the -e flag.  e means
-"Evaluate" and it tells the ruby interpreter you want it to eval the string you are
-passing to it.</p>
+<pre><code>$ strace -o ruby_strace ruby -e &#39;puts &quot;hello, world&quot;&#39;</code></pre>
 
-<pre>
-$ strace -o ruby_strace ruby -e 'puts "hello, world"' 
-</pre>
+<p><a href='http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/ruby_strace.log'>This log is about 130 lines, so I&#8217;ve added some commentsas to what&#8217;s going on.</a></p>
 
+<p>Here&#8217;s our C version of the same program.</p>
 
-<p><a href="http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/ruby_strace.log">This log is about 130 lines, so I've added some comments
-as to what's going on.</a></p>
-
-<p>Here's our C version of the same program.</p>
-
-<pre>
-#include <stdio.h>
+<pre><code>@@@c
+#include &lt;stdio.h&gt;
 main() {
-  printf("Hello, world");
-}
-</pre>
-
+  printf(&quot;Hello, world&quot;);
+}</code></pre>
 
 <p>Oooh exciting.</p>
 
 <p>now for a little</p>
 
-<pre>
-$ gcc c_hw.c -o chw
-$ strace chw -o c_strace.log
-</pre>
-
+<pre><code>$ gcc c_hw.c -o chw
+$ strace chw -o c_strace.log</code></pre>
 
 <p>And boo-ya!</p>
 
-<p><a href="http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/c_strace.log">The strace is a lot shorter, like 100 lines shorter.</a>.</p>
+<p><a href='http://github.com/csquared/mojombo.github.com/blob/master/_posts/strace/c_strace.log'>The strace is a lot shorter, like 100 lines shorter.</a>.</p>
 
-<h2>So what's going on?</h2>
+<h2 id='so_whats_going_on'>So what&#8217;s going on?</h2>
 
-<p>First off, you can find all of the lines in the C program show up somehow or another in the ruby program, in three distinct chunks.
-In the end, the entirety of both programs boils down to one system call to write:</p>
+<p>First off, you can find all of the lines in the C program show up somehow or another in the ruby program, in three distinct chunks. In the end, the entirety of both programs boils down to one system call to write:</p>
 
-<pre>
-write(1, "Hello, world", 12)             = 12  
-</pre>
+<pre><code>write(1, &quot;Hello, world&quot;, 12)             = 12</code></pre>
 
-
-<p>Which is writing our beloved Hello, world to file descriptor 1- better known as standard output.
-What's going on differently in the Ruby version is that the Ruby version has to load Ruby.
-Ruby then registers some interrupt handlers, seeds its random key, queries the process about its ids and goes along its merry way.</p>
+<p>Which is writing our beloved Hello, world to file descriptor 1- better known as standard output. What&#8217;s going on differently in the Ruby version is that the Ruby version has to load Ruby. Ruby then registers some interrupt handlers, seeds its random key, queries the process about its ids and goes along its merry way.</p>
 
 <p>Only to wind up with:</p>
 
-<pre>
-write(1, "hello, world\n", 13)             = 13  
-</pre>
+<pre><code>write(1, &quot;hello, world\n&quot;, 13)             = 13</code></pre>
 
-
-<p>Yup, that's the same instruction.  <em>As it should be.</em>  Ok.  Not totally the same.  I used Ruby's
-<em>puts</em> method, which post-pends a newline to the string.  This explains the difference between
-the 12 and 13 number of characters.</p>
+<p>Yup, that&#8217;s the same instruction. <em>As it should be.</em> Ok. Not totally the same. I used Ruby&#8217;s <em>puts</em> method, which post-pends a newline to the string. This explains the difference between the 12 and 13 number of characters.</p>
 
 <p>Nevertheless, the basic idea is that Ruby does everything the C program does plus loading all the parts that are simply Ruby.</p>
 
-<p>Since we're all Visual learners:</p>
+<p>Since we&#8217;re all Visual learners:</p>
+<img src='/images/strace_img.jpg' />
+<p>Because this is a trivial example, loading up Ruby seems like a lot of work. That&#8217;s just because the point of this excercise is to show the relationship between what Ruby is doing and what the equivalent C program would do.</p>
 
-<p><img src="/images/strace_img.jpg" /></p>
-
-<p>Because this is a trivial example, loading up Ruby seems like a lot of work.  That's just because
-the point of this excercise is to show the relationship between what Ruby is doing and what the
-equivalent C program would do.</p>
-
-<p>Just one line of ruby generated ~100 lines of strace.  That's a lot going on
-for just one line of code, so to do more beyond this <a href="http://xkcd.com/208/">we must harness the secret power of regular
-expressions.</a>  There are many more tools to cover, but
-strace teamed up with grep (or ack) is one of those power combos no programmer
-should be without.</p>
+<p>Just one line of ruby generated ~100 lines of strace. That&#8217;s a lot going on for just one line of code, so to do more beyond this <a href='http://xkcd.com/208/'>we must harness the secret power of regular expressions.</a> There are many more tools to cover, but strace teamed up with grep (or ack) is one of those power combos no programmer should be without.</p>
 
 <p>For a real gas try:</p>
 
-<pre>
-$ strace irb
-</pre>
+<pre><code>$ strace irb</code></pre>
 
-
-<p>And just type "hello, world."  Welcome to the interactive strace!</p>
-
+<p>And just type &#8220;hello, world.&#8221; Welcome to the interactive strace!</p>
 <p>c<sup>2</sup></p>
 </div>
 
@@ -179,16 +134,16 @@ $ strace irb
   <h2>Other Posts</h2>
   <ul class="posts">
     
-      <li><span>03 Apr 2012</span> &raquo; <a href="/2012/04/03/QC-and-Heroku.html">Scaling Ruby for Almost Free</a></li>
-    
-      <li><span>27 Dec 2011</span> &raquo; <a href="/2011/12/27/Unix-is-my-everything.html">Unix is my everything</a></li>
+      <li><span>26 May 2013</span> &raquo; <a href="/2013/05/26/Heroku-Outage-Lights.html">The Heroku Outage Lights System</a></li>
     
       <li><span>20 Jun 2011</span> &raquo; <a href="/2011/06/20/IMGKit-1.3.html">IMGKit 1.3 Released!</a></li>
+    
+      <li><span>15 Jun 2011</span> &raquo; <a href="/2011/06/15/Jekyll-to-heroku.html">Transitioning my Jekyll site to Heroku (Rack)</a></li>
     
   </ul>
 </div>
 
-  
+
   <div class="footer">
     <div class="contact">
       <p>
@@ -199,15 +154,13 @@ $ strace irb
     </div>
     <div class="contact">
       <p>
-        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
-        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
-        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+        Hacker at <a href="http://heroku.com/">Heroku</a><br />
       </p>
     </div>
   </div>
 </div>
 
-<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;"
     src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 </body>
 </html>

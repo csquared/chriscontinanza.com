@@ -6,7 +6,7 @@ title:  Introducing IMGKit
 {{ page.title }}
 ================
 
-I recently discovered JD Pace's <a href="http://github.com/jdpace/PDFKit">PDFKit</a> in the search for better ways to do things.  It's a great solution for generating PDF files from html sources.  It is basically a wrapper for the open source executable <a href="http://code.google.com/p/wkhtmltopdf/">wkhtmltopdf</a>.  
+I recently discovered JD Pace's <a href="http://github.com/jdpace/PDFKit">PDFKit</a> in the search for better ways to do things.  It's a great solution for generating PDF files from html sources.  It is basically a wrapper for the open source executable <a href="http://code.google.com/p/wkhtmltopdf/">wkhtmltopdf</a>.
 
 The idea behind <code>wkhtmltopdf</code> is simple: use the rendering engine of browser without the GUI to generate PDFs and you'll have pages that look exactly like they render on the web and get updated when the browsers do!
 
@@ -21,7 +21,7 @@ Simple, for sure. But it looked like SHIT.  Back to the drawing board.  A big pr
 
 ## wkhtmltoimage
 
-It turns out wkhtmlto<b>image</b> does for JPGs what wkthmlto<b>pdf</b> does for PDFs. Woot!  Like any good hacker, I first decided to try to screw around with the PDFKit gem, swapping out the call to wkhtmltopdf with one to wkhtmltoimage.  
+It turns out wkhtmlto<b>image</b> does for JPGs what wkthmlto<b>pdf</b> does for PDFs. Woot!  Like any good hacker, I first decided to try to screw around with the PDFKit gem, swapping out the call to wkhtmltopdf with one to wkhtmltoimage.
 
 As that broke, it lead me to try to just call the command on my own, which eventually lead to discovering this little gem of Ruby in PDFKit:
 
@@ -36,9 +36,10 @@ As that broke, it lead me to try to just call the command on my own, which event
     pdf.close_read
 {% endhighlight %}
 
-<a href="http://ruby-doc.org/core/classes/Kernel.html#M005950">It turns out you can open a pipe with <code>Kernel#open</code></a> that you can _read and write to like a file!_  Moments like this make me really appreciate the power of the 'file' abstraction.  
+<a href="http://ruby-doc.org/core/classes/Kernel.html#M005950">It turns out you can open a pipe with `Kernel#open`</a>
+that you can read and write to like a file!  Moments like this make me really appreciate the power of the 'file' abstraction.
 
-If you pass <code>Kernel#open</code> <code>'|&lt;cmdname&gt;'</code>, you will have a pipe to that command that you can read and write to with normal <code>IO</code> methods, such as #gets, #puts, and my favorite #&lt;&lt;. 
+If you pass `Kernel#open` `'|&lt;cmdname&gt;'`, you will have a pipe to that command that you can read and write to with normal <code>IO</code> methods, such as `#gets`, `#puts`, and my favorite `#&lt;&lt;`.
 
 If you pass <code>Kernel#open</code> the special string <code>'|-'</code>, not only do you get back a pipe, _but the process forks,_ returning nil to the child and the file-like pipe <code>IO</code> Object to the parent.  That's a pretty elegant way to wrap a process and that's how the <code> exec(&ast;command) if pdf.nil? </code> line works.
 
@@ -57,9 +58,9 @@ This may make it more clear:
     pipe.close_read
 {% endhighlight %}
 
-So I got to quick work writing my own script that just called wkhtmltoimage with this bit of code.  However, I quickly found out <code>wkthmltoimage</code> does not support the <code>--quiet</code> flag, which leads to a leaky standard error printing out the the console.  This is something that is very noticable during unit testing and is just a bad form and practice to not manage right.  
+So I got to quick work writing my own script that just called wkhtmltoimage with this bit of code.  However, I quickly found out <code>wkthmltoimage</code> does not support the <code>--quiet</code> flag, which leads to a leaky standard error printing out the the console.  This is something that is very noticable during unit testing and is just a bad form and practice to not manage right.
 
-## Standard error, you bastard! 
+## Standard error, you bastard!
 
 PDFKit is able to pass the <code>--quiet</code> flag to <code>wkhtmltopdf</code> to silence standard error; <code>wkhtmltoimage</code> has no such flag.  Using redirection is one way out and works fine when passing the command as a string to exec, a la <code>&quot;wkhtmltoimage - - 2&amp;/dev/null&quot;</code>.  However, this fails when using the splat operator on an array of built up parameters (ie: <code>exec(&ast;command)</code>).  It turns out Ruby has another way to call a process that, while not as terse as the above, does the job:
 
@@ -74,7 +75,7 @@ PDFKit is able to pass the <code>--quiet</code> flag to <code>wkhtmltopdf</code>
     end
 {% endhighlight %}
 
-<code>Open3#open3</code> allows you to explicitly manage standard input, output, and error of the child process command.  Since we're not really interested in what it has to say, we just close it when we're done reading the jpg on <code>stdout</code>.  The call to exec in the <code>Kernel#open</code> method does not provide a way to manage the output of standard error in the child process, so it winds up connected to the parent's standard error.
+`Open3#open3` allows you to explicitly manage standard input, output, and error of the child process command.  Since we're not really interested in what it has to say, we just close it when we're done reading the jpg on <code>stdout</code>.  The call to exec in the <code>Kernel#open</code> method does not provide a way to manage the output of standard error in the child process, so it winds up connected to the parent's standard error.
 
 ## Rolling my own
 
@@ -87,10 +88,10 @@ You can then create JPGs from HTML files with:
 {% highlight ruby %}
     require 'imgkit'
     kit = IMGKit.new(html, :quality => 50)
-    
+
     # Get the image BLOB
     img = kit.to_img
-  
+
     # Save to a file
     file = kit.to_file('/path/to/save/file2.jpg')
     # or

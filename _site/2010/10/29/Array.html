@@ -31,10 +31,6 @@
     })();
 
     $(function(){
-      $('div.nav a, ul.posts a').mouseenter(function(event){
-         $(this).fadeOut("fast", function(){ $(this).fadeIn("fast") });
-      })
-
       $('ul.posts a').children().andSelf().contents().each(function(){
         if(this.nodeType == 3){
           var $this = $(this);
@@ -50,35 +46,27 @@
 <div class="site">
   <div class="title">
     <div class="nav">
-      <a class="extra first" href="/">home</a>  
+      <a class="extra first" href="/">home</a>
     </div>
   </div>
-  
+
   <div id="post">
-<h1>Permutations and Combinations with Ruby's Array</h1>
+<h1 id='permutations_and_combinations_with_rubys_array'>Permutations and Combinations with Ruby&#8217;s Array</h1>
 
-<p>So I've been having fun <a href="http://github.com/csquared/NQueens">resurrecting code from my past</a>
-to help me with the work I'm doing today, which is pretty awesome.</p>
+<p>So I&#8217;ve been having fun <a href='http://github.com/csquared/NQueens'>resurrecting code from my past</a> to help me with the work I&#8217;m doing today, which is pretty awesome.</p>
 
-<p>But you know what's even more Aweseome?  Ruby's Array class.  It's gotten two new methods
-since 1.8.6 that do some nifty, mathy things: #permutation and #combination.</p>
+<p>But you know what&#8217;s even more Aweseome? Ruby&#8217;s Array class. It&#8217;s gotten two new methods since 1.8.6 that do some nifty, mathy things: #permutation and #combination.</p>
 
-<p>Permutations and combintations are both ways of constructing sets from a single group
-of primitives.  You may remember something along the lines of "N choose K".</p>
+<p>Permutations and combintations are both ways of constructing sets from a single group of primitives. You may remember something along the lines of &#8220;N choose K&#8221;.</p>
 
-<p>From N items, you can choose K of those items.  If order matters in the groups you
-are making then you are choosing <b>permutations</b>.  If order does not matter,
-then you are choosing <b>combinations</b>.  In cases larger than 1, there will
-always be more permutations than combinations.</p>
+<p>From N items, you can choose K of those items. If order matters in the groups you are making then you are choosing <b>permutations</b>. If order does not matter, then you are choosing <b>combinations</b>. In cases larger than 1, there will always be more permutations than combinations.</p>
 
 <p>The formula for permutations is as follows:</p>
 
-<p><img src="/images/permutations.png" alt="permutations" /></p>
+<p><img alt='permutations' src='/images/permutations.png' /></p>
 
-<p>However, I've always found the easiest way to think of permutations in terms of an empty
-array that you're filling with elements:</p>
-
-<table class="array">
+<p>However, I&#8217;ve always found the easiest way to think of permutations in terms of an empty array that you&#8217;re filling with elements:</p>
+<table class='array'>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -92,15 +80,10 @@ array that you're filling with elements:</p>
     <td>&nbsp;</td>
   </tr>
 </table>
-
-
-<p>Let's take the full example of having 10 items and wanting permutations that have a size of
-10.  So we'd say this is "10 choose 10", initializing our variables N and K to 10.  When
-we go to fill up the first spot in the array, we have all 10 items to pick from.</p>
-
-<table class="array">
+<p>Let&#8217;s take the full example of having 10 items and wanting permutations that have a size of 10. So we&#8217;d say this is &#8220;10 choose 10&#8221;, initializing our variables N and K to 10. When we go to fill up the first spot in the array, we have all 10 items to pick from.</p>
+<table class='array'>
   <tr>
-    <td style="width:10%">1 of 10</td>
+    <td style='width:10%'>1 of 10</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -112,15 +95,11 @@ we go to fill up the first spot in the array, we have all 10 items to pick from.
     <td>&nbsp;</td>
   </tr>
 </table>
-
-
-<p>Now when we go to fill up the second spot, we one have 9 elements to choose from, so
-we're picking 1 from the 9 remaining.</p>
-
-<table class="array">
+<p>Now when we go to fill up the second spot, we one have 9 elements to choose from, so we&#8217;re picking 1 from the 9 remaining.</p>
+<table class='array'>
   <tr>
-    <td style="width:10%">1 of 10</td>
-    <td style="width:10%">1 of 9</td>
+    <td style='width:10%'>1 of 10</td>
+    <td style='width:10%'>1 of 9</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -131,39 +110,28 @@ we're picking 1 from the 9 remaining.</p>
     <td>&nbsp;</td>
   </tr>
 </table>
-
-
-<p>To tally the grand total number of choices I can simply
-multiply 10 x  9 to arrive at 90.  That is because choosing 2 then 1 is different from choosing 1 then 2,
-and it actually makes the math easier.  This process continues:</p>
-
-<table class="array">
+<p>To tally the grand total number of choices I can simply multiply 10 x 9 to arrive at 90. That is because choosing 2 then 1 is different from choosing 1 then 2, and it actually makes the math easier. This process continues:</p>
+<table class='array'>
   <tr>
-    <td style="width:10%">1 of 10</td>
-    <td style="width:10%">1 of 9</td>
-    <td style="width:10%">1 of 8</td>
-    <td style="width:10%">1 of 7</td>
-    <td style="width:10%">1 of 6</td>
-    <td style="width:10%">1 of 5</td>
-    <td style="width:10%">1 of 4</td>
-    <td style="width:10%">1 of 3</td>
-    <td style="width:10%">1 of 2</td>
-    <td style="width:10%">1 of 1</td>
+    <td style='width:10%'>1 of 10</td>
+    <td style='width:10%'>1 of 9</td>
+    <td style='width:10%'>1 of 8</td>
+    <td style='width:10%'>1 of 7</td>
+    <td style='width:10%'>1 of 6</td>
+    <td style='width:10%'>1 of 5</td>
+    <td style='width:10%'>1 of 4</td>
+    <td style='width:10%'>1 of 3</td>
+    <td style='width:10%'>1 of 2</td>
+    <td style='width:10%'>1 of 1</td>
   </tr>
 </table>
-
-
-<p>As you can see, you just keep multiplying N by N-1. This is why, for the special
-case where N=k, the total number of permutations is N!, or
-N factorial.  For any cases smaller than that, you wind up with "just the head" of the
-factorial bit.  For example, in 10 choose 4 you are only doing the following:</p>
-
-<table class="array">
+<p>As you can see, you just keep multiplying N by N-1. This is why, for the special case where N=k, the total number of permutations is N!, or N factorial. For any cases smaller than that, you wind up with &#8220;just the head&#8221; of the factorial bit. For example, in 10 choose 4 you are only doing the following:</p>
+<table class='array'>
   <tr>
-    <td style="width:10%">1 of 10</td>
-    <td style="width:10%">1 of 9</td>
-    <td style="width:10%">1 of 8</td>
-    <td style="width:10%">1 of 7</td>
+    <td style='width:10%'>1 of 10</td>
+    <td style='width:10%'>1 of 9</td>
+    <td style='width:10%'>1 of 8</td>
+    <td style='width:10%'>1 of 7</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -172,135 +140,105 @@ factorial bit.  For example, in 10 choose 4 you are only doing the following:</p
     <td>&nbsp;</td>
   </tr>
 </table>
+<p>For me, the trick to understanding the formula is realizing what it is doing in the denominator is cancelling out the tail of 6 x 5 x 4 x 3&#8230; We know to start at six either by making my table above or using the formula to calulate N-K, which in this case is 10-4 = 6.</p>
 
+<p>Combinations are like permutations, but order doesn&#8217;t matter. The formula is very similar:</p>
 
-<p>For me, the trick to understanding the formula is realizing what it is doing in the denominator is
-cancelling out the tail of 6 x 5 x 4 x 3...  We know to start at six either by making
-my table above or using the formula to calulate N-K, which in this case is 10-4 = 6.</p>
+<p><img alt='combinations' src='http://upload.wikimedia.org/math/1/9/2/1928f752016eeb2c94f27269a14f7f47.png' /></p>
 
-<p>Combinations are like permutations, but order doesn't matter.  The formula is very similar:</p>
+<p>In fact, you can think of this as being the same process as permutations, but needing that k! in the denominator to cancel out subsets that already exist.</p>
 
-<p><img src="http://upload.wikimedia.org/math/1/9/2/1928f752016eeb2c94f27269a14f7f47.png" alt="combinations" /></p>
+<p>If you&#8217;re going to be using permutations and combinations in your code, its important to be able to calculate the size without needing to generate all the options because it can quickly overwhelm your computer.</p>
 
-<p>In fact, you can think of this as being the same process as permutations, but needing that k!
-in the denominator to cancel out subsets that already exist.</p>
-
-<p>If you're going to be using permutations and combinations in your code, its important to be
-able to calculate the size without needing to generate all the options because it can quickly
-overwhelm your computer.</p>
-
-<h1>Back of the envelope:</h1>
-
+<h1 id='back_of_the_envelope'>Back of the envelope:</h1>
 <pre>
 2<sup>10</sup> = 1024
-10! = 3,628,800 
+10! = 3,628,800
 
-2<sup>100</sup> = 1.2 x 10<sup>30</sup>  
+2<sup>100</sup> = 1.2 x 10<sup>30</sup>
 100! = 9.3 x 10<sup>157</sup>
 </pre>
+<p>That said, let&#8217;s take a look at how Ruby makes using permutations and combintations in your code deceptively simple:</p>
 
+<h2 id='arraypermutation'>Array#permutation</h2>
+<div class='highlight'><pre><code class='ruby'>   <span class='n'>a</span> <span class='o'>=</span> <span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>2</span><span class='p'>,</span> <span class='mi'>3</span><span class='o'>]</span>
+   <span class='n'>a</span><span class='o'>.</span><span class='n'>permutation</span><span class='o'>.</span><span class='n'>to_a</span>
+      <span class='o'>[[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>1</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='o'>]]</span>
+   <span class='n'>a</span><span class='o'>.</span><span class='n'>permutation</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+      <span class='o'>[[</span><span class='mi'>1</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='o'>]]</span>
+   <span class='n'>a</span><span class='o'>.</span><span class='n'>permutation</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+      <span class='o'>[[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>1</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='o'>]]</span>
+   <span class='n'>a</span><span class='o'>.</span><span class='n'>permutation</span><span class='p'>(</span><span class='mi'>3</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+      <span class='o'>[[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>1</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>1</span><span class='o'>]]</span>
+   <span class='n'>a</span><span class='o'>.</span><span class='n'>permutation</span><span class='p'>(</span><span class='mi'>0</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[[]]</span> <span class='c1'># one permutation of length 0</span>
+   <span class='n'>a</span><span class='o'>.</span><span class='n'>permutation</span><span class='p'>(</span><span class='mi'>4</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[]</span>   <span class='c1'># no permutations of length 4</span>
+</code></pre></div>
+<h2 id='arraycombination'>Array#combination</h2>
+<div class='highlight'><pre><code class='ruby'>  <span class='n'>a</span> <span class='o'>=</span> <span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span> <span class='mi'>2</span><span class='p'>,</span> <span class='mi'>3</span><span class='p'>,</span> <span class='mi'>4</span><span class='o'>]</span>
+  <span class='n'>a</span><span class='o'>.</span><span class='n'>combination</span><span class='p'>(</span><span class='mi'>1</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[[</span><span class='mi'>1</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>4</span><span class='o'>]]</span>
+  <span class='n'>a</span><span class='o'>.</span><span class='n'>combination</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>4</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>4</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='o'>]]</span>
+  <span class='n'>a</span><span class='o'>.</span><span class='n'>combination</span><span class='p'>(</span><span class='mi'>3</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>4</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='o'>]</span><span class='p'>,</span><span class='o'>[</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='o'>]]</span>
+  <span class='n'>a</span><span class='o'>.</span><span class='n'>combination</span><span class='p'>(</span><span class='mi'>4</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[[</span><span class='mi'>1</span><span class='p'>,</span><span class='mi'>2</span><span class='p'>,</span><span class='mi'>3</span><span class='p'>,</span><span class='mi'>4</span><span class='o'>]]</span>
+  <span class='n'>a</span><span class='o'>.</span><span class='n'>combination</span><span class='p'>(</span><span class='mi'>0</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[[]]</span> <span class='c1'># one combination of length 0</span>
+  <span class='n'>a</span><span class='o'>.</span><span class='n'>combination</span><span class='p'>(</span><span class='mi'>5</span><span class='p'>)</span><span class='o'>.</span><span class='n'>to_a</span>
+    <span class='o'>[]</span>   <span class='c1'># no combinations of length 5</span>
+</code></pre></div>
+<p>For reference&#8217;s sake I&#8217;ve included the implementation of permute0, which does the permutation calculation. This is implemented in array.c of Ruby recursively. Combination, however, is generated iteratively. In large cases this can impact the performance of these two functions.</p>
 
-<p>That said, let's take a look at how Ruby makes using permutations and combintations in your
-code deceptively simple:</p>
+<p>In production code, I&#8217;d say the best place to use these is not going to be in some sort of AI subsystem, but most likely with a small set where its more expressive to generate permutations/combintations instead of listing them.</p>
 
-<h2>Array#permutation</h2>
+<h2 id='appendix_a_permute0_in_arrayc'>Appendix A: permute0 in array.c</h2>
+<div class='highlight'><pre><code class='c'><span class='cm'>/*</span>
+<span class='cm'> * Recursively compute permutations of r elements of the set [0..n-1].</span>
+<span class='cm'> * When we have a complete permutation of array indexes, copy the values</span>
+<span class='cm'> * at those indexes into a new array and yield that array.</span>
+<span class='cm'> *</span>
+<span class='cm'> * n: the size of the set</span>
+<span class='cm'> * r: the number of elements in each permutation</span>
+<span class='cm'> * p: the array (of size r) that we&#39;re filling in</span>
+<span class='cm'> * index: what index we&#39;re filling in now</span>
+<span class='cm'> * used: an array of booleans: whether a given index is already used</span>
+<span class='cm'> * values: the Ruby array that holds the actual values to permute</span>
+<span class='cm'> */</span>
+<span class='k'>static</span> <span class='kt'>void</span>
+<span class='n'>permute0</span><span class='p'>(</span><span class='n'>n</span><span class='p'>,</span> <span class='n'>r</span><span class='p'>,</span> <span class='n'>p</span><span class='p'>,</span> <span class='n'>index</span><span class='p'>,</span> <span class='n'>used</span><span class='p'>,</span> <span class='n'>values</span><span class='p'>)</span>
+    <span class='kt'>long</span> <span class='n'>n</span><span class='p'>,</span> <span class='n'>r</span><span class='p'>,</span> <span class='o'>*</span><span class='n'>p</span><span class='p'>,</span> <span class='n'>index</span><span class='p'>;</span>
+    <span class='kt'>int</span> <span class='o'>*</span><span class='n'>used</span><span class='p'>;</span>
+    <span class='n'>VALUE</span> <span class='n'>values</span><span class='p'>;</span>
+<span class='p'>{</span>
+    <span class='kt'>long</span> <span class='n'>i</span><span class='p'>,</span><span class='n'>j</span><span class='p'>;</span>
+    <span class='k'>for</span> <span class='p'>(</span><span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span> <span class='n'>i</span> <span class='o'>&lt;</span> <span class='n'>n</span><span class='p'>;</span> <span class='n'>i</span><span class='o'>++</span><span class='p'>)</span> <span class='p'>{</span>
+      <span class='k'>if</span> <span class='p'>(</span><span class='n'>used</span><span class='p'>[</span><span class='n'>i</span><span class='p'>]</span> <span class='o'>==</span> <span class='mi'>0</span><span class='p'>)</span> <span class='p'>{</span>
+          <span class='n'>p</span><span class='p'>[</span><span class='n'>index</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>i</span><span class='p'>;</span>
+          <span class='k'>if</span> <span class='p'>(</span><span class='n'>index</span> <span class='o'>&lt;</span> <span class='n'>r</span><span class='o'>-</span><span class='mi'>1</span><span class='p'>)</span> <span class='p'>{</span>             <span class='cm'>/* if not done yet */</span>
+              <span class='n'>used</span><span class='p'>[</span><span class='n'>i</span><span class='p'>]</span> <span class='o'>=</span> <span class='mi'>1</span><span class='p'>;</span>               <span class='cm'>/* mark index used */</span>
+              <span class='n'>permute0</span><span class='p'>(</span><span class='n'>n</span><span class='p'>,</span> <span class='n'>r</span><span class='p'>,</span> <span class='n'>p</span><span class='p'>,</span> <span class='n'>index</span><span class='o'>+</span><span class='mi'>1</span><span class='p'>,</span> <span class='cm'>/* recurse */</span>
+              <span class='n'>used</span><span class='p'>,</span> <span class='n'>values</span><span class='p'>);</span>
+              <span class='n'>used</span><span class='p'>[</span><span class='n'>i</span><span class='p'>]</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span>               <span class='cm'>/* index unused */</span>
+          <span class='p'>}</span>
+          <span class='k'>else</span> <span class='p'>{</span>
+            <span class='cm'>/* We have a complete permutation of array indexes */</span>
+            <span class='cm'>/* Build a ruby array of the corresponding values */</span>
+            <span class='cm'>/* And yield it to the associated block */</span>
+            <span class='n'>VALUE</span> <span class='n'>result</span> <span class='o'>=</span> <span class='n'>rb_ary_new2</span><span class='p'>(</span><span class='n'>r</span><span class='p'>);</span>
+            <span class='n'>VALUE</span> <span class='o'>*</span><span class='n'>result_array</span> <span class='o'>=</span> <span class='n'>RARRAY</span><span class='p'>(</span><span class='n'>result</span><span class='p'>)</span><span class='o'>-&gt;</span><span class='n'>ptr</span><span class='p'>;</span>
+            <span class='k'>const</span> <span class='n'>VALUE</span> <span class='o'>*</span><span class='n'>values_array</span> <span class='o'>=</span> <span class='n'>RARRAY</span><span class='p'>(</span><span class='n'>values</span><span class='p'>)</span><span class='o'>-&gt;</span><span class='n'>ptr</span><span class='p'>;</span>
 
-<div class="highlight"><pre><code class="ruby">   <span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-   <span class="n">a</span><span class="o">.</span><span class="n">permutation</span><span class="o">.</span><span class="n">to_a</span>     
-      <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">]]</span>
-   <span class="n">a</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>  
-      <span class="o">[[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="o">]]</span>
-   <span class="n">a</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> 
-      <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="o">]]</span>
-   <span class="n">a</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>  
-      <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">]]</span>
-   <span class="n">a</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> 
-    <span class="o">[[]]</span> <span class="c1"># one permutation of length 0</span>
-   <span class="n">a</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>  
-    <span class="o">[]</span>   <span class="c1"># no permutations of length 4</span>
-</code></pre>
-</div>
-
-
-<h2>Array#combination</h2>
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">a</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-  <span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>  
-    <span class="o">[[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">4</span><span class="o">]]</span>
-  <span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>  
-    <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]]</span>
-  <span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> 
-    <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]]</span>
-  <span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>  
-    <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]]</span>
-  <span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>  
-    <span class="o">[[]]</span> <span class="c1"># one combination of length 0</span>
-  <span class="n">a</span><span class="o">.</span><span class="n">combination</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span> 
-    <span class="o">[]</span>   <span class="c1"># no combinations of length 5</span>
-</code></pre>
-</div>
-
-
-<p>For reference's sake I've included the implementation of permute0, which does
-the permutation calculation.  This is implemented in array.c of Ruby recursively.
-Combination, however, is generated iteratively.  In large cases this can
-impact the performance of these two functions.</p>
-
-<p>In production code, I'd say the best place to use these is not going to be in
-some sort of AI subsystem, but most likely with a small set where its more
-expressive to generate permutations/combintations instead of listing them.</p>
-
-<h2>Appendix A: permute0 in array.c</h2>
-
-<div class="highlight"><pre><code class="c"><span class="cm">/*</span>
-<span class="cm"> * Recursively compute permutations of r elements of the set [0..n-1].</span>
-<span class="cm"> * When we have a complete permutation of array indexes, copy the values</span>
-<span class="cm"> * at those indexes into a new array and yield that array. </span>
-<span class="cm"> *</span>
-<span class="cm"> * n: the size of the set </span>
-<span class="cm"> * r: the number of elements in each permutation</span>
-<span class="cm"> * p: the array (of size r) that we&#39;re filling in</span>
-<span class="cm"> * index: what index we&#39;re filling in now</span>
-<span class="cm"> * used: an array of booleans: whether a given index is already used</span>
-<span class="cm"> * values: the Ruby array that holds the actual values to permute</span>
-<span class="cm"> */</span>
-<span class="k">static</span> <span class="kt">void</span>
-<span class="n">permute0</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">used</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
-    <span class="kt">long</span> <span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">,</span> <span class="n">index</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="o">*</span><span class="n">used</span><span class="p">;</span>
-    <span class="n">VALUE</span> <span class="n">values</span><span class="p">;</span>
-<span class="p">{</span>
-    <span class="kt">long</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">p</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>             <span class="cm">/* if not done yet */</span>
-              <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>               <span class="cm">/* mark index used */</span>
-              <span class="n">permute0</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="cm">/* recurse */</span>
-              <span class="n">used</span><span class="p">,</span> <span class="n">values</span><span class="p">);</span>
-              <span class="n">used</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>               <span class="cm">/* index unused */</span>
-          <span class="p">}</span>
-          <span class="k">else</span> <span class="p">{</span>
-            <span class="cm">/* We have a complete permutation of array indexes */</span>
-            <span class="cm">/* Build a ruby array of the corresponding values */</span>
-            <span class="cm">/* And yield it to the associated block */</span>
-            <span class="n">VALUE</span> <span class="n">result</span> <span class="o">=</span> <span class="n">rb_ary_new2</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
-            <span class="n">VALUE</span> <span class="o">*</span><span class="n">result_array</span> <span class="o">=</span> <span class="n">RARRAY</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">ptr</span><span class="p">;</span>
-            <span class="k">const</span> <span class="n">VALUE</span> <span class="o">*</span><span class="n">values_array</span> <span class="o">=</span> <span class="n">RARRAY</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">ptr</span><span class="p">;</span>
-
-            <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">r</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="n">result_array</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">values_array</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="n">j</span><span class="p">]];</span>
-            <span class="n">RARRAY</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">len</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
-            <span class="n">rb_yield</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-         <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-
-
-
+            <span class='k'>for</span> <span class='p'>(</span><span class='n'>j</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span> <span class='n'>j</span> <span class='o'>&lt;</span> <span class='n'>r</span><span class='p'>;</span> <span class='n'>j</span><span class='o'>++</span><span class='p'>)</span> <span class='n'>result_array</span><span class='p'>[</span><span class='n'>j</span><span class='p'>]</span> <span class='o'>=</span> <span class='n'>values_array</span><span class='p'>[</span><span class='n'>p</span><span class='p'>[</span><span class='n'>j</span><span class='p'>]];</span>
+            <span class='n'>RARRAY</span><span class='p'>(</span><span class='n'>result</span><span class='p'>)</span><span class='o'>-&gt;</span><span class='n'>len</span> <span class='o'>=</span> <span class='n'>r</span><span class='p'>;</span>
+            <span class='n'>rb_yield</span><span class='p'>(</span><span class='n'>result</span><span class='p'>);</span>
+         <span class='p'>}</span>
+      <span class='p'>}</span>
+    <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
 <p>c<sup>2</sup></p>
 </div>
 
@@ -308,16 +246,16 @@ expressive to generate permutations/combintations instead of listing them.</p>
   <h2>Other Posts</h2>
   <ul class="posts">
     
-      <li><span>03 Apr 2012</span> &raquo; <a href="/2012/04/03/QC-and-Heroku.html">Scaling Ruby for Almost Free</a></li>
-    
-      <li><span>27 Dec 2011</span> &raquo; <a href="/2011/12/27/Unix-is-my-everything.html">Unix is my everything</a></li>
+      <li><span>26 May 2013</span> &raquo; <a href="/2013/05/26/Heroku-Outage-Lights.html">The Heroku Outage Lights System</a></li>
     
       <li><span>20 Jun 2011</span> &raquo; <a href="/2011/06/20/IMGKit-1.3.html">IMGKit 1.3 Released!</a></li>
+    
+      <li><span>15 Jun 2011</span> &raquo; <a href="/2011/06/15/Jekyll-to-heroku.html">Transitioning my Jekyll site to Heroku (Rack)</a></li>
     
   </ul>
 </div>
 
-  
+
   <div class="footer">
     <div class="contact">
       <p>
@@ -328,15 +266,13 @@ expressive to generate permutations/combintations instead of listing them.</p>
     </div>
     <div class="contact">
       <p>
-        Hacker at <a href="http://zipzoomauto.com/">ZipZoomAuto</a><br />
-        Member of <a href="http://austinhackerspace.org">Austin Hackerspace</a><br/>
-        Member of <a href="http://austinonrails.org">AustinOnRails</a><br/>
+        Hacker at <a href="http://heroku.com/">Heroku</a><br />
       </p>
     </div>
   </div>
 </div>
 
-<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;" 
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;"
     src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 </body>
 </html>
