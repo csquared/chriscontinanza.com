@@ -6,3 +6,4 @@ gem 'jekyll'
 #gem 'rack-jekyll', :require => 'rack/jekyll'
 gem 'rack-contrib'
 gem 'shotgun', :group => :development
+gem 'thin'

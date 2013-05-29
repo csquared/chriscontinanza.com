@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Heroku Deploy Visualizer</title>
+   <meta name="author" content="Chris Continanza" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+   <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection" />
+   <![endif]-->
+
+  <script src="/js/jquery-1.5.2.min.js"></script>
+  <script src="/js/jquery-ui-1.8.11.custom.min.js"></script>
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18502848-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    $(function(){
+      $('ul.posts a').children().andSelf().contents().each(function(){
+        if(this.nodeType == 3){
+          var $this = $(this);
+          $this.replaceWith($this.text().replace(/(\w)/g, "<span>$&</span>"));
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+
+
+<div class="site">
+  <div class="title">
+    <div class="nav">
+      <a class="extra first" href="/">home</a>
+    </div>
+  </div>
+
+  <div id="post">
+<h1 id='heroku_deploy_visualizer'>Heroku Deploy Visualizer</h1>
+
+<h2 id='another_exercise_in_ambient_awareness'>An(other) exercise in Ambient Awareness</h2>
+
+<p>For my last trick I built an <a href='/2013/05/26/Heroku-Outage-Lights.html'>Outage Lights</a> system to make it plainly obvious whenever we were having an outage. However, one thing I always disliked about this system is that although it is continually working, we (hopefully) rarely see it in action. So I set my sights on building something that could visualize an activity that we actually wanted happening.</p>
+
+<p>The fundamental unit at Heroku is the application. Some thoughts included blinking an LED whenever someone creates an app, or perhaps showing an app counter. However, creating an app on Heroku is so easy and quick it only encapsulates that first moment of inspiration. I wanted to show something even more meaningful and quickly realized that it wasn&#8217;t creations, but deploys, that are the sign of people doing real work on the platform.</p>
+
+<p>Ok, so with the event (deploys) in mind I now needed a way to visualize it. Blinking an LED could work, but is <em>quite</em> subtle and would require a lengthy explanation to make it apparent. I needed something more visceral. There must be an LED display compatible with Arduino. Sure enough, <a href='http://adafruit.com/products/555'>there is</a>.</p>
+
+<p>Not only does adafruit sell these LED matrices, but they are chainable! On top of that, they have an Arduino Library that makes interfacing as simple as:</p>
+<div class='highlight'><pre><code class='c++'><span class='c1'>// LED Matrix Library</span>
+<span class='cp'>#include &quot;HT1632.h&quot;</span>
+
+<span class='c1'>// LED Matrix Pins</span>
+<span class='cp'>#define DATA 2</span>
+<span class='cp'>#define WR   3</span>
+<span class='cp'>#define CS   4</span>
+
+<span class='c1'>//Led Matrix Controller</span>
+<span class='n'>HT1632LEDMatrix</span> <span class='n'>matrix</span> <span class='o'>=</span> <span class='n'>HT1632LEDMatrix</span><span class='p'>(</span><span class='n'>DATA</span><span class='p'>,</span> <span class='n'>WR</span><span class='p'>,</span> <span class='n'>CS</span><span class='p'>);</span>
+
+<span class='kt'>void</span> <span class='nf'>setup</span><span class='p'>()</span> <span class='p'>{</span>
+  <span class='c1'>//center cursor</span>
+  <span class='n'>matrix</span><span class='p'>.</span><span class='n'>setCursor</span><span class='p'>(</span><span class='mi'>2</span><span class='p'>,</span> <span class='mi'>4</span><span class='p'>);</span>
+  <span class='c1'>//print to LED matrix</span>
+  <span class='n'>matrix</span><span class='p'>.</span><span class='n'>print</span><span class='p'>(</span><span class='s'>&quot;Hello, world&quot;</span><span class='p'>);</span>
+<span class='p'>}</span>
+</code></pre></div>
+<h2 id='system_design'>System Design</h2>
+
+<p>The goal of this system is to display a Heroku app name whenever that app is deployed to the platform. I needed to subscribe to an internal Pusher Feed of app events. I filter the stream for deploy events and push those events into a <a href='http://redis.io'>redis</a> queue. The Arduino makes requests over HTTP for a comma-separated list of app names which are built by popping N items from the queue.</p>
+
+<p>For the CS nerds out there, this is a basic producer-consumer relationship. The pusher feed is the producer; the arduino the consumer.</p>
+
+<p>Here&#8217;s a high-level description:</p>
+
+<ul>
+<li>
+<p>Arduino Microcontroller</p>
+
+<ul>
+<li><a href='https://www.sparkfun.com/products/9026'>Ethernet Shield</a></li>
+
+<li>6 <a href='http://adafruit.com/products/555'>16X24 LED Matrices</a></li>
+
+<li><a href='https://www.sparkfun.com/products/298'>9V Power Supply</a></li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/csquared/deploy-viz'>Web App</a></p>
+
+<ul>
+<li>1 Web Process for Arduino Requests</li>
+
+<li>1 Background Process to consume event feed</li>
+
+<li>1 Redis instance to store the app name queue</li>
+</ul>
+</li>
+</ul>
+
+<h2 id='the_web_app'>The Web App</h2>
+
+<p>The web app uses Redis and the <code>pusher-client</code> gem to do most of the heavy lifting.</p>
+
+<h3 id='the__process'>The <code>firehose</code> process.</h3>
+
+<p>The <code>Firehose</code> class is a simple wrapper around the <code>pusher-client</code> for parsing a JSON feed. It is defined in <code>firehose.rb</code> and allows me to register a callback that is executed for every event. For simplicity&#8217;s sake, the callback is defined in the bin script itself:</p>
+<div class='highlight'><pre><code class='ruby'><span class='c1'>#!/usr/bin/env ruby</span>
+
+<span class='n'>require_relative</span> <span class='s2'>&quot;../firehose&quot;</span>
+<span class='n'>require_relative</span> <span class='s2'>&quot;../deploys&quot;</span>
+
+<span class='no'>BLACKLIST</span> <span class='o'>=</span> <span class='p'>(</span><span class='no'>ENV</span><span class='o'>[</span><span class='s1'>&#39;BLACKLIST&#39;</span><span class='o'>]</span> <span class='o'>||</span> <span class='s1'>&#39;&#39;</span><span class='p'>)</span><span class='o'>.</span><span class='n'>split</span><span class='p'>(</span><span class='s1'>&#39;,&#39;</span><span class='p'>)</span>
+<span class='no'>PUSHER_CREDS</span> <span class='o'>=</span> <span class='p'>{</span>
+  <span class='ss'>channel</span><span class='p'>:</span> <span class='no'>ENV</span><span class='o'>[</span><span class='s2'>&quot;PUSHER_CHANNEL&quot;</span><span class='o'>]</span><span class='p'>,</span>
+  <span class='ss'>key</span><span class='p'>:</span>     <span class='no'>ENV</span><span class='o'>[</span><span class='s2'>&quot;PUSHER_KEY&quot;</span><span class='o'>]</span><span class='p'>,</span>
+  <span class='ss'>secret</span><span class='p'>:</span>  <span class='no'>ENV</span><span class='o'>[</span><span class='s2'>&quot;PUSHER_SECRET&quot;</span><span class='o'>]</span>
+<span class='p'>}</span>
+
+<span class='no'>Firehose</span><span class='o'>.</span><span class='n'>new</span><span class='p'>(</span><span class='no'>PUSHER_CREDS</span><span class='p'>)</span> <span class='k'>do</span> <span class='o'>|</span><span class='n'>data</span><span class='o'>|</span>
+  <span class='k'>if</span> <span class='n'>data</span><span class='o'>[</span><span class='ss'>:action</span><span class='o'>]</span> <span class='o'>==</span> <span class='s1'>&#39;deploy-app&#39;</span>
+    <span class='nb'>name</span> <span class='o'>=</span> <span class='n'>data</span><span class='o'>[</span><span class='ss'>:target</span><span class='o'>]</span>
+    <span class='k'>if</span> <span class='no'>BLACKLIST</span><span class='o'>.</span><span class='n'>find</span><span class='p'>{</span> <span class='o'>|</span><span class='n'>string</span><span class='o'>|</span> <span class='nb'>name</span> <span class='o'>=~</span> <span class='sr'>/^</span><span class='si'>#{</span><span class='n'>string</span><span class='si'>}</span><span class='sr'>/</span> <span class='p'>}</span>
+      <span class='nb'>puts</span> <span class='s2'>&quot;BLACKLIST: </span><span class='si'>#{</span><span class='nb'>name</span><span class='si'>}</span><span class='s2'>&quot;</span>
+    <span class='k'>else</span>
+      <span class='nb'>puts</span> <span class='s2'>&quot;DEPLOY: </span><span class='si'>#{</span><span class='nb'>name</span><span class='si'>}</span><span class='s2'>&quot;</span>
+      <span class='no'>Deploys</span><span class='o'>.</span><span class='n'>add</span><span class='p'>(</span><span class='nb'>name</span><span class='p'>)</span>
+    <span class='k'>end</span>
+  <span class='k'>end</span>
+<span class='k'>end</span>
+</code></pre></div>
+<p>The <code>BLACKLIST</code> env var lets me filter certain apps we&#8217;re constantly deploying as health checks. When the <code>action</code> key in the payload matches the string <code>deploy-app</code>, we&#8217;re in business. The name of the app is stored in the <code>target</code> key. The <code>Deploys::add</code> call adds the app name to the queue in Redis.</p>
+
+<h3 id='the__process'>The <code>web</code> process.</h3>
+
+<p>Because we&#8217;re only assuming one consumer, the web process is dead simple:</p>
+<div class='highlight'><pre><code class='ruby'><span class='nb'>require</span> <span class='s1'>&#39;sinatra&#39;</span>
+<span class='n'>require_relative</span> <span class='s1'>&#39;./deploys&#39;</span>
+
+<span class='n'>set</span> <span class='ss'>:port</span><span class='p'>,</span> <span class='no'>ENV</span><span class='o'>[</span><span class='s1'>&#39;PORT&#39;</span><span class='o'>]</span> <span class='o'>||</span> <span class='mi'>3000</span>
+
+<span class='n'>get</span> <span class='s1'>&#39;*&#39;</span> <span class='k'>do</span>
+  <span class='no'>Deploys</span><span class='o'>.</span><span class='n'>get</span><span class='p'>(</span><span class='no'>ENV</span><span class='o'>[</span><span class='s1'>&#39;MAX_DEPLOYS&#39;</span><span class='o'>]</span><span class='p'>)</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='s1'>&#39;,&#39;</span><span class='p'>)</span>
+<span class='k'>end</span>
+</code></pre></div>
+<p>That&#8217;s it! <code>Deploys::get</code> pops the next N names from the queue. We just join them with a comma and ship them back to the arduino.</p>
+
+<h2 id='the_arduino_program'>The Arduino Program</h2>
+
+<p>For the arduino, we just poll the server for the comma-separated list and write the app name to the LED Matrix. The most efficient way to do this is to build up an <code>app_name</code> variable with each character of the string. When we see a comma, we write the app to the LED matrix, clear out the app_name, and start building the next string.</p>
+<div class='highlight'><pre><code class='c++'><span class='c1'>//Variables for loop()</span>
+<span class='n'>String</span> <span class='n'>response</span><span class='p'>;</span>
+<span class='n'>String</span> <span class='n'>app_name</span><span class='p'>;</span>
+
+<span class='kt'>void</span> <span class='nf'>loop</span><span class='p'>()</span> <span class='p'>{</span>
+  <span class='n'>response</span> <span class='o'>=</span> <span class='s'>&quot;&quot;</span><span class='p'>;</span>
+
+  <span class='c1'>//connect to HTTP</span>
+  <span class='k'>if</span><span class='p'>(</span><span class='n'>heroku</span><span class='p'>.</span><span class='n'>get</span><span class='p'>(</span><span class='s'>&quot;/&quot;</span><span class='p'>,</span> <span class='o'>&amp;</span><span class='n'>response</span><span class='p'>)</span> <span class='o'>==</span> <span class='mi'>0</span><span class='p'>){</span>
+    <span class='n'>app_name</span> <span class='o'>=</span> <span class='s'>&quot;&quot;</span><span class='p'>;</span>
+
+    <span class='k'>for</span><span class='p'>(</span><span class='kt'>int</span> <span class='n'>i</span> <span class='o'>=</span> <span class='mi'>0</span><span class='p'>;</span> <span class='n'>i</span> <span class='o'>&lt;</span> <span class='n'>response</span><span class='p'>.</span><span class='n'>length</span><span class='p'>();</span> <span class='n'>i</span><span class='o'>++</span><span class='p'>){</span>
+      <span class='k'>if</span><span class='p'>(</span><span class='n'>response</span><span class='p'>.</span><span class='n'>charAt</span><span class='p'>(</span><span class='n'>i</span><span class='p'>)</span> <span class='o'>==</span> <span class='sc'>&#39;,&#39;</span><span class='p'>){</span>
+        <span class='n'>Serial</span><span class='p'>.</span><span class='n'>print</span><span class='p'>(</span><span class='s'>&quot;Print: &quot;</span><span class='p'>);</span>
+        <span class='n'>Serial</span><span class='p'>.</span><span class='n'>println</span><span class='p'>(</span><span class='n'>app_name</span><span class='p'>);</span>
+        <span class='n'>matrix</span><span class='p'>.</span><span class='n'>clearScreen</span><span class='p'>();</span>
+        <span class='n'>matrix</span><span class='p'>.</span><span class='n'>setCursor</span><span class='p'>(</span><span class='n'>x_offset</span><span class='p'>,</span> <span class='n'>y_offset</span><span class='p'>);</span>
+        <span class='n'>matrix</span><span class='p'>.</span><span class='n'>print</span><span class='p'>(</span><span class='n'>app_name</span><span class='p'>);</span>
+        <span class='n'>matrix</span><span class='p'>.</span><span class='n'>writeScreen</span><span class='p'>();</span>
+        <span class='n'>app_name</span>  <span class='o'>=</span> <span class='s'>&quot;&quot;</span><span class='p'>;</span>
+        <span class='n'>delay</span><span class='p'>(</span><span class='n'>display_length_millis</span><span class='p'>);</span>
+      <span class='p'>}</span><span class='k'>else</span><span class='p'>{</span>
+        <span class='n'>app_name</span><span class='p'>.</span><span class='n'>concat</span><span class='p'>(</span><span class='n'>response</span><span class='p'>.</span><span class='n'>charAt</span><span class='p'>(</span><span class='n'>i</span><span class='p'>));</span>
+      <span class='p'>}</span>
+    <span class='p'>}</span>
+  <span class='p'>}</span><span class='k'>else</span><span class='p'>{</span>
+    <span class='c1'>//wait before next attempt to connect</span>
+    <span class='n'>delay</span><span class='p'>(</span><span class='n'>display_length_millis</span><span class='p'>);</span>
+  <span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre></div>
+<h3 id='were_gonna_need_a_bigger_boat'>We&#8217;re gonna need a bigger boat</h3>
+
+<p>The real issue I ran into was the <a href='https://github.com/adafruit/HT1632'>LED Driver lib</a> only supporting 4 matrices. It was truncating a decent number of app names, so I <a href='https://github.com/csquared/HT1632/commit/a27df6a48359f0f9e27060e7eee4b40649aeefa0#L0L52'>decided to add support for more matrices by just hacking the lib I had cloned</a>. However, it turns out <a href='https://github.com/adafruit/HT1632/pull/2'>I wasn&#8217;t the first person to think of this</a>. Given the state of that pull request, I decided not to issue one for my changes.</p>
+
+<h2 id='putting_it_all_together'>Putting it all together</h2>
+
+<p>Here you can see the Deploy Visualizer installed in the office:</p>
+
+<p>These techniques could easily be extended to make the LED matrix display other sources of data such as tweets or text messages, which is left as an excercise for the reader. Happy hacking!</p>
+<p>c<sup>2</sup></p>
+</div>
+
+<div id="related">
+  <h2>Other Posts</h2>
+  <ul class="posts">
+    
+      <li><span>26 May 2013</span> &raquo; <a href="/2013/05/26/Heroku-Outage-Lights.html">The Heroku Outage Lights System</a></li>
+    
+      <li><span>20 Jun 2011</span> &raquo; <a href="/2011/06/20/IMGKit-1.3.html">IMGKit 1.3 Released!</a></li>
+    
+      <li><span>15 Jun 2011</span> &raquo; <a href="/2011/06/15/Jekyll-to-heroku.html">Transitioning my Jekyll site to Heroku (Rack)</a></li>
+    
+  </ul>
+</div>
+
+
+  <div class="footer">
+    <div class="contact">
+      <p>
+        <a href="mailto:christopher.continanza@gmail.com">christopher.continanza@gmail.com</a><br/>
+        <a href="http://github.com/csquared/">github.com/csquared</a><br />
+        <a href="http://twitter.com/em_csquared/">twitter.com/em_csquared</a><br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        Hacker at <a href="http://heroku.com/">Heroku</a><br />
+      </p>
+    </div>
+  </div>
+</div>
+
+<a href="http://github.com/csquared"><img style="position: absolute; top: 0; right: 0; border: 0;"
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+</body>
+</html>
