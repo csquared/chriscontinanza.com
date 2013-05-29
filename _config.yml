@@ -1,2 +1,2 @@
 pygments: true
-exclude: ["vendor", "Gemfile*", "README.md"]
+exclude: ["vendor", "Gemfile*", "README.md", "Procfile", "config.ru"]
