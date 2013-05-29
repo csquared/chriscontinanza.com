@@ -183,7 +183,7 @@ Given the state of that pull request, I decided not to issue one for my changes.
 
 Here you can see the Deploy Visualizer installed in the office:
 
-
+<img src="/images/deploy-viz.jpg" style="width: 500px" title="Heroku Office Installation" />
 
 These techniques could easily be extended to make the LED matrix display other sources of data such
 as tweets or text messages, which is left as an excercise for the reader.
