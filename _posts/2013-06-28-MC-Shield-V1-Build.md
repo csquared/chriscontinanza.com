@@ -69,8 +69,6 @@ The notch in the MCP should match the notch in the seat (should be facing the ad
 
 ## Solder the Button
 
-Note: this step is screwed up on my board.
-
 ## Test the Button
 
     > cd mc-device

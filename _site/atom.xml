@@ -4,7 +4,7 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2013-06-28T13:54:32-07:00</updated>
+ <updated>2013-06-28T14:11:02-07:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
@@ -71,8 +71,6 @@
 &lt;h2 id='seat_the_button'&gt;Seat the Button&lt;/h2&gt;
 
 &lt;h2 id='solder_the_button'&gt;Solder the Button&lt;/h2&gt;
-
-&lt;p&gt;Note: this step is screwed up on my board.&lt;/p&gt;
 
 &lt;h2 id='test_the_button'&gt;Test the Button&lt;/h2&gt;
 
