@@ -288,3 +288,5 @@ table.array td{
 #home dl dt:first {
   margin-top: 3px;
 }
+
+img[alt=crop*] { width: 500px };

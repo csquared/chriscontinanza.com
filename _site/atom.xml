@@ -4,13 +4,81 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2013-06-02T22:37:26-07:00</updated>
+ <updated>2013-06-28T13:54:32-07:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
    <email>chris@chriscontinanza.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Machine Cloud Raspi-Shield v1 Build</title>
+   <link href="http://chriscontinanza.com/2013/06/28/MC-Shield-V1-Build.html"/>
+   <updated>2013-06-28T00:00:00-07:00</updated>
+   <id>http://chriscontinanza.com/2013/06/28/MC-Shield-V1-Build</id>
+   <content type="html">&lt;h1 id='machine_cloud_raspishield_v1_build'&gt;Machine Cloud Raspi-Shield v1 Build&lt;/h1&gt;
+
+&lt;p&gt;These are the work-in-progress instructions for building a Raspberry Pi Device Sheild to work with the &lt;a href='https://github.com/machine-cloud/mc-device'&gt;mc-device repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id='parts'&gt;Parts&lt;/h2&gt;
+&lt;img src='/images/mc-build/v1/parts.jpg' width='700px' /&gt;
+&lt;ul&gt;
+&lt;li&gt;adafruit pi shield w. GPIO header&lt;/li&gt;
+
+&lt;li&gt;push button&lt;/li&gt;
+
+&lt;li&gt;temp sensor&lt;/li&gt;
+
+&lt;li&gt;mcp 3008 analog to digital converter&lt;/li&gt;
+
+&lt;li&gt;RGB led&lt;/li&gt;
+
+&lt;li&gt;breadboard hookup wire&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id='solder_the_gpio_header'&gt;Solder the GPIO Header&lt;/h2&gt;
+&lt;img src='/images/mc-build/v1/gpio_header.jpg' width='700px' /&gt;
+&lt;h2 id='solder_the_mcp_seat'&gt;Solder the MCP Seat&lt;/h2&gt;
+
+&lt;p&gt;The notch in the MCP seat should be facing the adafruit logo.&lt;/p&gt;
+&lt;img src='/images/mc-build/v1/seat_mcp.jpg' width='700px' /&gt;
+&lt;h2 id='wire_up_the_rgb_led'&gt;Wire up the RGB LED&lt;/h2&gt;
+&lt;img src='/images/mc-build/v1/rgb_led.jpg' width='700px' /&gt;
+&lt;h2 id='test_the_led'&gt;Test the LED&lt;/h2&gt;
+&lt;img src='/images/mc-build/v1/test_rgb_led.jpg' width='700px' /&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; cd mc-device
+&amp;gt; make
+&amp;gt; ./bin/test_led&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='hookup_the_temp_sensor'&gt;Hookup the Temp Sensor&lt;/h2&gt;
+
+&lt;h3 id='top_view_finished_for_orientation'&gt;Top View (finished for orientation):&lt;/h3&gt;
+&lt;img src='/images/mc-build/v1/top_view.jpg' width='700px' /&gt;
+&lt;h3 id='bottom_view_for_the_wiring_on_this_step'&gt;Bottom View (for the wiring on this step):&lt;/h3&gt;
+&lt;img src='/images/mc-build/v1/bottom_wiring.jpg' width='700px' /&gt;
+&lt;h2 id='wire_up_the_mcp'&gt;Wire up the MCP&lt;/h2&gt;
+&lt;img src='/images/mc-build/v1/wire_mcp_top.jpg' width='700px' /&gt;
+&lt;h2 id='seat_mcp'&gt;Seat MCP&lt;/h2&gt;
+
+&lt;p&gt;The notch in the MCP should match the notch in the seat (should be facing the adafruit logo).&lt;/p&gt;
+&lt;img src='/images/mc-build/v1/top_view2.jpg' width='700px' /&gt;
+&lt;h2 id='test_the_temp_sensor'&gt;Test the Temp Sensor&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; cd mc-device
+&amp;gt; ./bin/test_temperature&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id='seat_the_button'&gt;Seat the Button&lt;/h2&gt;
+
+&lt;h2 id='solder_the_button'&gt;Solder the Button&lt;/h2&gt;
+
+&lt;p&gt;Note: this step is screwed up on my board.&lt;/p&gt;
+
+&lt;h2 id='test_the_button'&gt;Test the Button&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; cd mc-device
+&amp;gt; ./bin/test_switch&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
  
  <entry>
    <title>Heroku Deploy Visualizer</title>
