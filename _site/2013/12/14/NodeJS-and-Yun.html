@@ -53,9 +53,9 @@
   <div id="post">
 <h1 id='nodejs_and_yun'>Node.js and Yun</h1>
 
-<p>Getting your microcontroller-based hardware projects online is in still many cases a battle between the ease of use of arduino&#8217;s I/O yet difficult to use wifi versus&#8217;s linux&#8217;s battle tested tcp stack yet difficult to use I/O. There are merits to all solutions, some of which simply include pairing a linux machine to handle networking to an arduino nad having the two communicate over a USB connection using the Serial protocol.</p>
+<p>Getting your microcontroller-based hardware projects online is in still many cases a battle between the ease of use of arduino&#8217;s I/O yet difficult to use wifi versus&#8217;s linux&#8217;s battle tested tcp stack yet difficult to use I/O. There are merits to all solutions, some of which simply include pairing a linux machine to handle networking to an arduino and having the two communicate over a USB connection using the Serial protocol.</p>
 
-<p>The Arduino Yun is arduino&#8217;s first attempt to simply have the linux board shrunk down enough to fit on-chip. <a href='http://arduino.cc/en/Main/ArduinoBoardYun?from=Main.ArduinoYUN'>You can read more about it from them</a>. It is a welcome answer to the Raspberry Pi and BeagleBone Black. There are TWO micropocessors on a single Yun board. One runs the Linino distribution of linux, which is a variant of OpenWRT. The other is the familiar arudino ATmega. <a href='http://arduino.cc/en/Guide/ArduinoYun#toc16'>There&#8217;s some baked-in</a> ways to communicate between the two systems I haven&#8217;t had any time to play with yet.</p>
+<p>The Arduino Yun is arduino&#8217;s first attempt to simply have the linux board shrunk down enough to fit onto the familiar arduino board. <a href='http://arduino.cc/en/Main/ArduinoBoardYun?from=Main.ArduinoYUN'>You can read more about it from them</a>. It is a welcome answer to the Raspberry Pi and BeagleBone Black. There are TWO micropocessors on a single Yun board. One runs the Linino distribution of linux, which is a variant of OpenWRT. The other is the familiar arudino ATmega. <a href='http://arduino.cc/en/Guide/ArduinoYun#toc16'>There&#8217;s some baked-in</a> ways to communicate between the two systems I haven&#8217;t had any time to play with yet.</p>
 
 <p>My first mission was to try to get Node.js on the Lininuo computer running.</p>
 
@@ -108,18 +108,22 @@ listening on 9615</code></pre>
 <pre><code>[csquared@autoM8]$ curl http://arduino.local:9615
 Hello, Yun!</code></pre>
 
-<p>Ok, so Node works! Now how about npm? How about logging HTTP requests.</p>
+<p>Ok, so Node works! Now how about npm? I figured I&#8217;d install my <a href='https://github.com/csquared/node-logfmt'>favorite logging library</a> ;)</p>
 
 <pre><code>root@Arduino:~# npm install logfmt
 -ash: npm: not found</code></pre>
 
-<p>Looks like I&#8217;ll have to wrap my head around <a href='http://fibasile.github.io/compiling-nodejs-for-arduino-yun.html'>@fibasile&#8217;s post and binaries</a></p>
+<p>Looks like I&#8217;ll have to wrap my head around <a href='http://fibasile.github.io/compiling-nodejs-for-arduino-yun.html'>@fibasile&#8217;s post and binaries</a> if I want <code>npm</code>.</p>
 
-<p>If I want npm. For now, I can take the workaround:</p>
+<p>For now, I can take the workaround and copy the files from my copy over with scp (this won&#8217;t work for anything that has extensions).</p>
+
+<p>In the Arduino:</p>
 
 <pre><code>&gt; root@Arduino:~# mkdir node_modules</code></pre>
 
-<p>And copy the files from my copy over with scp (this won&#8217;t work for anything that has extensions).</p>
+<p>From my laptop:</p>
+
+<p>I just <a href='https://github.com/csquared/node-logfmt/archive/master.zip'>downloaded the zip</a> of node-logfmt and scp&#8217;ed the unzipped directory over to the arduino because tar did not work right on the linino itself.</p>
 
 <pre><code>[csquared@autoM8]$ cd ~/Downloads/node-logfmt-master
 [csquared@autoM8]$ npm install --production
@@ -145,16 +149,18 @@ Hello, Yun!</code></pre>
 </code></pre></div>
 <pre><code>root@Arduino:~# node http.js</code></pre>
 
-<p>A cUrl request from my trusty laptop:</p>
+<p>And a cUrl request from my trusty laptop:</p>
 
 <pre><code>[csquared@autoM8 nodejs-linino]$ curl http://arduino.local:3000
 Hello, Logfmt</code></pre>
 
-<p>And a dirty hack to install dependencies!</p>
+<p>I have a dirty hack to install dependencies!</p>
 
 <pre><code>root@Arduino:~# node http.js
 listening on 3000
 ip=192.168.1.5 time=2013-12-14T21:18:22.982Z method=GET path= status=200 elapsed=99ms</code></pre>
+
+<p>Loglines! Success!</p>
 
 <p>Next step, <code>npm</code>.</p>
 <p>c<sup>2</sup></p>

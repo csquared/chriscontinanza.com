@@ -10,11 +10,11 @@ Getting your microcontroller-based hardware projects online is in still
 many cases a battle between the ease of use of arduino's I/O yet difficult
 to use wifi versus's linux's battle tested tcp stack yet difficult to use
 I/O.  There are merits to all solutions, some of which simply include
-pairing a linux machine to handle networking to an arduino nad having the two
+pairing a linux machine to handle networking to an arduino and having the two
 communicate over a USB connection using the Serial protocol.
 
 The Arduino Yun is arduino's first attempt to simply have the linux board shrunk down
-enough to fit on-chip.
+enough to fit onto the familiar arduino board.
 [You can read more about it from them](http://arduino.cc/en/Main/ArduinoBoardYun?from=Main.ArduinoYUN).
 It is a welcome answer to the Raspberry Pi and BeagleBone
 Black.  There are TWO micropocessors on a single Yun board.  One runs the Linino distribution
@@ -84,21 +84,32 @@ And from my laptop:
     [csquared@autoM8]$ curl http://arduino.local:9615
     Hello, Yun!
 
-Ok, so Node works!  Now how about npm?  How about logging
-HTTP requests.
+Ok, so Node works!  Now how about npm?  I figured I'd install my
+[favorite logging library](https://github.com/csquared/node-logfmt)
+;)
 
     root@Arduino:~# npm install logfmt
     -ash: npm: not found
 
 Looks like I'll have to wrap my head around
 [@fibasile's post and binaries](http://fibasile.github.io/compiling-nodejs-for-arduino-yun.html)
+ if I want `npm`.
 
-If I want npm.  For now, I can take the workaround:
+For now, I can take the workaround
+and copy the files from my copy over with scp (this won't work for anything that
+has extensions).
+
+In the Arduino:
 
     > root@Arduino:~# mkdir node_modules
 
-And copy the files from my copy over with scp (this won't work for anything that
-has extensions).
+
+From my laptop:
+
+I just
+[downloaded the zip](https://github.com/csquared/node-logfmt/archive/master.zip)
+of node-logfmt and scp'ed the unzipped directory over to the arduino because
+tar did not work right on the linino itself.
 
     [csquared@autoM8]$ cd ~/Downloads/node-logfmt-master
     [csquared@autoM8]$ npm install --production
@@ -130,34 +141,17 @@ console.log("listening on 3000")
 
     root@Arduino:~# node http.js
 
-A cUrl request from my trusty laptop:
+And a cUrl request from my trusty laptop:
 
     [csquared@autoM8 nodejs-linino]$ curl http://arduino.local:3000
     Hello, Logfmt
 
-And a dirty hack to install dependencies!
+I have a dirty hack to install dependencies!
 
     root@Arduino:~# node http.js
     listening on 3000
     ip=192.168.1.5 time=2013-12-14T21:18:22.982Z method=GET path= status=200 elapsed=99ms
 
+Loglines!  Success!
+
 Next step, `npm`.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
