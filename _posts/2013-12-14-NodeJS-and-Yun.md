@@ -155,3 +155,14 @@ I have a dirty hack to install dependencies!
 Loglines!  Success!
 
 Next step, `npm`.
+
+
+## Update: Conserving resources.
+
+[@fibasile's post and binaries](http://fibasile.github.io/compiling-nodejs-for-arduino-yun.html)
+mentions running node via:
+
+    node --stack_size=1024 --max_old_space_size=20 --max_new_space_size=2048 --max_executable_size=5 --gc_global --gc_interval=100
+
+some informal benchmarking showed a drop in memory usage via the slick
+"advanced luci configuration panel" from 48% to 24%, so I'd highly recommend it.

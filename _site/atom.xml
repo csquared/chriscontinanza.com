@@ -4,7 +4,7 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2013-12-14T13:41:33-08:00</updated>
+ <updated>2013-12-14T14:24:46-08:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
@@ -128,7 +128,15 @@ ip=192.168.1.5 time=2013-12-14T21:18:22.982Z method=GET path= status=200 elapsed
 
 &lt;p&gt;Loglines! Success!&lt;/p&gt;
 
-&lt;p&gt;Next step, &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;</content>
+&lt;p&gt;Next step, &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id='update_conserving_resources'&gt;Update: Conserving resources.&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href='http://fibasile.github.io/compiling-nodejs-for-arduino-yun.html'&gt;@fibasile&amp;#8217;s post and binaries&lt;/a&gt; mentions running node via:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;node --stack_size=1024 --max_old_space_size=20 --max_new_space_size=2048 --max_executable_size=5 --gc_global --gc_interval=100&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;some informal benchmarking showed a drop in memory usage via the slick &amp;#8220;advanced luci configuration panel&amp;#8221; from 48% to 24%, so I&amp;#8217;d highly recommend it.&lt;/p&gt;</content>
  </entry>
  
  <entry>

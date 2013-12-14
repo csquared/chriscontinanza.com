@@ -163,6 +163,14 @@ ip=192.168.1.5 time=2013-12-14T21:18:22.982Z method=GET path= status=200 elapsed
 <p>Loglines! Success!</p>
 
 <p>Next step, <code>npm</code>.</p>
+
+<h2 id='update_conserving_resources'>Update: Conserving resources.</h2>
+
+<p><a href='http://fibasile.github.io/compiling-nodejs-for-arduino-yun.html'>@fibasile&#8217;s post and binaries</a> mentions running node via:</p>
+
+<pre><code>node --stack_size=1024 --max_old_space_size=20 --max_new_space_size=2048 --max_executable_size=5 --gc_global --gc_interval=100</code></pre>
+
+<p>some informal benchmarking showed a drop in memory usage via the slick &#8220;advanced luci configuration panel&#8221; from 48% to 24%, so I&#8217;d highly recommend it.</p>
 <p>c<sup>2</sup></p>
 </div>
 
