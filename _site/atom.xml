@@ -4,13 +4,126 @@
  <title>Chris Continaza</title>
  <link href="http://.com/atom.xml" rel="self"/>
  <link href="http://tom.preston-werner.com/"/>
- <updated>2013-06-28T14:11:02-07:00</updated>
+ <updated>2013-12-14T13:30:29-08:00</updated>
  <id>http://chriscontinanza.com/</id>
  <author>
    <name>Chris Continanza</name>
    <email>chris@chriscontinanza.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Node.js and Yun</title>
+   <link href="http://chriscontinanza.com/2013/12/14/NodeJS-and-Yun.html"/>
+   <updated>2013-12-14T00:00:00-08:00</updated>
+   <id>http://chriscontinanza.com/2013/12/14/NodeJS-and-Yun</id>
+   <content type="html">&lt;h1 id='nodejs_and_yun'&gt;Node.js and Yun&lt;/h1&gt;
+
+&lt;p&gt;Getting your microcontroller-based hardware projects online is in still many cases a battle between the ease of use of arduino&amp;#8217;s I/O yet difficult to use wifi versus&amp;#8217;s linux&amp;#8217;s battle tested tcp stack yet difficult to use I/O. There are merits to all solutions, some of which simply include pairing a linux machine to handle networking to an arduino nad having the two communicate over a USB connection using the Serial protocol.&lt;/p&gt;
+
+&lt;p&gt;The Arduino Yun is arduino&amp;#8217;s first attempt to simply have the linux board shrunk down enough to fit on-chip. &lt;a href='http://arduino.cc/en/Main/ArduinoBoardYun?from=Main.ArduinoYUN'&gt;You can read more about it from them&lt;/a&gt;. It is a welcome answer to the Raspberry Pi and BeagleBone Black. There are TWO micropocessors on a single Yun board. One runs the Linino distribution of linux, which is a variant of OpenWRT. The other is the familiar arudino ATmega. &lt;a href='http://arduino.cc/en/Guide/ArduinoYun#toc16'&gt;There&amp;#8217;s some baked-in&lt;/a&gt; ways to communicate between the two systems I haven&amp;#8217;t had any time to play with yet.&lt;/p&gt;
+
+&lt;p&gt;My first mission was to try to get Node.js on the Lininuo computer running.&lt;/p&gt;
+
+&lt;h1 id='first_steps'&gt;First steps.&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href='http://arduino.cc/en/Guide/ArduinoYun#toc13'&gt;Configuring the Yun for WiFi&lt;/a&gt; was amazingly simple. On first boot, its starts up as an AP. You can log in to the network and configure it to connect to your own wifi.&lt;/p&gt;
+
+&lt;p&gt;Once you&amp;#8217;re on the same network, you can ssh in with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh root@arduino.local&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If that works you&amp;#8217;re on your way to running node on the Yun. From there I simply followed &lt;a href='http://giorgiocefaro.com/blog/installing-node-js-on-arduino-yun'&gt;Giorgio Cefaro&amp;#8217;s&lt;/a&gt; guide to use his node binaries.&lt;/p&gt;
+
+&lt;p&gt;After installation,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[csquared@autoM8 nodejs-linino]$ ssh root@arduino.local
+root@Arduino:/tmp# opkg install uclibcxx_0.2.4-1_ar71xx.ipk
+Installing uclibcxx (0.2.4-1) to root...
+Configuring uclibcxx.
+root@Arduino:/tmp# opkg install node_v0.10.17-2_ar71xx.ipk
+Installing node (v0.10.17-2) to root...
+Configuring node.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I wanted to confirm things were working:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root@Arduino:/tmp# node
+&amp;gt; console.log(&amp;quot;Hello, Arduino!&amp;quot;);
+Hello, Arduino!
+undefined&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Money.&lt;/p&gt;
+
+&lt;p&gt;Just for fun, I started up a web-server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; vi http.js&lt;/code&gt;&lt;/pre&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;http&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nx'&gt;require&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;http&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+
+&lt;span class='nx'&gt;http&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;createServer&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kd'&gt;function&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;req&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;res&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+  &lt;span class='nx'&gt;res&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;writeHead&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;200&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;});&lt;/span&gt;
+  &lt;span class='nx'&gt;res&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;end&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;Hello, Yun!\n&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='p'&gt;}).&lt;/span&gt;&lt;span class='nx'&gt;listen&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;9615&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+
+&lt;span class='nx'&gt;console&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;log&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;listening on 9615&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; root@Arduino:~# node http.js
+listening on 9615&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And from my laptop:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[csquared@autoM8]$ curl http://arduino.local:9615
+Hello, Yun!&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ok, so Node works! Now how about npm? How about logging HTTP requests.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root@Arduino:~# npm install logfmt
+-ash: npm: not found&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Looks like I&amp;#8217;ll have to wrap my head around &lt;a href='http://fibasile.github.io/compiling-nodejs-for-arduino-yun.html'&gt;@fibasile&amp;#8217;s post and binaries&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If I want npm. For now, I can take the workaround:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; root@Arduino:~# mkdir node_modules&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And copy the files from my copy over with scp (this won&amp;#8217;t work for anything that has extensions).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[csquared@autoM8]$ cd ~/Downloads/node-logfmt-master
+[csquared@autoM8]$ npm install --production
+[csquared@autoM8]$ scp -r ~/Downloads/node-logfmt-master root@arduino.local:~/node_modules/logfmt&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I screwed up the first time and forgot to include the npm dependencies before I scp&amp;#8217;ed the directory over. It would definitely be better to just &amp;#8220;have&amp;#8221; npm.&lt;/p&gt;
+
+&lt;p&gt;Anyways, after a quick rewrite of my HTTP server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root@Arduino:~# vi http.js&lt;/code&gt;&lt;/pre&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;http&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nx'&gt;require&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;http&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;logfmt&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='nx'&gt;require&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;../logfmt&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+
+&lt;span class='kd'&gt;var&lt;/span&gt; &lt;span class='nx'&gt;HTTPhandler&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;req&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='nx'&gt;res&lt;/span&gt;&lt;span class='p'&gt;){&lt;/span&gt;
+  &lt;span class='nx'&gt;logfmt&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;requestLogger&lt;/span&gt;&lt;span class='p'&gt;()(&lt;/span&gt;&lt;span class='nx'&gt;req&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='nx'&gt;res&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt;&lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(){&lt;/span&gt;
+    &lt;span class='nx'&gt;res&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;writeHead&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;200&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;&lt;span class='s1'&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;&lt;span class='o'&gt;:&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;text/plain&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;});&lt;/span&gt;
+    &lt;span class='nx'&gt;res&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;end&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;Hello, Logfmt\n&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+  &lt;span class='p'&gt;})&lt;/span&gt;
+&lt;span class='p'&gt;}&lt;/span&gt;
+
+&lt;span class='nx'&gt;http&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;createServer&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;HTTPhandler&lt;/span&gt;&lt;span class='p'&gt;).&lt;/span&gt;&lt;span class='nx'&gt;listen&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='mi'&gt;3000&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;span class='nx'&gt;console&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;log&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;listening on 3000&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;root@Arduino:~# node http.js&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A cUrl request from my trusty laptop:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[csquared@autoM8 nodejs-linino]$ curl http://arduino.local:3000
+Hello, Logfmt&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And a dirty hack to install dependencies!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root@Arduino:~# node http.js
+listening on 3000
+ip=192.168.1.5 time=2013-12-14T21:18:22.982Z method=GET path= status=200 elapsed=99ms&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next step, &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Machine Cloud Raspi-Shield v1 Build</title>
