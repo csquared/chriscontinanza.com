@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/csquared
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://chriscontinanza.com
+  * I am csquared (https://keybase.io/csquared) on keybase.
+  * I have a public key with fingerprint A0A8 220E EAA2 7665 7A47  FB23 CAB1 2481 ACC6 5176
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.5.1"
+        },
+        "key": {
+            "fingerprint": "a0a8220eeaa276657a47fb23cab12481acc65176",
+            "host": "keybase.io",
+            "key_id": "CAB12481ACC65176",
+            "uid": "25ce498e6093742945674bf9b5f24000",
+            "username": "csquared"
+        },
+        "merkle_root": {
+            "ctime": 1410236941,
+            "hash": "50e99907ed48f6021b87cc6dff2d0574b1d83ade64b859d0997c5347f51101e8ebcb41ac1527f84bd385ce71f7e6dde07d5c713f13b4ae3a1b623ca873886b8b",
+            "seqno": 47713
+        },
+        "service": {
+            "hostname": "chriscontinanza.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1410237118,
+    "expire_in": 157680000,
+    "prev": "04d8f359a1b113e068b9efcdf3535e3688b5d9b6a704fa8297fb5df2c93d9baa",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFVkntQFXUUxy+IEaA8SiZeEqyJlnDZ9wNwDEgt0kBepoa0j9/CBuzC7uVxRSoc
+M+4oL4Vh0hyNRzWG2A3I8AETTpQyOLeGLEbQMZKsSYdoCoGAdhmY0f9+v/P7nHO+
+3/M7NSuXmZydrtmfK2/t21Hk1P87Z0r1PNBdCnGKYIWiSiE+VwKyxTjJbB6AoqAc
+YOVYDZglJURWBGB+SwtZZMKhIqBqkiLrFGwmzAhUFm7gRrIoyVlAzVcloxbEwiyN
+ojAALItSJElQLE6JHIrxLIegOI2wPE8SCEXqJbMVzfJYV2ihZqYk6NH42LgFPjY+
+fokvXHhACR7gDA1ImMEoHGVwgqRwTmQ4QkRxGIYNUAPqoiVeKyhkVSAYevOAmpML
+MlVFWTDNWyQDQXAERjGSwRFdEatl60kEDBiGgSkg4LRIwijC0ZQuWxBFVIAJvRsi
+0BgrABLnaIIRYIaheALTfRIIAiOABhzP4bpThEApkcY5AaN10RQiUoAUBABTAsFT
+CCYiGIezAGMRjjQGRFMYTZMczekWNFAgK1AUTulcmXFViyQeGLKNqS2Zy1YljVdk
+iySz8j7WzCt5emq+qlgUXsnVgWyLJT/KsG6x5gOoPQoqBlzmYq1MTpIF/ese/VtE
+Rx8bC4UgdDgESvIlFWRKBkFQJK1PGTb6gCJjHXCBFjGC0V0gCAZgkuYYIPKCHsMI
+gJE0zRECw5EsBeOivhuMvg6EIKI8g+lhln3ErK6TzdJLalKWzFoKVQCV2ZyDXExO
+zqYnljsby2tyd/Ne2uiMNK/ZwF2RjdoXDesftM3h0Ve9zsPRZvrtr3v6Ym5903ek
+I8p386HhGk8m8FtKtb2GB/41eR/9oTlowKezp3LWxbHt/WfvRAz6RSR8l1jl0qdg
+1t9mlI9DCo49n9b9n3VLSX1oRXlq02nrn4NDI9rg9zUp9t3TI6uuRO99JvhsS92U
+i+1gk5N1RXRD6+vuPo7D3gXKidTuqyNxnXvirvnUBeQ8CGjb+FViV31Av0f/0Ynw
+Bg+32sit/pmx24Zv7h9blri19oL36trTya4xP+aEVdcHnuz99MM1JDl40rrP1pUw
+kfT0zuy45CdXHUjXprkXh+7+OzJ1rvgGhK+9/UuTGtY7uuuQu4mTa2TXe6326wdL
+Nh0+n76zuN2yZzjoywq/jfYrm9ZPjDo8Z5xH+B0Nnao9o6TCXh6Gj9esKZx7t7Jk
+xlzd8097y9gWe9r1uReyG1d2/D1f13RTfTjZc6mssbri3LrO5qqOhBXBDZf3np18
+FWl03Jn5qK0jwnbbPv/5blfPlBA2xC3O338m4efU44X3zniMX5TSXZqTPLe3pFrk
+DZb4Ab/a4IFXsLqf8kNHNzuGz+xXk8ePbkdt0/ffuOgx+3LVxPzQsXWzvl4n3owd
+I7Ja/qjcUPTe1MPqp9JP9V7wi3FzLP/kg89e8m4svHV5KLI7w3f1keOn7jreSbpR
+akpZG/or7uXufKlrMmQg5X8=
+=Lsi9
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/csquared
+
+==================================================================
